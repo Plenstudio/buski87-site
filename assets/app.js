@@ -171,7 +171,10 @@ const I18N = {
     f_err:"No se ha podido enviar. Inténtalo de nuevo o escríbenos por WhatsApp.",
     f_nokey:"El formulario aún no está activado. Escríbenos por WhatsApp.",
     f_privacy:"Usaremos tus datos solo para responder a tu consulta.",
-    pre_game:"Me interesa un juego parecido a «%s». Mi idea y temática:\n", pre_pack:"" },
+    pre_game:"Me interesa un juego parecido a «%s». Mi idea y temática:\n", pre_pack:"",
+    f_wait:"Un momento… vuelve a pulsar «Enviar» en unos segundos.",
+    f_links:"Por favor, no incluyas enlaces en el mensaje: cuéntanos la idea con tus palabras.",
+    f_rate:"Ya has enviado un mensaje hace un momento. Espera un minuto antes de enviar otro." },
   en:{ nav_protos:"Prototypes", nav_services:"Services", nav_contact:"Contact", nav_packs:"Packages",
     pk_title:"Packages", pk_sub:"Pick your starting point. If your project is different, we'll prepare a custom quote.",
     pk_days:"day delivery", pk_rev:"revisions", pk_continue:"Continue", pk_ask:"Ask on WhatsApp",
@@ -206,7 +209,10 @@ const I18N = {
     f_err:"Could not send. Please try again or message us on WhatsApp.",
     f_nokey:"The form isn't active yet. Please message us on WhatsApp.",
     f_privacy:"We only use your data to reply to your inquiry.",
-    pre_game:"I'm interested in a game similar to “%s”. My idea and theme:\n", pre_pack:"" }
+    pre_game:"I'm interested in a game similar to “%s”. My idea and theme:\n", pre_pack:"",
+    f_wait:"One moment… press “Send” again in a few seconds.",
+    f_links:"Please don't include links in the message: tell us your idea in your own words.",
+    f_rate:"You just sent a message. Please wait a minute before sending another." }
 };
 
 let lang = "es";
@@ -282,6 +288,9 @@ function applyLang(){
 }
 
 /* ---------- Formulario de contacto (Web3Forms) ---------- */
+const MIN_FILL_MS = 4000;      // menos de 4 s desde que carga la página = bot
+const COOLDOWN_MS = 60000;     // 1 envío por minuto y navegador
+let formStart = Date.now();
 function renderPackSelect(){
   const sel = $("#f-pack"), cur = sel.value;
   sel.innerHTML = `<option value="">${esc(t("f_unknown"))}</option>` +
@@ -308,6 +317,14 @@ $("#cform").addEventListener("submit", async e => {
   }
   const fd = new FormData(e.target);
   if (fd.get("botcheck")) return;               // anti-spam (campo oculto)
+  // Anti-spam: tiempo mínimo, sin enlaces y un envío por minuto
+  if (Date.now() - formStart < MIN_FILL_MS){ st.classList.add("err"); st.textContent = t("f_wait"); return; }
+  if (/(https?:\/\/|www\.|\w+\.(com|net|org|ru|xyz|top|info)\b)/i.test(String(fd.get("message")))){
+    st.classList.add("err"); st.textContent = t("f_links"); return; }
+  try {
+    const last = Number(localStorage.getItem("lastSent") || 0);
+    if (Date.now() - last < COOLDOWN_MS){ st.classList.add("err"); st.textContent = t("f_rate"); return; }
+  } catch(_){}
   fd.delete("botcheck");
   const pk = PACKS.find(p => p.id === fd.get("pack"));
   fd.set("pack", pk ? pk.name.es + " (€" + pk.price + ")" : "—");
@@ -318,7 +335,10 @@ $("#cform").addEventListener("submit", async e => {
   try {
     const r = await fetch("https://api.web3forms.com/submit", { method:"POST", headers:{Accept:"application/json"}, body: fd });
     const j = await r.json();
-    if (r.ok && j.success){ st.classList.add("ok"); st.textContent = t("f_ok"); e.target.reset(); }
+    if (r.ok && j.success){
+      st.classList.add("ok"); st.textContent = t("f_ok"); e.target.reset(); formStart = Date.now();
+      try { localStorage.setItem("lastSent", String(Date.now())); } catch(_){}
+    }
     else { st.classList.add("err"); st.textContent = t("f_err"); }
   } catch(err){ st.classList.add("err"); st.textContent = t("f_err"); }
   btn.disabled = false; btn.textContent = t("f_send");
