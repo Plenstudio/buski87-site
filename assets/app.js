@@ -2,7 +2,9 @@
    CONFIGURACIÓN — edita solo este bloque
    ============================================================ */
 const CONFIG = {
-  email: "buski1987@gmail.com",     // ← email de Plenstudio
+  // Clave pública de Web3Forms (https://web3forms.com): pon allí tu email y te envían la clave.
+  // No es secreta: está pensada para ir en la web. Los mensajes llegan a tu bandeja.
+  web3formsKey: "PEGA_AQUI_TU_ACCESS_KEY",
   whatsapp: "34623184718",              // ← WhatsApp en formato internacional, sin + ni espacios
   whatsappLabel: "+34 623 184 718"      // ← cómo se muestra en pantalla
 };
@@ -161,7 +163,15 @@ const I18N = {
     wa_text:"Hola, me gustaría desarrollar un juego. Mi idea es: ",
     mail_subject_game:"Quiero un juego como ", mail_body_game:"Hola, me interesa un juego parecido a «%s». Mi idea y mi temática serían:\n\n",
     wa_text_game:"Hola, me interesa un juego parecido a «%s». Mi idea es: ",
-    contact_line:"También: " },
+    contact_line:"También por WhatsApp: ",
+    f_name:"Nombre", f_email:"Tu email", f_pack:"Paquete de interés", f_unknown:"Aún no lo sé",
+    f_msg:"Cuéntanos tu idea", f_ph_msg:"Género, referencias, plazos, plataforma…",
+    f_send:"Enviar mensaje", f_sending:"Enviando…",
+    f_ok:"¡Gracias! Hemos recibido tu mensaje y te responderemos en 24-48 h.",
+    f_err:"No se ha podido enviar. Inténtalo de nuevo o escríbenos por WhatsApp.",
+    f_nokey:"El formulario aún no está activado. Escríbenos por WhatsApp.",
+    f_privacy:"Usaremos tus datos solo para responder a tu consulta.",
+    pre_game:"Me interesa un juego parecido a «%s». Mi idea y temática:\n", pre_pack:"" },
   en:{ nav_protos:"Prototypes", nav_services:"Services", nav_contact:"Contact", nav_packs:"Packages",
     pk_title:"Packages", pk_sub:"Pick your starting point. If your project is different, we'll prepare a custom quote.",
     pk_days:"day delivery", pk_rev:"revisions", pk_continue:"Continue", pk_ask:"Ask on WhatsApp",
@@ -188,7 +198,15 @@ const I18N = {
     wa_text:"Hi, I'd like to develop a game. My idea is: ",
     mail_subject_game:"I want a game like ", mail_body_game:"Hi, I'm interested in a game similar to “%s”. My idea and theme would be:\n\n",
     wa_text_game:"Hi, I'm interested in a game similar to “%s”. My idea is: ",
-    contact_line:"Also: " }
+    contact_line:"Also on WhatsApp: ",
+    f_name:"Name", f_email:"Your email", f_pack:"Package of interest", f_unknown:"Not sure yet",
+    f_msg:"Tell us your idea", f_ph_msg:"Genre, references, deadlines, platform…",
+    f_send:"Send message", f_sending:"Sending…",
+    f_ok:"Thanks! We got your message and will reply within 24-48 h.",
+    f_err:"Could not send. Please try again or message us on WhatsApp.",
+    f_nokey:"The form isn't active yet. Please message us on WhatsApp.",
+    f_privacy:"We only use your data to reply to your inquiry.",
+    pre_game:"I'm interested in a game similar to “%s”. My idea and theme:\n", pre_pack:"" }
 };
 
 let lang = "es";
@@ -199,11 +217,6 @@ try { const s = localStorage.getItem("lang"); if (s === "es" || s === "en") lang
 const t = k => I18N[lang][k];
 const $ = s => document.querySelector(s);
 
-function mailHref(game){
-  const subj = game ? t("mail_subject_game") + game : t("mail_subject");
-  const body = game ? t("mail_body_game").replace("%s", game) : t("mail_body");
-  return "mailto:" + CONFIG.email + "?subject=" + encodeURIComponent(subj) + "&body=" + encodeURIComponent(body);
-}
 function waHref(game){
   const text = game ? t("wa_text_game").replace("%s", game) : t("wa_text");
   return "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(text);
@@ -232,7 +245,7 @@ function renderGrid(){
         <span class="genre">${esc(g.genre[lang])}</span>
         <h3>${esc(g.name)}</h3>
         <p>${esc(g.desc[lang])}</p>
-        <div class="row">${play}<a href="${mailHref(g.name)}">${t("want")} →</a></div>
+        <div class="row">${play}<a href="#contacto" data-want="${esc(g.name)}">${t("want")} →</a></div>
       </div></article>`;
   }).join("");
 }
@@ -246,8 +259,6 @@ function renderPacks(){
   $("#pk-tabs").querySelectorAll(".tab").forEach(b => b.onclick = () => { pack = b.dataset.id; renderPacks(); });
   const p = PACKS.find(x => x.id === pack);
   const idx = lang === "es" ? 0 : 1;
-  const mail = "mailto:" + CONFIG.email + "?subject=" + encodeURIComponent(fill("pk_mail_subject", p)) +
-               "&body=" + encodeURIComponent(fill("pk_mail_body", p));
   const wa = "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(fill("pk_wa_text", p));
   $("#pk-body").innerHTML = `
     <p class="pk-price">€${p.price}</p>
@@ -255,7 +266,7 @@ function renderPacks(){
     <p class="pk-desc">${esc(p.desc[lang])}</p>
     <div class="pk-meta"><span>⏱ ${p.days} ${t("pk_days")}</span><span>🔁 ${p.rev} ${t("pk_rev")}</span></div>
     <ul class="pk-list">${p.feats.map(f => `<li class="${f[2]?"":"no"}">${esc(f[idx])}</li>`).join("")}</ul>
-    <a class="btn primary" href="${mail}">${t("pk_continue")} →</a>
+    <a class="btn primary" href="#contacto" data-pack="${p.id}">${t("pk_continue")} →</a>
     <a class="btn wa" href="${wa}" target="_blank" rel="noopener">💬 ${t("pk_ask")}</a>`;
 }
 
@@ -263,11 +274,55 @@ function applyLang(){
   document.documentElement.lang = lang;
   document.querySelectorAll("[data-i18n]").forEach(el => { el.innerHTML = t(el.dataset.i18n); });
   $("#lang").textContent = lang === "es" ? "EN" : "ES";
-  $("#mail").href = mailHref();
   $("#wa").href = waHref();
-  $("#contact-line").innerHTML = t("contact_line") + esc(CONFIG.email) + " · " + esc(CONFIG.whatsappLabel);
+  $("#contact-line").innerHTML = t("contact_line") + esc(CONFIG.whatsappLabel);
+  $("#f-msg").placeholder = t("f_ph_msg");
+  renderPackSelect();
   renderFilters(); renderGrid(); renderPacks();
 }
+
+/* ---------- Formulario de contacto (Web3Forms) ---------- */
+function renderPackSelect(){
+  const sel = $("#f-pack"), cur = sel.value;
+  sel.innerHTML = `<option value="">${esc(t("f_unknown"))}</option>` +
+    PACKS.map(p => `<option value="${p.id}">${esc(p.name[lang])} — €${p.price}</option>`).join("");
+  sel.value = cur;
+}
+function goForm(opts){
+  if (opts.pack) $("#f-pack").value = opts.pack;
+  if (opts.game){
+    const ta = $("#f-msg");
+    if (!ta.value.trim()) ta.value = t("pre_game").replace("%s", opts.game);
+  }
+}
+document.addEventListener("click", e => {
+  const a = e.target.closest("a[data-want],a[data-pack]");
+  if (a) goForm({ game: a.dataset.want, pack: a.dataset.pack });
+});
+$("#cform").addEventListener("submit", async e => {
+  e.preventDefault();
+  const st = $("#f-status"), btn = $("#f-btn");
+  st.className = "f-status"; st.textContent = "";
+  if (!CONFIG.web3formsKey || CONFIG.web3formsKey.startsWith("PEGA_")){
+    st.classList.add("err"); st.textContent = t("f_nokey"); return;
+  }
+  const fd = new FormData(e.target);
+  if (fd.get("botcheck")) return;               // anti-spam (campo oculto)
+  fd.delete("botcheck");
+  const pk = PACKS.find(p => p.id === fd.get("pack"));
+  fd.set("pack", pk ? pk.name.es + " (€" + pk.price + ")" : "—");
+  fd.append("access_key", CONFIG.web3formsKey);
+  fd.append("subject", "Nuevo contacto — buski87.dev");
+  fd.append("from_name", "Buski87 Games (web)");
+  btn.disabled = true; btn.textContent = t("f_sending");
+  try {
+    const r = await fetch("https://api.web3forms.com/submit", { method:"POST", headers:{Accept:"application/json"}, body: fd });
+    const j = await r.json();
+    if (r.ok && j.success){ st.classList.add("ok"); st.textContent = t("f_ok"); e.target.reset(); }
+    else { st.classList.add("err"); st.textContent = t("f_err"); }
+  } catch(err){ st.classList.add("err"); st.textContent = t("f_err"); }
+  btn.disabled = false; btn.textContent = t("f_send");
+});
 
 $("#lang").onclick = () => {
   lang = lang === "es" ? "en" : "es";
