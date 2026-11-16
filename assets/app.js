@@ -111,8 +111,9 @@ const PACKS = [
       ["1 nivel o escena","1 level or scene",1],
       ["Arte básico","Basic art",1],
       ["APK de prueba","Test APK",1],
+      ["Entrega de archivos en ZIP","Files delivered as a ZIP",1],
       ["Animaciones","Animations",0],
-      ["Subir a Google Play","Upload to Google Play",0],
+      ["Subida a la tienda","Store upload",0],
       ["Código fuente","Source code",0]
     ] },
   { id:"standard", price:{"2d":250,"3d":299}, days:15, rev:3,
@@ -126,18 +127,20 @@ const PACKS = [
       ["Animaciones","Animations",1],
       ["Guardado y ajustes","Save system and settings",1],
       ["Código fuente","Source code",1],
-      ["Subir a Google Play","Upload to Google Play",0]
+      ["Entrega de archivos en ZIP","Files delivered as a ZIP",1],
+      ["Subida a la tienda","Store upload",0]
     ] },
   { id:"premium", price:{"2d":500,"3d":699}, days:30, rev:5,
     name:{es:"Premium", en:"Premium"},
-    title:{es:"Juego + tienda", en:"Game + store release"},
-    desc:{es:"Todo lo anterior más monetización y publicación en Google Play. Salimos al mercado juntos.", en:"Everything above plus monetization and Google Play release. We launch together."},
+    title:{es:"Juego + subida a tienda", en:"Game + store upload"},
+    desc:{es:"Todo lo anterior más monetización y subida del juego a la tienda. Los costes de la tienda los cubre el cliente.", en:"Everything above plus monetization and uploading the game to the store. Store costs are covered by the client."},
     feats:[
       ["Juego funcional completo","Complete working game",1],
       ["40 niveles y progresión","40 levels and progression",1],
       ["Anuncios y compras integradas","Ads and in-app purchases",1],
       ["Arte, animaciones y sonido","Art, animations and sound",1],
-      ["Publicación en Google Play","Google Play release",1],
+      ["Entrega de archivos en ZIP","Files delivered as a ZIP",1],
+      ["Subida a la tienda (costes a cargo del cliente)","Store upload (store costs paid by the client)",1],
       ["Código fuente","Source code",1],
       ["30 días de soporte","30 days of support",1]
     ] }
@@ -146,7 +149,7 @@ const PACKS = [
 const I18N = {
   es:{ nav_protos:"Prototipos", nav_services:"Servicios", nav_contact:"Contacto", nav_packs:"Paquetes",
     pk_title:"Paquetes", pk_sub:"Elige el punto de partida. Si tu proyecto es distinto, te preparamos un presupuesto a medida.",
-    mode_label:"Estilo gráfico", f_mode:"Estilo gráfico", pk_both:"Disponible en 2D y 3D Low Poly",
+    pk_note:"Entregamos los archivos del juego en un ZIP. Solo el paquete Premium incluye la subida a la tienda, y los costes de la tienda (cuenta de desarrollador, tasas…) los cubre el cliente.", mode_label:"Estilo gráfico", f_mode:"Estilo gráfico", pk_both:"Disponible en 2D y 3D Low Poly",
     pk_days:"días de entrega", pk_rev:"revisiones", pk_continue:"Continuar", pk_ask:"Consultar por WhatsApp",
     pk_mail_subject:"Paquete %s — buski87.dev", pk_mail_body:"Hola, me interesa el paquete %s (%p €). Mi idea de juego es:\n\n",
     pk_wa_text:"Hola, me interesa el paquete %s (%p €). Mi idea de juego es: ",
@@ -165,8 +168,8 @@ const I18N = {
     serv_title:"Qué hacemos por ti",
     s1_t:"Prototipo en días", s1_p:"Un MVP jugable con el bucle principal del juego para validar la idea cuanto antes.",
     s2_t:"Tu temática, tu estilo", s2_p:"Adaptamos mecánicas probadas a tu marca, historia o personajes originales.",
-    s3_t:"Del prototipo a la tienda", s3_p:"Pulido, monetización, builds para Android y publicación en Google Play.",
-    step1:"Nos cuentas la idea", step2:"Te enseñamos un prototipo", step3:"Lo ajustamos juntos", step4:"Lo publicamos",
+    s3_t:"Del prototipo a la tienda", s3_p:"Pulido, monetización y builds para Android. En el paquete Premium también subimos el juego a la tienda.",
+    step1:"Nos cuentas la idea", step2:"Te enseñamos un prototipo", step3:"Lo ajustamos juntos", step4:"Te entregamos el juego",
     contact_title:"Hablemos de tu juego",
     contact_sub:"Cuéntanos qué tienes en mente: género, referencias, plataforma y plazos. Te respondemos en 24-48 h.",
     contact_mail:"Escribir por email", contact_wa:"Escribir por WhatsApp",
@@ -190,7 +193,7 @@ const I18N = {
     f_rate:"Ya has enviado un mensaje hace un momento. Espera un minuto antes de enviar otro." },
   en:{ nav_protos:"Prototypes", nav_services:"Services", nav_contact:"Contact", nav_packs:"Packages",
     pk_title:"Packages", pk_sub:"Pick your starting point. If your project is different, we'll prepare a custom quote.",
-    mode_label:"Graphics style", f_mode:"Graphics style", pk_both:"Available in 2D and 3D Low Poly",
+    pk_note:"We deliver the game files as a ZIP. Only the Premium package includes uploading to the store, and store costs (developer account, fees…) are covered by the client.", mode_label:"Graphics style", f_mode:"Graphics style", pk_both:"Available in 2D and 3D Low Poly",
     pk_days:"day delivery", pk_rev:"revisions", pk_continue:"Continue", pk_ask:"Ask on WhatsApp",
     pk_mail_subject:"%s package — buski87.dev", pk_mail_body:"Hi, I'm interested in the %s package (€%p). My game idea is:\n\n",
     pk_wa_text:"Hi, I'm interested in the %s package (€%p). My game idea is: ",
@@ -209,8 +212,8 @@ const I18N = {
     serv_title:"What we do for you",
     s1_t:"Prototype in days", s1_p:"A playable MVP with the core loop of the game to validate the idea fast.",
     s2_t:"Your theme, your style", s2_p:"We adapt proven mechanics to your brand, story or original characters.",
-    s3_t:"From prototype to store", s3_p:"Polish, monetization, Android builds and Google Play release.",
-    step1:"Tell us your idea", step2:"We show you a prototype", step3:"We tune it together", step4:"We publish it",
+    s3_t:"From prototype to store", s3_p:"Polish, monetization and Android builds. With the Premium package we also upload the game to the store.",
+    step1:"Tell us your idea", step2:"We show you a prototype", step3:"We tune it together", step4:"We deliver the game",
     contact_title:"Let's talk about your game",
     contact_sub:"Tell us what you have in mind: genre, references, platform and deadlines. We reply within 24-48 h.",
     contact_mail:"Send an email", contact_wa:"Message on WhatsApp",
@@ -323,6 +326,7 @@ function renderPacks(){
     <p class="pk-desc">${esc(p.desc[lang])}</p>
     <div class="pk-meta"><span>⏱ ${p.days} ${t("pk_days")}</span><span>🔁 ${p.rev} ${t("pk_rev")}</span></div>
     <ul class="pk-list">${p.feats.map(f => `<li class="${f[2]?"":"no"}">${esc(f[idx])}</li>`).join("")}</ul>
+    <p class="pk-note">ℹ️ ${t("pk_note")}</p>
     <a class="btn primary" href="#contacto" data-pack="${p.id}">${t("pk_continue")} →</a>
     <a class="btn wa" href="${wa}" target="_blank" rel="noopener">💬 ${t("pk_ask")}</a>`;
 }
