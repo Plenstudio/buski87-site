@@ -51,6 +51,7 @@
       <h2 data-i18n="protos_title">Prototipos a la venta</h2>
       <p class="sub" data-i18n="protos_sub">Cada proyecto empieza así: una idea, un género y un prototipo funcional. Si quieres uno parecido con tu temática, hablamos.</p>
       <div class="filters" id="filters"></div>
+      <div class="filters" id="mode-filter"></div>
       <div class="grid" id="grid"></div>
     </section>
 
@@ -72,6 +73,7 @@
     <section id="paquetes">
       <h2 data-i18n="pk_title">Paquetes</h2>
       <p class="sub" data-i18n="pk_sub">Elige el punto de partida. Si tu proyecto es distinto, te preparamos un presupuesto a medida.</p>
+      <div class="filters" id="mode-tabs" role="group"></div>
       <div class="pack">
         <div class="tabs" id="pk-tabs" role="tablist"></div>
         <div class="pk-body" id="pk-body"></div>
@@ -90,6 +92,8 @@
         </div>
         <label><span data-i18n="f_pack">Paquete de interés</span>
           <select name="pack" id="f-pack"></select></label>
+        <label><span data-i18n="f_mode">Estilo gráfico</span>
+          <select name="mode" id="f-mode"></select></label>
         <label><span data-i18n="f_msg">Cuéntanos tu idea</span>
           <textarea name="message" id="f-msg" rows="6" required maxlength="3000"></textarea></label>
         <label class="consent"><input type="checkbox" name="consent" id="f-consent" required>

@@ -105,3 +105,8 @@ footer p{margin:4px 0}
 @media(max-width:560px){.pub{grid-template-columns:1fr}.pub .art{height:150px;min-height:0}}
 .cform .consent{display:flex;gap:10px;align-items:flex-start;font-weight:400;font-size:.88rem;color:var(--muted);cursor:pointer}
 .cform .consent input{width:auto;margin-top:3px;accent-color:var(--accent);flex:none}
+
+.pk-price small{font-size:.9rem;color:var(--accent);font-weight:700;margin-left:6px}
+.pk-both{color:var(--muted);font-size:.85rem;margin:2px 0 8px}
+.tags{display:flex;gap:6px;margin:6px 0}
+.tag{font-size:.7rem;font-weight:700;padding:2px 9px;border-radius:999px;border:1px solid var(--line);color:var(--muted)}

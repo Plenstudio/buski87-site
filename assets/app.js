@@ -90,6 +90,9 @@ const PUBLISHED = [
     desc:{es:"Un héroe y su sartén. Combate cuerpo a cuerpo con humor. Nuestro juego, publicado en Google Play.", en:"A hero and his frying pan. Humorous melee combat. Our own game, live on Google Play."} }
 ];
 
+const MODES = {
+  all:{es:"Todos los estilos", en:"All styles"}, "2d":{es:"2D", en:"2D"}, "3d":{es:"3D Low Poly", en:"3D Low Poly"}
+};
 const CATS = {
   all:{es:"Todos", en:"All"}, action:{es:"Acción", en:"Action"}, puzzle:{es:"Puzle", en:"Puzzle"},
   strategy:{es:"Estrategia", en:"Strategy"}, idle:{es:"Idle / Tycoon", en:"Idle / Tycoon"},
@@ -99,7 +102,7 @@ const CATS = {
 /* Paquetes (estilo Fiverr). Precios en euros; edita aquí precios, plazos y características.
    Cada característica: [texto_es, texto_en, incluido] */
 const PACKS = [
-  { id:"basic", price:99, days:5, rev:2,
+  { id:"basic", price:{"2d":65,"3d":99}, days:5, rev:2,
     name:{es:"Básico", en:"Basic"},
     title:{es:"Prototipo jugable", en:"Playable prototype"},
     desc:{es:"Prototipo funcional hecho con Godot 4 para validar tu idea y enseñarla a socios o inversores.", en:"Working Godot 4 prototype to validate your idea and show it to partners or investors."},
@@ -112,7 +115,7 @@ const PACKS = [
       ["Subir a Google Play","Upload to Google Play",0],
       ["Código fuente","Source code",0]
     ] },
-  { id:"standard", price:299, days:15, rev:3,
+  { id:"standard", price:{"2d":250,"3d":299}, days:15, rev:3,
     name:{es:"Estándar", en:"Standard"},
     title:{es:"Juego completo", en:"Full game"},
     desc:{es:"Juego completo con progresión, varios niveles, arte propio y animaciones, listo para probar con jugadores.", en:"Complete game with progression, multiple levels, custom art and animations, ready to playtest."},
@@ -125,7 +128,7 @@ const PACKS = [
       ["Código fuente","Source code",1],
       ["Subir a Google Play","Upload to Google Play",0]
     ] },
-  { id:"premium", price:699, days:30, rev:5,
+  { id:"premium", price:{"2d":500,"3d":699}, days:30, rev:5,
     name:{es:"Premium", en:"Premium"},
     title:{es:"Juego + tienda", en:"Game + store release"},
     desc:{es:"Todo lo anterior más monetización y publicación en Google Play. Salimos al mercado juntos.", en:"Everything above plus monetization and Google Play release. We launch together."},
@@ -143,6 +146,7 @@ const PACKS = [
 const I18N = {
   es:{ nav_protos:"Prototipos", nav_services:"Servicios", nav_contact:"Contacto", nav_packs:"Paquetes",
     pk_title:"Paquetes", pk_sub:"Elige el punto de partida. Si tu proyecto es distinto, te preparamos un presupuesto a medida.",
+    mode_label:"Estilo gráfico", f_mode:"Estilo gráfico", pk_both:"Disponible en 2D y 3D Low Poly",
     pk_days:"días de entrega", pk_rev:"revisiones", pk_continue:"Continuar", pk_ask:"Consultar por WhatsApp",
     pk_mail_subject:"Paquete %s — buski87.dev", pk_mail_body:"Hola, me interesa el paquete %s (%p €). Mi idea de juego es:\n\n",
     pk_wa_text:"Hola, me interesa el paquete %s (%p €). Mi idea de juego es: ",
@@ -186,6 +190,7 @@ const I18N = {
     f_rate:"Ya has enviado un mensaje hace un momento. Espera un minuto antes de enviar otro." },
   en:{ nav_protos:"Prototypes", nav_services:"Services", nav_contact:"Contact", nav_packs:"Packages",
     pk_title:"Packages", pk_sub:"Pick your starting point. If your project is different, we'll prepare a custom quote.",
+    mode_label:"Graphics style", f_mode:"Graphics style", pk_both:"Available in 2D and 3D Low Poly",
     pk_days:"day delivery", pk_rev:"revisions", pk_continue:"Continue", pk_ask:"Ask on WhatsApp",
     pk_mail_subject:"%s package — buski87.dev", pk_mail_body:"Hi, I'm interested in the %s package (€%p). My game idea is:\n\n",
     pk_wa_text:"Hi, I'm interested in the %s package (€%p). My game idea is: ",
@@ -248,10 +253,13 @@ function renderFilters(){
   $("#filters").innerHTML = Object.keys(CATS).map(k =>
     `<button class="chip${k===filter?" on":""}" data-k="${k}">${esc(CATS[k][lang])}</button>`).join("");
   $("#filters").querySelectorAll(".chip").forEach(b => b.onclick = () => { filter = b.dataset.k; renderFilters(); renderGrid(); });
+  $("#mode-filter").innerHTML = Object.keys(MODES).map(k =>
+    `<button class="chip${k===modeFilter?" on":""}" data-k="${k}">${esc(MODES[k][lang])}</button>`).join("");
+  $("#mode-filter").querySelectorAll(".chip").forEach(b => b.onclick = () => { modeFilter = b.dataset.k; renderFilters(); renderGrid(); });
 }
 
 function renderGrid(){
-  const list = GAMES.filter(g => filter === "all" || g.cat === filter);
+  const list = GAMES.filter(g => (filter === "all" || g.cat === filter) && (modeFilter === "all" || (g.modes || ["2d","3d"]).includes(modeFilter)));
   $("#grid").innerHTML = list.map(g => {
     const art = g.img
       ? `<img src="${esc(g.img)}" alt="${esc(g.name)}" loading="lazy">`
@@ -263,6 +271,7 @@ function renderGrid(){
       </div>
       <div class="body">
         <span class="genre">${esc(g.genre[lang])}</span>
+        <div class="tags">${(g.modes || ["2d","3d"]).map(m => `<span class="tag">${esc(MODE_NAME(m))}</span>`).join("")}</div>
         <h3>${esc(g.name)}</h3>
         <p>${esc(g.desc[lang])}</p>
         <div class="row">${play}<a href="#contacto" data-want="${esc(g.name)}">${t("want")} →</a></div>
@@ -286,7 +295,19 @@ function renderPublished(){
 }
 
 let pack = "standard";
-function fill(s, p){ return t(s).replace("%s", p.name[lang]).replace("%p", p.price); }
+let mode = "2d", modeFilter = "all";
+const price = p => p.price[mode];
+function fill(s, p){ return t(s).replace("%s", p.name[lang]).replace("%p", price(p)); }
+const MODE_NAME = m => MODES[m][lang];
+function setMode(m){
+  mode = m; renderModeTabs(); renderPacks(); renderPackSelect();
+  const fm = $("#f-mode"); if (fm) fm.value = m;
+}
+function renderModeTabs(){
+  $("#mode-tabs").innerHTML = ["2d","3d"].map(m =>
+    `<button class="chip${m===mode?" on":""}" data-m="${m}">${esc(MODE_NAME(m))}</button>`).join("");
+  $("#mode-tabs").querySelectorAll(".chip").forEach(b => b.onclick = () => setMode(b.dataset.m));
+}
 
 function renderPacks(){
   $("#pk-tabs").innerHTML = PACKS.map(p =>
@@ -296,7 +317,8 @@ function renderPacks(){
   const idx = lang === "es" ? 0 : 1;
   const wa = "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(fill("pk_wa_text", p));
   $("#pk-body").innerHTML = `
-    <p class="pk-price">€${p.price}</p>
+    <p class="pk-price">€${price(p)} <small>${esc(MODE_NAME(mode))}</small></p>
+    <p class="pk-both">${t("pk_both")}</p>
     <h3>${esc(p.title[lang])}</h3>
     <p class="pk-desc">${esc(p.desc[lang])}</p>
     <div class="pk-meta"><span>⏱ ${p.days} ${t("pk_days")}</span><span>🔁 ${p.rev} ${t("pk_rev")}</span></div>
@@ -311,7 +333,7 @@ function applyLang(){
   $("#lang").textContent = lang === "es" ? "EN" : "ES";
   $("#wa").href = waHref();
   $("#f-msg").placeholder = t("f_ph_msg");
-  renderPackSelect();
+  renderPackSelect(); renderModeTabs();
   renderPublished(); renderFilters(); renderGrid(); renderPacks();
 }
 
@@ -322,10 +344,14 @@ let formStart = Date.now();
 function renderPackSelect(){
   const sel = $("#f-pack"), cur = sel.value;
   sel.innerHTML = `<option value="">${esc(t("f_unknown"))}</option>` +
-    PACKS.map(p => `<option value="${p.id}">${esc(p.name[lang])} — €${p.price}</option>`).join("");
+    PACKS.map(p => `<option value="${p.id}">${esc(p.name[lang])} — €${price(p)}</option>`).join("");
   sel.value = cur;
+  const fm = $("#f-mode"), cm = fm.value;
+  fm.innerHTML = `<option value="">${esc(t("f_unknown"))}</option><option value="2d">${esc(MODE_NAME("2d"))}</option><option value="3d">${esc(MODE_NAME("3d"))}</option>`;
+  fm.value = cm;
 }
 function goForm(opts){
+  if (opts.pack) setMode(mode);
   if (opts.pack) $("#f-pack").value = opts.pack;
   const ta = $("#f-msg");
   if (opts.game && !ta.value.trim()) ta.value = t("pre_game").replace("%s", opts.game);
@@ -355,7 +381,9 @@ $("#cform").addEventListener("submit", async e => {
   } catch(_){}
   fd.delete("botcheck"); fd.delete("consent"); fd.set("consentimiento", "Sí");
   const pk = PACKS.find(p => p.id === fd.get("pack"));
-  fd.set("pack", pk ? pk.name.es + " (€" + pk.price + ")" : "—");
+  const md = fd.get("mode");
+  fd.set("pack", pk ? pk.name.es + " (€" + pk.price[md === "3d" ? "3d" : "2d"] + (md ? "" : ", precio 2D") + ")" : "—");
+  fd.set("estilo", md === "3d" ? "3D Low Poly" : md === "2d" ? "2D" : "—"); fd.delete("mode");
   fd.append("access_key", CONFIG.web3formsKey);
   fd.append("subject", "Nuevo contacto — buski87.dev");
   fd.append("from_name", "Buski87 Games (web)");
