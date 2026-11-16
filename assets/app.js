@@ -4,7 +4,7 @@
 const CONFIG = {
   // Clave pública de Web3Forms (https://web3forms.com): pon allí tu email y te envían la clave.
   // No es secreta: está pensada para ir en la web. Los mensajes llegan a tu bandeja.
-  web3formsKey: "PEGA_AQUI_TU_ACCESS_KEY",
+  web3formsKey: "1b5bb779-d709-4295-917e-63224257ba3b",
   whatsapp: "34623184718",              // ← WhatsApp en formato internacional, sin + ni espacios
   whatsappLabel: "+34 623 184 718"      // ← cómo se muestra en pantalla
 };
