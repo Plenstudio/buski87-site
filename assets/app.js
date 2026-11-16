@@ -12,10 +12,6 @@ const CONFIG = {
 /* Prototipos. `img` es opcional: pon la ruta de una captura (assets/img/xxx.png)
    y sustituirá al icono. `url` solo para juegos ya publicados. */
 const GAMES = [
-  { id:"sarten", icon:"🍳", c:["#ff8a3d","#c2410c"], status:"live", cat:"action",
-    name:"El juego de la sartén", url:"https://play.google.com/store/apps/details?id=com.eljuegodelasarten.game",
-    genre:{es:"Acción", en:"Action"},
-    desc:{es:"Un héroe y su sartén. Combate cuerpo a cuerpo con humor. Publicado en Google Play.", en:"A hero and his frying pan. Humorous melee combat. Live on Google Play."} },
   { id:"casa", icon:"🏚️", c:["#6d28d9","#1e1b4b"], cat:"puzzle",
     name:"Casa Encantada",
     genre:{es:"Objetos escondidos", en:"Hidden objects"},
@@ -86,6 +82,14 @@ const GAMES = [
     desc:{es:"Cuida al Tió de Nadal en esta mascota virtual navideña.", en:"Take care of the Tió de Nadal in this festive virtual pet game."} }
 ];
 
+/* Juegos propios ya publicados: NO están a la venta (sí un prototipo basado en ellos). */
+const PUBLISHED = [
+  { id:"sarten", icon:"🍳", c:["#ff8a3d","#c2410c"], name:"El juego de la sartén",
+    url:"https://play.google.com/store/apps/details?id=com.eljuegodelasarten.game",
+    genre:{es:"Acción", en:"Action"},
+    desc:{es:"Un héroe y su sartén. Combate cuerpo a cuerpo con humor. Nuestro juego, publicado en Google Play.", en:"A hero and his frying pan. Humorous melee combat. Our own game, live on Google Play."} }
+];
+
 const CATS = {
   all:{es:"Todos", en:"All"}, action:{es:"Acción", en:"Action"}, puzzle:{es:"Puzle", en:"Puzzle"},
   strategy:{es:"Estrategia", en:"Strategy"}, idle:{es:"Idle / Tycoon", en:"Idle / Tycoon"},
@@ -146,9 +150,14 @@ const I18N = {
     hero_title:"Tu idea de juego, <em>jugable</em> en pocos días.",
     hero_lead:"Desarrollamos juegos móviles a medida. Partimos de un prototipo funcional para que veas y toques tu idea antes de comprometer un gran presupuesto.",
     hero_cta1:"Quiero mi juego", hero_cta2:"Ver prototipos",
-    stat_protos:"prototipos", stat_engine:"motor", stat_store:"Google Play",
-    protos_title:"Nuestros prototipos",
-    protos_sub:"Cada proyecto empieza así: una idea, un género y un prototipo funcional. Si quieres uno parecido con tu temática, hablamos.",
+    stat_protos:"prototipos a la venta", stat_engine:"motor", stat_store:"Google Play",
+    protos_title:"Prototipos a la venta",
+    protos_sub:"Prototipos funcionales listos para adaptar a tu proyecto: tu temática, tu arte y tus reglas. Elige uno parecido a lo que buscas y hablamos.",
+    nav_pub:"Nuestros juegos", pub_title:"Nuestros juegos publicados",
+    pub_sub:"Juegos propios que ya están en tienda. No están a la venta, pero sí puedes encargarnos un prototipo basado en ellos.",
+    pub_badge:"PUBLICADO", pub_own:"Juego propio · no está a la venta", pub_cta:"Quiero un prototipo basado en este juego",
+    stat_pub:"juego publicado", stat_for_sale:"prototipos a la venta",
+    pre_based:"Me interesa un prototipo basado en «%s». Mi idea y temática:\n",
     serv_title:"Qué hacemos por ti",
     s1_t:"Prototipo en días", s1_p:"Un MVP jugable con el bucle principal del juego para validar la idea cuanto antes.",
     s2_t:"Tu temática, tu estilo", s2_p:"Adaptamos mecánicas probadas a tu marca, historia o personajes originales.",
@@ -184,9 +193,14 @@ const I18N = {
     hero_title:"Your game idea, <em>playable</em> in days.",
     hero_lead:"We build custom mobile games. We start from a working prototype so you can see and touch your idea before committing to a large budget.",
     hero_cta1:"I want my game", hero_cta2:"See prototypes",
-    stat_protos:"prototypes", stat_engine:"engine", stat_store:"Google Play",
-    protos_title:"Our prototypes",
-    protos_sub:"Every project starts like this: an idea, a genre and a working prototype. Want something similar with your own theme? Let's talk.",
+    stat_protos:"prototypes for sale", stat_engine:"engine", stat_store:"Google Play",
+    protos_title:"Prototypes for sale",
+    protos_sub:"Working prototypes ready to adapt to your project: your theme, your art and your rules. Pick one close to what you need and let's talk.",
+    nav_pub:"Our games", pub_title:"Our published games",
+    pub_sub:"Our own games, already on the store. They are not for sale, but you can commission a prototype based on them.",
+    pub_badge:"LIVE", pub_own:"Our own game · not for sale", pub_cta:"I want a prototype based on this game",
+    stat_pub:"published game", stat_for_sale:"prototypes for sale",
+    pre_based:"I'm interested in a prototype based on “%s”. My idea and theme:\n",
     serv_title:"What we do for you",
     s1_t:"Prototype in days", s1_p:"A playable MVP with the core loop of the game to validate the idea fast.",
     s2_t:"Your theme, your style", s2_p:"We adapt proven mechanics to your brand, story or original characters.",
@@ -256,6 +270,21 @@ function renderGrid(){
   }).join("");
 }
 
+function renderPublished(){
+  $("#pub-grid").innerHTML = PUBLISHED.map(g => `<article class="pub">
+    <div class="art" style="background:linear-gradient(135deg,${g.c[0]},${g.c[1]})"><span class="badge live">${t("pub_badge")}</span>${g.img ? `<img src="${esc(g.img)}" alt="${esc(g.name)}" loading="lazy">` : `<span aria-hidden="true">${g.icon}</span>`}</div>
+    <div class="body">
+      <span class="genre">${esc(g.genre[lang])}</span>
+      <h3>${esc(g.name)}</h3>
+      <p>${esc(g.desc[lang])}</p>
+      <p class="own">🔒 ${t("pub_own")}</p>
+      <div class="row">
+        ${g.url ? `<a class="btn" href="${esc(g.url)}" target="_blank" rel="noopener">${t("play")} ↗</a>` : ""}
+        <a class="btn primary" href="#contacto" data-based="${esc(g.name)}">${t("pub_cta")} →</a>
+      </div>
+    </div></article>`).join("");
+}
+
 let pack = "standard";
 function fill(s, p){ return t(s).replace("%s", p.name[lang]).replace("%p", p.price); }
 
@@ -284,7 +313,7 @@ function applyLang(){
   $("#contact-line").innerHTML = t("contact_line") + esc(CONFIG.whatsappLabel);
   $("#f-msg").placeholder = t("f_ph_msg");
   renderPackSelect();
-  renderFilters(); renderGrid(); renderPacks();
+  renderPublished(); renderFilters(); renderGrid(); renderPacks();
 }
 
 /* ---------- Formulario de contacto (Web3Forms) ---------- */
@@ -299,14 +328,13 @@ function renderPackSelect(){
 }
 function goForm(opts){
   if (opts.pack) $("#f-pack").value = opts.pack;
-  if (opts.game){
-    const ta = $("#f-msg");
-    if (!ta.value.trim()) ta.value = t("pre_game").replace("%s", opts.game);
-  }
+  const ta = $("#f-msg");
+  if (opts.game && !ta.value.trim()) ta.value = t("pre_game").replace("%s", opts.game);
+  if (opts.based && !ta.value.trim()) ta.value = t("pre_based").replace("%s", opts.based);
 }
 document.addEventListener("click", e => {
-  const a = e.target.closest("a[data-want],a[data-pack]");
-  if (a) goForm({ game: a.dataset.want, pack: a.dataset.pack });
+  const a = e.target.closest("a[data-want],a[data-pack],a[data-based]");
+  if (a) goForm({ game: a.dataset.want, pack: a.dataset.pack, based: a.dataset.based });
 });
 $("#cform").addEventListener("submit", async e => {
   e.preventDefault();

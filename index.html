@@ -16,6 +16,7 @@
   <header class="top">
     <a class="brand" href="#inicio">Buski<span>87</span> Games</a>
     <nav>
+      <a href="#publicados" data-i18n="nav_pub">Nuestros juegos</a>
       <a href="#prototipos" data-i18n="nav_protos">Prototipos</a>
       <a href="#servicios" data-i18n="nav_services">Servicios</a>
       <a href="#paquetes" data-i18n="nav_packs">Paquetes</a>
@@ -36,12 +37,18 @@
       <ul class="stats">
         <li><strong id="count">0</strong><span data-i18n="stat_protos">prototipos</span></li>
         <li><strong>Godot 4</strong><span data-i18n="stat_engine">motor</span></li>
-        <li><strong>Android</strong><span data-i18n="stat_store">Google Play</span></li>
+        <li><strong id="pubcount">1</strong><span data-i18n="stat_pub">juego publicado</span></li>
       </ul>
     </section>
 
+    <section id="publicados">
+      <h2 data-i18n="pub_title">Nuestros juegos publicados</h2>
+      <p class="sub" data-i18n="pub_sub">Juegos propios que ya están en tienda. No están a la venta, pero sí puedes encargarnos un prototipo basado en ellos.</p>
+      <div class="pubgrid" id="pub-grid"></div>
+    </section>
+
     <section id="prototipos">
-      <h2 data-i18n="protos_title">Nuestros prototipos</h2>
+      <h2 data-i18n="protos_title">Prototipos a la venta</h2>
       <p class="sub" data-i18n="protos_sub">Cada proyecto empieza así: una idea, un género y un prototipo funcional. Si quieres uno parecido con tu temática, hablamos.</p>
       <div class="filters" id="filters"></div>
       <div class="grid" id="grid"></div>

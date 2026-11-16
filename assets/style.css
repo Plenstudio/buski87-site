@@ -95,3 +95,11 @@ footer p{margin:4px 0}
 .f-status{min-height:1.4em;margin:0;font-weight:600}
 .f-status.ok{color:var(--wa)}
 .f-status.err{color:#ff7a7a}
+
+.pubgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,520px));gap:20px}
+.pub{background:var(--card);border:1px solid var(--accent);border-radius:var(--r);overflow:hidden;display:grid;grid-template-columns:200px 1fr}
+.pub .art{height:100%;min-height:200px}
+.pub .body{padding:20px}
+.pub .own{color:var(--muted);font-size:.85rem;font-weight:700}
+.pub .row .btn{font-size:.9rem;padding:10px 18px}
+@media(max-width:560px){.pub{grid-template-columns:1fr}.pub .art{height:150px;min-height:0}}
