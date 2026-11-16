@@ -81,7 +81,7 @@
     <section id="contacto" class="contact">
       <h2 data-i18n="contact_title">Hablemos de tu juego</h2>
       <p class="sub" data-i18n="contact_sub">Cuéntanos qué tienes en mente: género, referencias, plataforma y plazos. Te respondemos en 24-48 h.</p>
-      <form id="cform" class="cform" novalidate>
+      <form id="cform" class="cform">
         <div class="f-row">
           <label><span data-i18n="f_name">Nombre</span>
             <input type="text" name="name" required autocomplete="name" maxlength="80"></label>
@@ -92,15 +92,15 @@
           <select name="pack" id="f-pack"></select></label>
         <label><span data-i18n="f_msg">Cuéntanos tu idea</span>
           <textarea name="message" id="f-msg" rows="6" required maxlength="3000"></textarea></label>
+        <label class="consent"><input type="checkbox" name="consent" id="f-consent" required>
+          <span data-i18n="f_consent">Acepto que usen mis datos solo para responder a mi consulta.</span></label>
         <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
         <button class="btn primary" id="f-btn" type="submit" data-i18n="f_send">Enviar mensaje</button>
         <p class="f-status" id="f-status" role="status" aria-live="polite"></p>
-        <p class="small" data-i18n="f_privacy">Usaremos tus datos solo para responder a tu consulta.</p>
       </form>
       <div class="cta center">
         <a class="btn wa" id="wa" href="#" target="_blank" rel="noopener">💬 <span data-i18n="contact_wa">Escribir por WhatsApp</span></a>
       </div>
-      <p class="small" id="contact-line"></p>
     </section>
   </main>
 

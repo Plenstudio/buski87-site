@@ -179,7 +179,7 @@ const I18N = {
     f_ok:"¡Gracias! Hemos recibido tu mensaje y te responderemos en 24-48 h.",
     f_err:"No se ha podido enviar. Inténtalo de nuevo o escríbenos por WhatsApp.",
     f_nokey:"El formulario aún no está activado. Escríbenos por WhatsApp.",
-    f_privacy:"Usaremos tus datos solo para responder a tu consulta.",
+    f_consent:"Acepto que usen mis datos solo para responder a mi consulta.", f_consent_err:"Marca la casilla para poder enviar el mensaje.",
     pre_game:"Me interesa un juego parecido a «%s». Mi idea y temática:\n", pre_pack:"",
     f_wait:"Un momento… vuelve a pulsar «Enviar» en unos segundos.",
     f_links:"Por favor, no incluyas enlaces en el mensaje: cuéntanos la idea con tus palabras.",
@@ -222,7 +222,7 @@ const I18N = {
     f_ok:"Thanks! We got your message and will reply within 24-48 h.",
     f_err:"Could not send. Please try again or message us on WhatsApp.",
     f_nokey:"The form isn't active yet. Please message us on WhatsApp.",
-    f_privacy:"We only use your data to reply to your inquiry.",
+    f_consent:"I agree that my data is used only to reply to my inquiry.", f_consent_err:"Please tick the box to send your message.",
     pre_game:"I'm interested in a game similar to “%s”. My idea and theme:\n", pre_pack:"",
     f_wait:"One moment… press “Send” again in a few seconds.",
     f_links:"Please don't include links in the message: tell us your idea in your own words.",
@@ -310,7 +310,6 @@ function applyLang(){
   document.querySelectorAll("[data-i18n]").forEach(el => { el.innerHTML = t(el.dataset.i18n); });
   $("#lang").textContent = lang === "es" ? "EN" : "ES";
   $("#wa").href = waHref();
-  $("#contact-line").innerHTML = t("contact_line") + esc(CONFIG.whatsappLabel);
   $("#f-msg").placeholder = t("f_ph_msg");
   renderPackSelect();
   renderPublished(); renderFilters(); renderGrid(); renderPacks();
@@ -344,6 +343,7 @@ $("#cform").addEventListener("submit", async e => {
     st.classList.add("err"); st.textContent = t("f_nokey"); return;
   }
   const fd = new FormData(e.target);
+  if (!$("#f-consent").checked){ st.classList.add("err"); st.textContent = t("f_consent_err"); return; }
   if (fd.get("botcheck")) return;               // anti-spam (campo oculto)
   // Anti-spam: tiempo mínimo, sin enlaces y un envío por minuto
   if (Date.now() - formStart < MIN_FILL_MS){ st.classList.add("err"); st.textContent = t("f_wait"); return; }
@@ -353,7 +353,7 @@ $("#cform").addEventListener("submit", async e => {
     const last = Number(localStorage.getItem("lastSent") || 0);
     if (Date.now() - last < COOLDOWN_MS){ st.classList.add("err"); st.textContent = t("f_rate"); return; }
   } catch(_){}
-  fd.delete("botcheck");
+  fd.delete("botcheck"); fd.delete("consent"); fd.set("consentimiento", "Sí");
   const pk = PACKS.find(p => p.id === fd.get("pack"));
   fd.set("pack", pk ? pk.name.es + " (€" + pk.price + ")" : "—");
   fd.append("access_key", CONFIG.web3formsKey);
