@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Buski87 Games — Desarrollo de juegos móviles a medida</title>
+  <meta name="description" content="Desarrollamos videojuegos móviles a medida. Mira nuestros prototipos y cuéntanos tu idea.">
+  <meta property="og:title" content="Buski87 Games">
+  <meta property="og:description" content="Desarrollo de juegos móviles a medida. Prototipos reales, listos para enseñar.">
+  <meta property="og:url" content="https://buski87.dev">
+  <meta name="theme-color" content="#0f1020">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="#inicio">Buski<span>87</span> Games</a>
+    <nav>
+      <a href="#prototipos" data-i18n="nav_protos">Prototipos</a>
+      <a href="#servicios" data-i18n="nav_services">Servicios</a>
+      <a href="#paquetes" data-i18n="nav_packs">Paquetes</a>
+      <a href="#contacto" data-i18n="nav_contact">Contacto</a>
+      <button id="lang" class="lang" aria-label="Language">EN</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="inicio" class="hero">
+      <p class="eyebrow" data-i18n="hero_eyebrow">Estudio de juegos móviles</p>
+      <h1 data-i18n="hero_title">Tu idea de juego, <em>jugable</em> en pocos días.</h1>
+      <p class="lead" data-i18n="hero_lead">Desarrollamos juegos móviles a medida. Partimos de un prototipo funcional para que veas y toques tu idea antes de comprometer un gran presupuesto.</p>
+      <div class="cta">
+        <a class="btn primary" href="#contacto" data-i18n="hero_cta1">Quiero mi juego</a>
+        <a class="btn" href="#prototipos" data-i18n="hero_cta2">Ver prototipos</a>
+      </div>
+      <ul class="stats">
+        <li><strong id="count">0</strong><span data-i18n="stat_protos">prototipos</span></li>
+        <li><strong>Godot 4</strong><span data-i18n="stat_engine">motor</span></li>
+        <li><strong>Android</strong><span data-i18n="stat_store">Google Play</span></li>
+      </ul>
+    </section>
+
+    <section id="prototipos">
+      <h2 data-i18n="protos_title">Nuestros prototipos</h2>
+      <p class="sub" data-i18n="protos_sub">Cada proyecto empieza así: una idea, un género y un prototipo funcional. Si quieres uno parecido con tu temática, hablamos.</p>
+      <div class="filters" id="filters"></div>
+      <div class="grid" id="grid"></div>
+    </section>
+
+    <section id="servicios">
+      <h2 data-i18n="serv_title">Qué hacemos por ti</h2>
+      <div class="cards3">
+        <article><span>🧩</span><h3 data-i18n="s1_t">Prototipo en días</h3><p data-i18n="s1_p">Un MVP jugable con el bucle principal del juego para validar la idea cuanto antes.</p></article>
+        <article><span>🎨</span><h3 data-i18n="s2_t">Tu temática, tu estilo</h3><p data-i18n="s2_p">Adaptamos mecánicas probadas a tu marca, historia o personajes originales.</p></article>
+        <article><span>🚀</span><h3 data-i18n="s3_t">Del prototipo a la tienda</h3><p data-i18n="s3_p">Pulido, monetización, builds para Android y publicación en Google Play.</p></article>
+      </div>
+      <ol class="steps">
+        <li data-i18n="step1">Nos cuentas la idea</li>
+        <li data-i18n="step2">Te enseñamos un prototipo</li>
+        <li data-i18n="step3">Lo ajustamos juntos</li>
+        <li data-i18n="step4">Lo publicamos</li>
+      </ol>
+    </section>
+
+    <section id="paquetes">
+      <h2 data-i18n="pk_title">Paquetes</h2>
+      <p class="sub" data-i18n="pk_sub">Elige el punto de partida. Si tu proyecto es distinto, te preparamos un presupuesto a medida.</p>
+      <div class="pack">
+        <div class="tabs" id="pk-tabs" role="tablist"></div>
+        <div class="pk-body" id="pk-body"></div>
+      </div>
+    </section>
+
+    <section id="contacto" class="contact">
+      <h2 data-i18n="contact_title">Hablemos de tu juego</h2>
+      <p class="sub" data-i18n="contact_sub">Cuéntanos qué tienes en mente: género, referencias, plataforma y plazos. Te respondemos en 24-48 h.</p>
+      <div class="cta center">
+        <a class="btn primary" id="mail" href="#">✉️ <span data-i18n="contact_mail">Escribir por email</span></a>
+        <a class="btn wa" id="wa" href="#" target="_blank" rel="noopener">💬 <span data-i18n="contact_wa">Escribir por WhatsApp</span></a>
+      </div>
+      <p class="small" id="contact-line"></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> Buski87 Games · buski87.dev</p>
+    <p class="small" data-i18n="footer_note">Los nombres de los prototipos son provisionales. Todos los juegos usan arte y temática propios.</p>
+  </footer>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
