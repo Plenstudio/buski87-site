@@ -170,7 +170,7 @@ const I18N = {
     f_ok:"¡Gracias! Hemos recibido tu mensaje y te responderemos en 24-48 h.",
     f_err:"No se ha podido enviar. Inténtalo de nuevo o escríbenos por WhatsApp.",
     f_nokey:"El formulario aún no está activado. Escríbenos por WhatsApp.",
-    f_consent:"Acepto que usen mis datos solo para responder a mi consulta (<a href=\"/privacidad\" target=\"_blank\" rel=\"noopener\">política de privacidad</a>).", f_consent_err:"Marca la casilla para poder enviar el mensaje.",
+    f_consent:"Acepto que usen mis datos solo para responder a mi consulta (<a href=\"/privacidad\" target=\"_blank\" rel=\"noopener noreferrer\">política de privacidad</a>).", f_consent_err:"Marca la casilla para poder enviar el mensaje.",
     pre_game:"Me interesa un juego parecido a «%s». Mi idea y temática:\n", pre_pack:"",
     f_wait:"Un momento… vuelve a pulsar «Enviar» en unos segundos.",
     f_links:"Por favor, no incluyas enlaces en el mensaje: cuéntanos la idea con tus palabras.",
@@ -214,7 +214,7 @@ const I18N = {
     f_ok:"Thanks! We got your message and will reply within 24-48 h.",
     f_err:"Could not send. Please try again or message us on WhatsApp.",
     f_nokey:"The form isn't active yet. Please message us on WhatsApp.",
-    f_consent:"I agree that my data is used only to reply to my inquiry (<a href=\"/privacidad\" target=\"_blank\" rel=\"noopener\">privacy policy</a>).", f_consent_err:"Please tick the box to send your message.",
+    f_consent:"I agree that my data is used only to reply to my inquiry (<a href=\"/privacidad\" target=\"_blank\" rel=\"noopener noreferrer\">privacy policy</a>).", f_consent_err:"Please tick the box to send your message.",
     pre_game:"I'm interested in a game similar to “%s”. My idea and theme:\n", pre_pack:"",
     f_wait:"One moment… press “Send” again in a few seconds.",
     f_links:"Please don't include links in the message: tell us your idea in your own words.",
@@ -301,7 +301,7 @@ function renderGrid(){
     const art = g.img
       ? `<img src="${esc(g.img)}" alt="${esc(g.name)}" loading="lazy" decoding="async">${(g.shots||[]).length>1?`<span class="shots-badge">📷 ${g.shots.length}</span>`:""}`
       : `<span aria-hidden="true">${g.icon}</span>`;
-    const play = g.url ? `<a href="${esc(g.url)}" target="_blank" rel="noopener">${t("play")} ↗</a>` : "";
+    const play = g.url ? `<a href="${esc(g.url)}" target="_blank" rel="noopener noreferrer">${t("play")} ↗</a>` : "";
     return `<article class="game">
       <div class="art${(g.shots||[]).length>1?" has-shots":""}" data-id="${esc(g.id)}"${(g.shots||[]).length>1?` tabindex="0" role="button" aria-label="${esc(g.name)} · ${t("see_shots")}"`:""} style="background:linear-gradient(135deg,${g.c[0]},${g.c[1]})">
         <span class="badge${g.status==="live"?" live":""}">${g.status==="live"?t("live"):t("proto")}</span>${art}
@@ -330,7 +330,7 @@ function renderPublished(){
       <p>${esc(g.desc[lang])}</p>
       <p class="own">🔒 ${t("pub_own")}</p>
       <div class="row">
-        ${g.url ? `<a class="btn" href="${esc(g.url)}" target="_blank" rel="noopener">${t("play")} ↗</a>` : ""}
+        ${g.url ? `<a class="btn" href="${esc(g.url)}" target="_blank" rel="noopener noreferrer">${t("play")} ↗</a>` : ""}
         <a class="btn primary" href="#contacto" data-based="${esc(g.name)}">${t("pub_cta")} →</a>
       </div>
     </div></article>`).join("");
@@ -375,7 +375,7 @@ function renderPacks(){
     <p class="pk-note">ℹ️ ${t("pk_note")}</p>
     <p class="pk-note">💶 ${t("pk_terms")}</p>
     <a class="btn primary" href="#contacto" data-pack="${p.id}">${t("pk_continue")} →</a>
-    <a class="btn wa" href="${wa}" target="_blank" rel="noopener">💬 ${t("pk_ask")}</a>`;
+    <a class="btn wa" href="${wa}" target="_blank" rel="noopener noreferrer">💬 ${t("pk_ask")}</a>`;
 }
 
 function applyLang(){
@@ -467,7 +467,7 @@ if ($("#cform")) $("#cform").addEventListener("submit", async e => {
   if (fd.get("botcheck")) return;               // anti-spam (campo oculto)
   // Anti-spam: tiempo mínimo, sin enlaces y un envío por minuto
   if (Date.now() - formStart < MIN_FILL_MS){ st.classList.add("err"); st.textContent = t("f_wait"); return; }
-  if (/(https?:\/\/|www\.|\w+\.(com|net|org|ru|xyz|top|info)\b)/i.test(String(fd.get("message")))){
+  if (/(https?:\/\/|www\.|\w+\.(com|net|org|ru|xyz|top|info)\b)/i.test(String(fd.get("message")) + " " + String(fd.get("name")))){
     st.classList.add("err"); st.textContent = t("f_links"); return; }
   try {
     const last = Number(localStorage.getItem("lastSent") || 0);

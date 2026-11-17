@@ -20,11 +20,12 @@
   <meta name="twitter:title" content="Ciberseguridad — Buski87">
   <meta name="twitter:description" content="Pentesting, SIEM con Wazuh y SOC, y prevención de fuga de datos (DLP) para empresas.">
   <meta name="twitter:image" content="https://buski87.dev/assets/og-image.jpg">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="theme-color" content="#0f1020">
   <meta name="robots" content="noindex, nofollow">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="stylesheet" href="/assets/style.css?v=20261118j">
+  <link rel="stylesheet" href="/assets/style.css?v=20261118k">
   <script>(function(){var p=location.pathname;if(/\.html$/.test(p)){history.replaceState(null,'',p.replace(/\/?index\.html$/,'/').replace(/\.html$/,'')+location.search+location.hash);}})();</script>
 </head>
 <body>
@@ -67,7 +68,7 @@
     <section id="contacto" class="contact">
       <h2 data-i18n="contact_title_ciber">Hablemos de tu seguridad</h2>
       <p class="sub" data-i18n="contact_sub_ciber">Cuéntanos qué quieres proteger o revisar. Te respondemos en 24-48 h y definimos el alcance contigo.</p>
-      <form id="cform" class="cform">
+      <form id="cform" class="cform" method="post" action="/404.html">
         <div class="f-row">
           <label><span data-i18n="f_name">Nombre</span>
             <input type="text" name="name" required autocomplete="name" maxlength="80"></label>
@@ -85,8 +86,9 @@
         <button class="btn primary" id="f-btn" type="submit" data-i18n="f_send">Enviar mensaje</button>
         <p class="f-status" id="f-status" role="status" aria-live="polite"></p>
       </form>
+      <noscript><p class="f-status err">Para enviar el formulario necesitas activar JavaScript. También puedes escribirnos por WhatsApp o a buski1987@gmail.com. / To send the form you need to enable JavaScript. You can also reach us on WhatsApp or at buski1987@gmail.com.</p></noscript>
       <div class="cta center">
-        <a class="btn wa" id="wa" href="#" target="_blank" rel="noopener">💬 <span data-i18n="contact_wa">Escribir por WhatsApp</span></a>
+        <a class="btn wa" id="wa" href="#" target="_blank" rel="noopener noreferrer">💬 <span data-i18n="contact_wa">Escribir por WhatsApp</span></a>
       </div>
     </section>
   </main>
@@ -95,6 +97,6 @@
     <p>© <span id="year"></span> Buski87 · buski87.dev · <a href="/privacidad" data-i18n="footer_priv">Política de privacidad</a> · <a href="/aviso-legal" data-i18n="footer_legal">Aviso legal</a></p>
   </footer>
 
-  <script src="/assets/app.js?v=20261118j"></script>
+  <script src="/assets/app.js?v=20261118k"></script>
 </body>
 </html>

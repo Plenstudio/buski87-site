@@ -41,3 +41,6 @@ La propagación puede tardar de minutos a unas horas.
 
 ## Iconos
 Los logos de `assets/icons/` son de [Simple Icons](https://simpleicons.org) (licencia CC0); los logos son marcas de sus propietarios. Se asignan por nombre en el objeto `ICONS` de `assets/app.js`.
+
+## Seguridad
+Resumen de protecciones, cómo avisar de un fallo y lista de comprobación del propietario: ver `SECURITY.md`.

@@ -4,26 +4,27 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-CqUIq5rOx0FrHeBfH3DP7P56ZQLvO/i7dcXsZuOD9aA='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://api.web3forms.com; object-src 'none'; base-uri 'self'; form-action 'self'">
-  <title>Contacto — Buski87</title>
+  <title>Contacto: presupuesto de tu juego o tu web — Buski87</title>
   <meta name="description" content="Escríbenos para pedir información o presupuesto de un juego o de una web.">
   <link rel="canonical" href="https://buski87.dev/contacto">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Buski87">
   <meta property="og:locale" content="es_ES">
-  <meta property="og:title" content="Contacto — Buski87">
+  <meta property="og:title" content="Contacto: presupuesto de tu juego o tu web — Buski87">
   <meta property="og:description" content="Escríbenos para pedir información o presupuesto de un juego o de una web.">
   <meta property="og:url" content="https://buski87.dev/contacto">
   <meta property="og:image" content="https://buski87.dev/assets/og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Contacto — Buski87">
+  <meta name="twitter:title" content="Contacto: presupuesto de tu juego o tu web — Buski87">
   <meta name="twitter:description" content="Escríbenos para pedir información o presupuesto de un juego o de una web.">
   <meta name="twitter:image" content="https://buski87.dev/assets/og-image.jpg">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="theme-color" content="#0f1020">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="stylesheet" href="/assets/style.css?v=20261118j">
+  <link rel="stylesheet" href="/assets/style.css?v=20261118k">
   <script>(function(){var p=location.pathname;if(/\.html$/.test(p)){history.replaceState(null,'',p.replace(/\/?index\.html$/,'/').replace(/\.html$/,'')+location.search+location.hash);}})();</script>
 </head>
 <body>
@@ -43,7 +44,7 @@
     <section id="contacto" class="contact page-hero">
       <h1 data-i18n="contact_title">Hablemos de tu proyecto</h1>
       <p class="sub" data-i18n="contact_sub">Cuéntanos qué necesitas: un juego o una web. Te respondemos en 24-48 h.</p>
-      <form id="cform" class="cform">
+      <form id="cform" class="cform" method="post" action="/404.html">
         <div class="f-row">
           <label><span data-i18n="f_name">Nombre</span>
             <input type="text" name="name" required autocomplete="name" maxlength="80"></label>
@@ -78,8 +79,9 @@
         <button class="btn primary" id="f-btn" type="submit" data-i18n="f_send">Enviar mensaje</button>
         <p class="f-status" id="f-status" role="status" aria-live="polite"></p>
       </form>
+      <noscript><p class="f-status err">Para enviar el formulario necesitas activar JavaScript. También puedes escribirnos por WhatsApp o a buski1987@gmail.com. / To send the form you need to enable JavaScript. You can also reach us on WhatsApp or at buski1987@gmail.com.</p></noscript>
       <div class="cta center">
-        <a class="btn wa" id="wa" href="#" target="_blank" rel="noopener">💬 <span data-i18n="contact_wa">Escribir por WhatsApp</span></a>
+        <a class="btn wa" id="wa" href="#" target="_blank" rel="noopener noreferrer">💬 <span data-i18n="contact_wa">Escribir por WhatsApp</span></a>
       </div>
     </section>
   </main>
@@ -88,6 +90,6 @@
     <p>© <span id="year"></span> Buski87 · buski87.dev · <a href="/privacidad" data-i18n="footer_priv">Política de privacidad</a> · <a href="/aviso-legal" data-i18n="footer_legal">Aviso legal</a></p>
   </footer>
 
-  <script src="/assets/app.js?v=20261118j"></script>
+  <script src="/assets/app.js?v=20261118k"></script>
 </body>
 </html>
