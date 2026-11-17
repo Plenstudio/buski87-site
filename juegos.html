@@ -22,7 +22,7 @@
   <meta name="theme-color" content="#0f1020">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="stylesheet" href="/assets/style.css?v=20261117z">
+  <link rel="stylesheet" href="/assets/style.css?v=20261118a">
   <script>(function(){var p=location.pathname;if(/\.html$/.test(p)){history.replaceState(null,'',p.replace(/\/?index\.html$/,'/').replace(/\.html$/,'')+location.search+location.hash);}})();</script>
 </head>
 <body>
@@ -160,8 +160,8 @@
           <label><span data-i18n="f_email">Tu email</span>
             <input type="email" name="email" required autocomplete="email" maxlength="120"></label>
         </div>
-        <label><span data-i18n="f_phone">Teléfono (opcional)</span>
-          <input type="tel" name="telefono" id="f-phone" autocomplete="tel" inputmode="tel" maxlength="20" pattern="[0-9+()\s.\-]{6,20}" placeholder="+34 600 000 000"></label>
+        <label><span data-i18n="f_phone">Teléfono</span>
+          <input type="tel" name="telefono" id="f-phone" required autocomplete="tel" inputmode="tel" maxlength="20" pattern="[0-9+()\s.\-]{6,20}" placeholder="+34 600 000 000"></label>
         <input type="hidden" name="area" id="f-area" value="juegos">
         <div id="game-fields" class="game-fields">
           <label><span data-i18n="f_pack">Paquete de interés</span>
@@ -189,6 +189,6 @@
     <p class="small" data-i18n="footer_note">Los nombres de los prototipos son provisionales. Todos los juegos usan arte y temática propios.</p>
   </footer>
 
-  <script src="/assets/app.js?v=20261117z"></script>
+  <script src="/assets/app.js?v=20261118a"></script>
 </body>
 </html>
