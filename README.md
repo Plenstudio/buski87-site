@@ -30,7 +30,7 @@ La propagación puede tardar de minutos a unas horas.
 - Las páginas se sirven sin `.html` (`/juegos`, `/web`, `/privacidad`); GitHub Pages lo hace solo. Cada página tiene su `canonical`, y si alguien entra por `.html` la barra se limpia sola.
 - `sitemap.xml` y `robots.txt` en la raíz. La imagen para compartir es `assets/og-image.jpg` (1200x630) y el icono, `favicon.svg` y `apple-touch-icon.png`.
 - Las capturas están en WebP (`assets/img/`). Para añadir más, conviértelas a `.webp` (calidad ~80) y referencia la ruta en `assets/app.js`.
-- `aviso-legal.html` está **casi completo pero sin enlazar y con noindex**: faltan el NIF (y la calle y número si se quieren mostrar), marcados con `[ ]`. Al completarlos: enlázalo desde el pie de las páginas, quita el `noindex` y añade `/aviso-legal` a `sitemap.xml`.
+- `aviso-legal.html` está completo y enlazado desde el pie de todas las páginas; también figura en `sitemap.xml`.
 
 ## Iconos
 Los logos de `assets/icons/` son de [Simple Icons](https://simpleicons.org) (licencia CC0); los logos son marcas de sus propietarios. Se asignan por nombre en el objeto `ICONS` de `assets/app.js`.

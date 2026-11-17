@@ -22,7 +22,7 @@
   <meta name="theme-color" content="#0f1020">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="stylesheet" href="/assets/style.css?v=20261117x">
+  <link rel="stylesheet" href="/assets/style.css?v=20261117y">
   <script>(function(){var p=location.pathname;if(/\.html$/.test(p)){history.replaceState(null,'',p.replace(/\/?index\.html$/,'/').replace(/\.html$/,'')+location.search+location.hash);}})();</script>
   <style>.legal{max-width:760px;margin:0 auto;padding:56px 20px 40px}.legal h1{margin:0 0 .2em}.legal h2{font-size:1.2rem;margin:1.6em 0 .3em;color:var(--accent)}.legal p,.legal li{color:var(--text)}.legal ul{padding-left:1.2em}.legal .upd{color:var(--muted);font-size:.9rem}[data-l]{display:none}html[lang=es] [data-l=es],html[lang=en] [data-l=en]{display:block}.legal mark{background:#ffb34733;color:var(--accent);padding:0 4px;border-radius:4px}</style>
 </head>
@@ -97,7 +97,7 @@
     </div>
   </main>
 
-  <footer><p>© <span id="year"></span> Buski87 · buski87.dev</p></footer>
+  <footer><p>© <span id="year"></span> Buski87 · buski87.dev · <a href="/aviso-legal" id="other-legal">Aviso legal</a></p></footer>
   <script>
     (function(){
       var l = (navigator.language||"es").slice(0,2) === "en" ? "en" : "es";
@@ -105,6 +105,7 @@
       function set(v){ l = v; document.documentElement.lang = v;
         document.getElementById("lang").textContent = v === "es" ? "EN" : "ES";
         document.getElementById("back").textContent = v === "es" ? "← Volver" : "← Back";
+        var ol = document.getElementById("other-legal"); if (ol) ol.textContent = v === "es" ? "Aviso legal" : "Legal notice";
         var sk = document.querySelector(".skip"); if (sk) sk.textContent = v === "es" ? "Saltar al contenido" : "Skip to content";
         document.title = (v === "es" ? "Privacidad" : "Privacy") + " — Buski87";
         try { localStorage.setItem("lang", v); } catch(e){} }

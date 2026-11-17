@@ -20,10 +20,9 @@
   <meta name="twitter:description" content="Aviso legal de Buski87.">
   <meta name="twitter:image" content="https://buski87.dev/assets/og-image.jpg">
   <meta name="theme-color" content="#0f1020">
-  <meta name="robots" content="noindex, nofollow">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="stylesheet" href="/assets/style.css?v=20261117x">
+  <link rel="stylesheet" href="/assets/style.css?v=20261117y">
   <script>(function(){var p=location.pathname;if(/\.html$/.test(p)){history.replaceState(null,'',p.replace(/\/?index\.html$/,'/').replace(/\.html$/,'')+location.search+location.hash);}})();</script>
   <style>.legal{max-width:760px;margin:0 auto;padding:56px 20px 40px}.legal h1{margin:0 0 .2em}.legal h2{font-size:1.2rem;margin:1.6em 0 .3em;color:var(--accent)}.legal p,.legal li{color:var(--text)}.legal ul{padding-left:1.2em}.legal .upd{color:var(--muted);font-size:.9rem}[data-l]{display:none}html[lang=es] [data-l=es],html[lang=en] [data-l=en]{display:block}.legal mark{background:#ffb34733;color:var(--accent);padding:0 4px;border-radius:4px}</style>
 </head>
@@ -35,7 +34,6 @@
   </header>
 
   <main class="legal" id="main">
-    <!-- BORRADOR: rellena los campos marcados con [ ], enlázala desde el pie de las páginas y añádela al sitemap. Mientras tanto está en noindex. -->
     <div data-l="es">
       <h1>Aviso legal</h1>
       <p class="upd">Última actualización: 17/11/2026</p>
@@ -44,8 +42,8 @@
       <p>En cumplimiento del deber de información de la Ley 34/2002, de Servicios de la Sociedad de la Información y de Comercio Electrónico, se informa de que el titular de este sitio web es:</p>
       <ul>
         <li><strong>Titular:</strong> Pere Busquet (marca: Buski87)</li>
-        <li><strong>NIF/CIF:</strong> <mark>[NIF]</mark></li>
-        <li><strong>Domicilio:</strong> Castellar del Vallès (Barcelona) <mark>[calle y número]</mark></li>
+        <li><strong>NIF:</strong> 45856561N</li>
+        <li><strong>Domicilio:</strong> Castellar del Vallès (Barcelona)</li>
         <li><strong>Correo electrónico:</strong> buski1987@gmail.com</li>
         <li><strong>WhatsApp:</strong> +34 623 184 718</li>
         <li><strong>Dominio:</strong> buski87.dev</li>
@@ -78,8 +76,8 @@
       <p>In compliance with the duty of information under Spanish Law 34/2002 on Information Society Services and Electronic Commerce, the owner of this website is:</p>
       <ul>
         <li><strong>Owner:</strong> Pere Busquet (brand: Buski87)</li>
-        <li><strong>Tax ID:</strong> <mark>[tax ID]</mark></li>
-        <li><strong>Address:</strong> Castellar del Vallès (Barcelona) <mark>[street and number]</mark></li>
+        <li><strong>Tax ID (NIF):</strong> 45856561N</li>
+        <li><strong>Address:</strong> Castellar del Vallès (Barcelona)</li>
         <li><strong>Email:</strong> buski1987@gmail.com</li>
         <li><strong>WhatsApp:</strong> +34 623 184 718</li>
         <li><strong>Domain:</strong> buski87.dev</li>
@@ -105,7 +103,7 @@
     </div>
   </main>
 
-  <footer><p>© <span id="year"></span> Buski87 · buski87.dev</p></footer>
+  <footer><p>© <span id="year"></span> Buski87 · buski87.dev · <a href="/privacidad" id="other-legal">Política de privacidad</a></p></footer>
   <script>
     (function(){
       var l = (navigator.language||"es").slice(0,2) === "en" ? "en" : "es";
@@ -113,6 +111,7 @@
       function set(v){ l = v; document.documentElement.lang = v;
         document.getElementById("lang").textContent = v === "es" ? "EN" : "ES";
         document.getElementById("back").textContent = v === "es" ? "← Volver" : "← Back";
+        var ol = document.getElementById("other-legal"); if (ol) ol.textContent = v === "es" ? "Política de privacidad" : "Privacy policy";
         var sk = document.querySelector(".skip"); if (sk) sk.textContent = v === "es" ? "Saltar al contenido" : "Skip to content";
         document.title = (v === "es" ? "Aviso legal" : "Legal notice") + " — Buski87";
         try { localStorage.setItem("lang", v); } catch(e){} }
