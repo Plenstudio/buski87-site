@@ -32,5 +32,12 @@ La propagación puede tardar de minutos a unas horas.
 - Las capturas están en WebP (`assets/img/`). Para añadir más, conviértelas a `.webp` (calidad ~80) y referencia la ruta en `assets/app.js`.
 - `aviso-legal.html` está completo y enlazado desde el pie de todas las páginas; también figura en `sitemap.xml`.
 
+## Seguridad y SEO local
+- **CSP:** cada página lleva una política de contenido en una `<meta>`. Si cambias el texto de un `<script>` en línea, ejecuta `python tools/update_csp.py` para recalcular los hashes (el script revisa todas las páginas).
+- **404:** `404.html` es la página de error de GitHub Pages (con `noindex`).
+- **security.txt:** `.well-known/security.txt` (hace falta el archivo vacío `.nojekyll` para que GitHub Pages sirva la carpeta). Caduca el 2027-11-17: renueva `Expires` cada año.
+- **Datos estructurados (JSON-LD):** organización con dirección en la portada, servicio y preguntas frecuentes en Juegos y en Web. Las preguntas del JSON-LD son las mismas que las visibles; si cambias una FAQ, actualiza también el bloque.
+- **Formularios:** se envía `replyto` con el correo del cliente, para que "Responder" vaya a él.
+
 ## Iconos
 Los logos de `assets/icons/` son de [Simple Icons](https://simpleicons.org) (licencia CC0); los logos son marcas de sus propietarios. Se asignan por nombre en el objeto `ICONS` de `assets/app.js`.
