@@ -173,8 +173,13 @@ nav a[aria-current="page"]{color:var(--text);border-bottom:2px solid var(--accen
 .about-chips li{font-size:.82rem;font-weight:700;padding:5px 14px;border-radius:999px;border:1px solid var(--line);background:var(--bg2);color:var(--text)}
 
 /* Tecnologías (página Web) */
-.tech-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
-.tech-grid article{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:24px}
-.tech-grid h3{margin:0 0 .3em;color:var(--accent);font-size:1rem;text-transform:uppercase;letter-spacing:1px}
-.tech-grid p{margin:0;color:var(--muted)}
-.tech-grid .about-chips{margin-top:14px}
+.tech-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.tech-grid article{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:24px;display:flex;flex-direction:column;gap:2px}
+.tech-grid h3{margin:0 0 .2em;color:var(--accent);font-size:1rem;text-transform:uppercase;letter-spacing:1px}
+.tech-grid p{margin:0 0 6px;color:var(--muted)}
+.tech-grid .about-chips{margin:6px 0 0}
+.chip-group{margin-top:12px}
+.chip-label{display:block;font-size:.78rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.8px}
+.tech-list{list-style:none;padding:0;margin:16px 0 0;display:grid;gap:6px;font-size:.92rem;color:var(--text)}
+.tech-list li::before{content:"✓";color:var(--wa);font-weight:800;margin-right:8px}
+@media(max-width:760px){.tech-grid{grid-template-columns:1fr}}
