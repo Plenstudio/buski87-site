@@ -24,10 +24,6 @@ const GAMES = [
     name:"Rúnica",
     genre:{es:"Puzle", en:"Puzzle"},
     desc:{es:"Puzle de encajar patrones con runas vikingas, tono serio y mitológico.", en:"Pattern-fitting puzzle with Viking runes and a serious, mythological tone."} },
-  { id:"masia", icon:"🏰", c:["#16a34a","#14532d"], cat:"strategy",
-    name:"Defensa de la Masía",
-    genre:{es:"Defensa de torre", en:"Tower defense"},
-    desc:{es:"Tira dados, fusiona defensores en una cuadrícula 3x3 y aguanta las oleadas.", en:"Roll dice, merge defenders on a 3x3 grid and survive the waves."} },
   { id:"vikingo", icon:"🛡️", c:["#0891b2","#164e63"], cat:"strategy", img:"assets/img/vikingos-aldea.jpg", shots:["assets/img/vikingos-aldea.jpg","assets/img/vikingos-titulo.jpg","assets/img/vikingos-jefe.jpg","assets/img/vikingos-castillo.jpg","assets/img/vikingos-nieve.jpg","assets/img/vikingos-cristal.jpg","assets/img/vikingos-campamento.jpg","assets/img/vikingos-heroes.jpg"],
     name:"Aldea Vikinga",
     genre:{es:"Defensa de base", en:"Base defense"},
@@ -69,10 +65,6 @@ const GAMES = [
     name:"Lobo Cazador",
     genre:{es:"Caza y mejoras", en:"Hunt & upgrade"},
     desc:{es:"Caza, carga, vende y mejora con un lobo por biomas ibérico, nevado y de fantasía.", en:"Hunt, carry, sell and upgrade as a wolf across Iberian, snowy and fantasy biomes."} },
-  { id:"tio", icon:"🪵", c:["#b91c1c","#431407"], cat:"casual",
-    name:"El Tió de Nadal",
-    genre:{es:"Mascota virtual", en:"Virtual pet"},
-    desc:{es:"Cuida al Tió de Nadal en esta mascota virtual navideña.", en:"Take care of the Tió de Nadal in this festive virtual pet game."} }
 ];
 
 /* Juegos propios ya publicados: NO están a la venta (sí un prototipo basado en ellos). */
@@ -89,7 +81,7 @@ const MODES = {
 const CATS = {
   all:{es:"Todos", en:"All"}, action:{es:"Acción", en:"Action"}, puzzle:{es:"Puzle", en:"Puzzle"},
   strategy:{es:"Estrategia", en:"Strategy"}, idle:{es:"Idle / Tycoon", en:"Idle / Tycoon"},
-  cards:{es:"Cartas", en:"Cards"}, casual:{es:"Casual", en:"Casual"}
+  cards:{es:"Cartas", en:"Cards"}
 };
 
 /* Paquetes (estilo Fiverr). Precios en euros; edita aquí precios, plazos y características.
