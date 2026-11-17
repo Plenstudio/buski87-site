@@ -216,3 +216,7 @@ nav a[aria-current="page"]{color:var(--text);border-bottom:2px solid var(--accen
 
 /* Definición de revisión */
 .pk-def{color:var(--muted);font-size:.82rem;margin:-6px 0 14px}
+
+/* Logo */
+.brand{display:inline-flex;align-items:center;gap:10px}
+.brand-mark{display:block;width:30px;height:30px}
