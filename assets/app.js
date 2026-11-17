@@ -497,9 +497,8 @@ if ($("#cform")) $("#cform").addEventListener("submit", async e => {
     ["servicio", "tipo_de_web", "web_actual", "plazo"].forEach(k => fd.delete(k));
   }
   fd.append("access_key", CONFIG.web3formsKey);
-  fd.append("subject", "Nuevo contacto — buski87.dev (" + (AREA_ES[area] || "sin área") + ")");
+  fd.append("subject", "Nuevo contacto — " + String(fd.get("name") || "").slice(0, 40) + " — buski87.dev (" + (AREA_ES[area] || "sin área") + ")");
   fd.append("from_name", "Buski87 (web)");
-  fd.append("replyto", String(fd.get("email") || ""));
   btn.disabled = true; btn.textContent = t("f_sending");
   try {
     const r = await fetch("https://api.web3forms.com/submit", { method:"POST", headers:{Accept:"application/json"}, body: fd });

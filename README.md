@@ -37,7 +37,7 @@ La propagación puede tardar de minutos a unas horas.
 - **404:** `404.html` es la página de error de GitHub Pages (con `noindex`).
 - **security.txt:** `.well-known/security.txt` (hace falta el archivo vacío `.nojekyll` para que GitHub Pages sirva la carpeta). Caduca el 2027-11-17: renueva `Expires` cada año.
 - **Datos estructurados (JSON-LD):** organización con dirección en la portada, servicio y preguntas frecuentes en Juegos y en Web. Las preguntas del JSON-LD son las mismas que las visibles; si cambias una FAQ, actualiza también el bloque.
-- **Formularios:** se envía `replyto` con el correo del cliente, para que "Responder" vaya a él.
+- **Formularios:** Web3Forms (plan gratuito) no aplica `replyto`: para responder, copia el correo del campo `email` del mensaje. El asunto lleva el nombre y el área.
 
 ## Iconos
 Los logos de `assets/icons/` son de [Simple Icons](https://simpleicons.org) (licencia CC0); los logos son marcas de sus propietarios. Se asignan por nombre en el objeto `ICONS` de `assets/app.js`.
