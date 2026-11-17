@@ -1,4 +1,4 @@
-# buski87.dev — Buski87 Games
+# buski87.dev — Buski87
 
 Web estática (HTML/CSS/JS, sin build) para GitHub Pages.
 

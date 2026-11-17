@@ -416,7 +416,7 @@ $("#cform").addEventListener("submit", async e => {
   fd.set("estilo", md === "3d" ? "3D Low Poly" : md === "2d" ? "2D" : "—"); fd.delete("mode");
   fd.append("access_key", CONFIG.web3formsKey);
   fd.append("subject", "Nuevo contacto — buski87.dev");
-  fd.append("from_name", "Buski87 Games (web)");
+  fd.append("from_name", "Buski87 (web)");
   btn.disabled = true; btn.textContent = t("f_sending");
   try {
     const r = await fetch("https://api.web3forms.com/submit", { method:"POST", headers:{Accept:"application/json"}, body: fd });

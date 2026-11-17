@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Privacidad — Buski87 Games</title>
+  <title>Privacidad — Buski87</title>
   <meta name="robots" content="noindex">
   <meta name="theme-color" content="#0f1020">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>">
@@ -12,7 +12,7 @@
 </head>
 <body>
   <header class="top">
-    <a class="brand" href="index.html">Buski<span>87</span> Games</a>
+    <a class="brand" href="index.html">Buski<span>87</span></a>
     <nav><a href="index.html" id="back">← Volver</a><button id="lang" class="lang" aria-label="Language">EN</button></nav>
   </header>
 
@@ -22,7 +22,7 @@
       <p class="upd">Última actualización: 16/11/2026</p>
 
       <h2>Quién trata tus datos</h2>
-      <p>Buski87 Games (Plenstudio), titular de buski87.dev. Contacto para cualquier cuestión sobre tus datos: WhatsApp +34 623 184 718.</p>
+      <p>Buski87 (Plenstudio), titular de buski87.dev. Contacto para cualquier cuestión sobre tus datos: WhatsApp +34 623 184 718.</p>
 
       <h2>Qué datos recogemos y para qué</h2>
       <p>Solo los que escribes en el formulario de contacto: nombre, email, paquete y estilo gráfico de interés y el mensaje. Los usamos únicamente para responder a tu consulta o presupuesto. No los usamos para publicidad ni los cedemos a terceros para sus propios fines.</p>
@@ -53,7 +53,7 @@
       <p class="upd">Last updated: 16 Nov 2026</p>
 
       <h2>Who processes your data</h2>
-      <p>Buski87 Games (Plenstudio), owner of buski87.dev. For any question about your data: WhatsApp +34 623 184 718.</p>
+      <p>Buski87 (Plenstudio), owner of buski87.dev. For any question about your data: WhatsApp +34 623 184 718.</p>
 
       <h2>What data we collect and why</h2>
       <p>Only what you type in the contact form: name, email, package and graphics style of interest, and your message. We use it solely to reply to your inquiry or quote. We do not use it for advertising or share it with third parties for their own purposes.</p>
@@ -80,7 +80,7 @@
     </div>
   </main>
 
-  <footer><p>© <span id="year"></span> Buski87 Games · buski87.dev</p></footer>
+  <footer><p>© <span id="year"></span> Buski87 · buski87.dev</p></footer>
   <script>
     (function(){
       var l = (navigator.language||"es").slice(0,2) === "en" ? "en" : "es";
@@ -88,7 +88,7 @@
       function set(v){ l = v; document.documentElement.lang = v;
         document.getElementById("lang").textContent = v === "es" ? "EN" : "ES";
         document.getElementById("back").textContent = v === "es" ? "← Volver" : "← Back";
-        document.title = (v === "es" ? "Privacidad" : "Privacy") + " — Buski87 Games";
+        document.title = (v === "es" ? "Privacidad" : "Privacy") + " — Buski87";
         try { localStorage.setItem("lang", v); } catch(e){} }
       document.getElementById("lang").onclick = function(){ set(l === "es" ? "en" : "es"); };
       document.getElementById("year").textContent = new Date().getFullYear();
