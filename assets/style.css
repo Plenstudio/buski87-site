@@ -208,3 +208,8 @@ nav a[aria-current="page"]{color:var(--text);border-bottom:2px solid var(--accen
 .faq summary::after{content:"+";color:var(--accent);font-size:1.4rem;line-height:1}
 .faq details[open] summary::after{content:"–"}
 .faq details p{margin:0 0 16px;color:var(--muted)}
+
+/* Contacto general y enlaces cruzados */
+.other-contact{text-align:center;color:var(--muted);font-size:.92rem;margin:18px auto 0;max-width:620px}
+.other-contact a{color:var(--accent)}
+.contact.page-hero{padding-top:56px}

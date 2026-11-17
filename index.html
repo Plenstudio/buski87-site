@@ -22,8 +22,8 @@
   <meta name="theme-color" content="#0f1020">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="stylesheet" href="/assets/style.css?v=20261117v">
-  <script>(function(){var m={'#juegos':'/juegos','#publicados':'/juegos#publicados','#prototipos':'/juegos#prototipos','#servicios':'/juegos#servicios','#paquetes':'/juegos#paquetes','#web':'/web'};var t=m[location.hash];if(t)location.replace(t);})();(function(){var p=location.pathname;if(/\.html$/.test(p)){history.replaceState(null,'',p.replace(/\/?index\.html$/,'/').replace(/\.html$/,'')+location.search+location.hash);}})();</script>
+  <link rel="stylesheet" href="/assets/style.css?v=20261117x">
+  <script>(function(){var m={'#contacto':'/contacto','#juegos':'/juegos','#publicados':'/juegos#publicados','#prototipos':'/juegos#prototipos','#servicios':'/juegos#servicios','#paquetes':'/juegos#paquetes','#web':'/web'};var t=m[location.hash];if(t)location.replace(t);})();(function(){var p=location.pathname;if(/\.html$/.test(p)){history.replaceState(null,'',p.replace(/\/?index\.html$/,'/').replace(/\.html$/,'')+location.search+location.hash);}})();</script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@graph":[
     {"@type":"Organization","@id":"https://buski87.dev/#org","name":"Buski87","url":"https://buski87.dev/","logo":"https://buski87.dev/apple-touch-icon.png"},
@@ -39,7 +39,7 @@
       <a href="/" data-i18n="nav_home" aria-current="page">Inicio</a>
       <a href="/juegos" data-i18n="nav_games">Juegos</a>
       <a href="/web" data-i18n="nav_web">Web</a>
-      <a href="#contacto" data-i18n="nav_contact">Contacto</a>
+      <a href="/contacto" data-i18n="nav_contact">Contacto</a>
       <button id="lang" class="lang" aria-label="Language">EN</button>
     </nav>
   </header>
@@ -50,7 +50,7 @@
       <h1 data-i18n="main_title">Juegos y webs <em>a medida</em>.</h1>
       <p class="lead" data-i18n="main_lead">Creamos videojuegos para Android y navegador, y páginas web a medida que además mantenemos al día.</p>
       <div class="cta">
-        <a class="btn primary" href="#contacto" data-i18n="main_cta1">Hablemos</a>
+        <a class="btn primary" href="/contacto" data-i18n="main_cta1">Hablemos</a>
         <a class="btn" href="#areas" data-i18n="main_cta2">Ver servicios</a>
       </div>
       <div class="areas" id="areas">
@@ -101,27 +101,11 @@
       </div>
     </section>
 
-    <section id="contacto" class="contact">
-      <h2 data-i18n="contact_title">Hablemos de tu proyecto</h2>
-      <p class="sub" data-i18n="contact_sub">Cuéntanos qué necesitas: un juego o una web. Te respondemos en 24-48 h.</p>
-      <form id="cform" class="cform">
-        <div class="f-row">
-          <label><span data-i18n="f_name">Nombre</span>
-            <input type="text" name="name" required autocomplete="name" maxlength="80"></label>
-          <label><span data-i18n="f_email">Tu email</span>
-            <input type="email" name="email" required autocomplete="email" maxlength="120"></label>
-        </div>
-        <label><span data-i18n="f_area">¿Qué te interesa?</span>
-          <select name="area" id="f-area"></select></label>
-        <label><span data-i18n="f_msg">Cuéntanos qué necesitas</span>
-          <textarea name="message" id="f-msg" rows="6" required maxlength="3000"></textarea></label>
-        <label class="consent"><input type="checkbox" name="consent" id="f-consent" required>
-          <span data-i18n="f_consent">Acepto que usen mis datos solo para responder a mi consulta.</span></label>
-        <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
-        <button class="btn primary" id="f-btn" type="submit" data-i18n="f_send">Enviar mensaje</button>
-        <p class="f-status" id="f-status" role="status" aria-live="polite"></p>
-      </form>
+    <section id="cta-final" class="contact">
+      <h2 data-i18n="cta_title">¿Hablamos de tu proyecto?</h2>
+      <p class="sub" data-i18n="cta_sub">Cuéntanos qué necesitas, sea un juego o una web. Te respondemos en 24-48 h.</p>
       <div class="cta center">
+        <a class="btn primary" href="/contacto" data-i18n="cta_btn">Ir al formulario de contacto</a>
         <a class="btn wa" id="wa" href="#" target="_blank" rel="noopener">💬 <span data-i18n="contact_wa">Escribir por WhatsApp</span></a>
       </div>
     </section>
@@ -131,6 +115,6 @@
     <p>© <span id="year"></span> Buski87 · buski87.dev · <a href="/privacidad" data-i18n="footer_priv">Política de privacidad</a></p>
   </footer>
 
-  <script src="/assets/app.js?v=20261117v"></script>
+  <script src="/assets/app.js?v=20261117x"></script>
 </body>
 </html>
