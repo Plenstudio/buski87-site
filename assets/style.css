@@ -233,3 +233,6 @@ nav a[aria-current="page"]{color:var(--text);border-bottom:2px solid var(--accen
 .proj-body p{margin:0;color:var(--muted);flex:1}
 .proj-tag{font-size:.75rem;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--accent)}
 @media(max-width:760px){.proj-grid{grid-template-columns:1fr}}
+
+/* Aplicaciones */
+.proj-icon{display:grid;place-items:center;aspect-ratio:16/10;font-size:4.5rem}
