@@ -60,7 +60,7 @@ h2{font-size:clamp(1.6rem,3.5vw,2.4rem);margin:0 0 .3em}
 .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;list-style:none;counter-reset:s;padding:0;margin:36px 0 0}
 .steps li{counter-increment:s;background:var(--bg2);border:1px dashed var(--line);border-radius:14px;padding:16px 18px;font-weight:600}
 .steps li::before{content:counter(s);display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--accent2);margin-right:10px;font-size:.85rem}
-.pack{max-width:560px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.pack{max-width:1040px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
 .tabs{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--line)}
 .tab{background:var(--bg2);border:0;color:var(--muted);padding:16px 8px;font-weight:700;font-size:1rem;cursor:pointer;border-bottom:3px solid transparent}
 .tab.on{background:var(--card);color:var(--text);border-bottom-color:var(--accent)}
@@ -130,3 +130,14 @@ footer p{margin:4px 0}
 .gal-x{position:absolute;top:14px;right:14px;font-size:1.1rem}
 .gal-nav:hover,.gal-x:hover{background:var(--accent);color:#1a1020}
 @media(max-width:560px){.gal{gap:0}.gal-nav{position:absolute;bottom:90px;z-index:1}.gal-nav.prev{left:8px}.gal-nav.next{right:8px}.gal figure>img{max-height:62vh}}
+
+/* Paquetes: 2D a la izquierda, 3D a la derecha */
+.pk-body{padding:0}
+.pk-cols{display:grid;grid-template-columns:1fr 1fr}
+.pk-col{padding:26px;display:flex;flex-direction:column}
+.pk-col+.pk-col{border-left:1px solid var(--line)}
+.pk-style{align-self:flex-start;font-size:.78rem;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:4px 12px;border-radius:999px;background:var(--bg2);border:1px solid var(--line);color:var(--accent);margin-bottom:10px}
+.pk-3d .pk-style{background:var(--accent);border-color:var(--accent);color:#1a1020}
+.pk-col .pk-list{flex:1}
+.pk-body>.pk-note{padding:0 26px 22px;margin:0;border-top:1px solid var(--line);padding-top:16px}
+@media(max-width:760px){.pk-cols{grid-template-columns:1fr}.pk-col+.pk-col{border-left:0;border-top:1px solid var(--line)}}
