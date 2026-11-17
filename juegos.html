@@ -5,26 +5,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Videojuegos — Buski87</title>
   <meta name="description" content="Prototipos jugables y juegos completos para Android y navegador, en 2D o 3D low poly. Mira nuestros prototipos y cuéntanos tu idea.">
+  <link rel="canonical" href="https://buski87.dev/juegos">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Buski87">
+  <meta property="og:locale" content="es_ES">
   <meta property="og:title" content="Videojuegos — Buski87">
   <meta property="og:description" content="Prototipos jugables y juegos completos para Android y navegador, en 2D o 3D low poly. Mira nuestros prototipos y cuéntanos tu idea.">
-  <meta property="og:url" content="https://buski87.dev">
+  <meta property="og:url" content="https://buski87.dev/juegos">
+  <meta property="og:image" content="https://buski87.dev/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Videojuegos — Buski87">
+  <meta name="twitter:description" content="Prototipos jugables y juegos completos para Android y navegador, en 2D o 3D low poly. Mira nuestros prototipos y cuéntanos tu idea.">
+  <meta name="twitter:image" content="https://buski87.dev/assets/og-image.jpg">
   <meta name="theme-color" content="#0f1020">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>">
-  <link rel="stylesheet" href="assets/style.css?v=20261117t">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="/assets/style.css?v=20261117v">
+  <script>(function(){var p=location.pathname;if(/\.html$/.test(p)){history.replaceState(null,'',p.replace(/\/?index\.html$/,'/').replace(/\.html$/,'')+location.search+location.hash);}})();</script>
 </head>
 <body>
+  <a class="skip" href="#main" data-i18n="skip">Saltar al contenido</a>
   <header class="top">
-    <a class="brand" href="index.html">Buski<span>87</span></a>
-    <nav>
-      <a href="index.html" data-i18n="nav_home">Inicio</a>
-      <a href="juegos.html" data-i18n="nav_games" aria-current="page">Juegos</a>
-      <a href="web.html" data-i18n="nav_web">Web</a>
+    <a class="brand" href="/">Buski<span>87</span></a>
+    <nav aria-label="Principal">
+      <a href="/" data-i18n="nav_home">Inicio</a>
+      <a href="/juegos" data-i18n="nav_games" aria-current="page">Juegos</a>
+      <a href="/web" data-i18n="nav_web">Web</a>
       <a href="#contacto" data-i18n="nav_contact">Contacto</a>
       <button id="lang" class="lang" aria-label="Language">EN</button>
     </nav>
   </header>
 
-  <main>
+  <main id="main">
     <section id="juegos" class="hero page-hero">
       <p class="eyebrow" data-i18n="hero_eyebrow">Estudio de videojuegos</p>
       <h1 data-i18n="hero_title">Tu idea de juego, <em>jugable</em> en pocos días.</h1>
@@ -110,6 +124,32 @@
       </div>
     </section>
 
+    <section id="faq">
+      <h2 data-i18n="faq_title">Preguntas frecuentes</h2>
+      <div class="faq">
+        <details>
+          <summary data-i18n="gq1">¿Para qué plataformas hacéis los juegos?</summary>
+          <p data-i18n="ga1">Para Android y para navegador web.</p>
+        </details>
+        <details>
+          <summary data-i18n="gq2">¿Cuánto tarda un prototipo?</summary>
+          <p data-i18n="ga2">Depende del paquete: 5 días el Básico, 15 el Estándar y 30 el Premium.</p>
+        </details>
+        <details>
+          <summary data-i18n="gq3">¿Puedo ver un prototipo antes de decidir?</summary>
+          <p data-i18n="ga3">Sí. Tienes prototipos listos en esta página, con capturas, y podemos adaptar uno parecido a tu idea.</p>
+        </details>
+        <details>
+          <summary data-i18n="gq4">¿Os encargáis de subir el juego a la tienda?</summary>
+          <p data-i18n="ga4">En el paquete Premium sí. Los costes de la tienda (cuenta de desarrollador, tasas…) los cubre el cliente.</p>
+        </details>
+        <details>
+          <summary data-i18n="gq5">¿Puedo pedir algo distinto a los paquetes?</summary>
+          <p data-i18n="ga5">Claro. Si tu proyecto es distinto, te preparamos un presupuesto a medida.</p>
+        </details>
+      </div>
+    </section>
+
     <section id="contacto" class="contact">
       <h2 data-i18n="contact_title_juegos">Hablemos de tu juego</h2>
       <p class="sub" data-i18n="contact_sub_juegos">Cuéntanos qué tienes en mente: género, referencias, plataforma y plazos. Te respondemos en 24-48 h.</p>
@@ -142,10 +182,10 @@
   </main>
 
   <footer>
-    <p>© <span id="year"></span> Buski87 · buski87.dev · <a href="privacidad.html" data-i18n="footer_priv">Política de privacidad</a></p>
+    <p>© <span id="year"></span> Buski87 · buski87.dev · <a href="/privacidad" data-i18n="footer_priv">Política de privacidad</a></p>
     <p class="small" data-i18n="footer_note">Los nombres de los prototipos son provisionales. Todos los juegos usan arte y temática propios.</p>
   </footer>
 
-  <script src="assets/app.js?v=20261117t"></script>
+  <script src="/assets/app.js?v=20261117v"></script>
 </body>
 </html>

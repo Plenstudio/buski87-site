@@ -5,27 +5,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Buski87 — Juegos y web a medida</title>
   <meta name="description" content="Desarrollo de videojuegos para Android y web, y creación y mantenimiento de webs a medida.">
+  <link rel="canonical" href="https://buski87.dev/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Buski87">
+  <meta property="og:locale" content="es_ES">
   <meta property="og:title" content="Buski87 — Juegos y web a medida">
   <meta property="og:description" content="Desarrollo de videojuegos para Android y web, y creación y mantenimiento de webs a medida.">
-  <meta property="og:url" content="https://buski87.dev">
+  <meta property="og:url" content="https://buski87.dev/">
+  <meta property="og:image" content="https://buski87.dev/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Buski87 — Juegos y web a medida">
+  <meta name="twitter:description" content="Desarrollo de videojuegos para Android y web, y creación y mantenimiento de webs a medida.">
+  <meta name="twitter:image" content="https://buski87.dev/assets/og-image.jpg">
   <meta name="theme-color" content="#0f1020">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>">
-  <link rel="stylesheet" href="assets/style.css?v=20261117t">
-  <script>(function(){var m={"#juegos":"juegos.html","#publicados":"juegos.html#publicados","#prototipos":"juegos.html#prototipos","#servicios":"juegos.html#servicios","#paquetes":"juegos.html#paquetes","#web":"web.html"};var t=m[location.hash];if(t)location.replace(t);})();</script>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="/assets/style.css?v=20261117v">
+  <script>(function(){var m={'#juegos':'/juegos','#publicados':'/juegos#publicados','#prototipos':'/juegos#prototipos','#servicios':'/juegos#servicios','#paquetes':'/juegos#paquetes','#web':'/web'};var t=m[location.hash];if(t)location.replace(t);})();(function(){var p=location.pathname;if(/\.html$/.test(p)){history.replaceState(null,'',p.replace(/\/?index\.html$/,'/').replace(/\.html$/,'')+location.search+location.hash);}})();</script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[
+    {"@type":"Organization","@id":"https://buski87.dev/#org","name":"Buski87","url":"https://buski87.dev/","logo":"https://buski87.dev/apple-touch-icon.png"},
+    {"@type":"WebSite","@id":"https://buski87.dev/#site","url":"https://buski87.dev/","name":"Buski87","inLanguage":["es","en"],"publisher":{"@id":"https://buski87.dev/#org"}}
+  ]}
+  </script>
 </head>
 <body>
+  <a class="skip" href="#main" data-i18n="skip">Saltar al contenido</a>
   <header class="top">
-    <a class="brand" href="index.html">Buski<span>87</span></a>
-    <nav>
-      <a href="index.html" data-i18n="nav_home" aria-current="page">Inicio</a>
-      <a href="juegos.html" data-i18n="nav_games">Juegos</a>
-      <a href="web.html" data-i18n="nav_web">Web</a>
+    <a class="brand" href="/">Buski<span>87</span></a>
+    <nav aria-label="Principal">
+      <a href="/" data-i18n="nav_home" aria-current="page">Inicio</a>
+      <a href="/juegos" data-i18n="nav_games">Juegos</a>
+      <a href="/web" data-i18n="nav_web">Web</a>
       <a href="#contacto" data-i18n="nav_contact">Contacto</a>
       <button id="lang" class="lang" aria-label="Language">EN</button>
     </nav>
   </header>
 
-  <main>
+  <main id="main">
     <section id="inicio" class="hero">
       <p class="eyebrow" data-i18n="main_eyebrow">Desarrollo de juegos y webs</p>
       <h1 data-i18n="main_title">Juegos y webs <em>a medida</em>.</h1>
@@ -35,8 +54,8 @@
         <a class="btn" href="#areas" data-i18n="main_cta2">Ver servicios</a>
       </div>
       <div class="areas" id="areas">
-        <a class="area-card" href="juegos.html"><span>🎮</span><h3 data-i18n="a_games_t">Videojuegos</h3><p data-i18n="a_games_p">Prototipos jugables y juegos completos para Android y navegador, en 2D o 3D low poly.</p><b data-i18n="a_games_l">Ver juegos →</b></a>
-        <a class="area-card" href="web.html"><span>🌐</span><h3 data-i18n="a_web_t">Web</h3><p data-i18n="a_web_p">Creación de páginas web a medida y mantenimiento para que estén siempre al día y seguras.</p><b data-i18n="a_web_l">Ver web →</b></a>
+        <a class="area-card" href="/juegos"><span>🎮</span><h3 data-i18n="a_games_t">Videojuegos</h3><p data-i18n="a_games_p">Prototipos jugables y juegos completos para Android y navegador, en 2D o 3D low poly.</p><b data-i18n="a_games_l">Ver juegos →</b></a>
+        <a class="area-card" href="/web"><span>🌐</span><h3 data-i18n="a_web_t">Web</h3><p data-i18n="a_web_p">Creación de páginas web a medida y mantenimiento para que estén siempre al día y seguras.</p><b data-i18n="a_web_l">Ver web →</b></a>
       </div>
     </section>
 
@@ -66,7 +85,7 @@
         </article>
       </div>
       <div class="cta">
-        <a class="btn" href="web.html#tecnologias" data-i18n="stack_more">Ver el detalle de la parte web →</a>
+        <a class="btn" href="/web#tecnologias" data-i18n="stack_more">Ver el detalle de la parte web →</a>
       </div>
     </section>
 
@@ -109,9 +128,9 @@
   </main>
 
   <footer>
-    <p>© <span id="year"></span> Buski87 · buski87.dev · <a href="privacidad.html" data-i18n="footer_priv">Política de privacidad</a></p>
+    <p>© <span id="year"></span> Buski87 · buski87.dev · <a href="/privacidad" data-i18n="footer_priv">Política de privacidad</a></p>
   </footer>
 
-  <script src="assets/app.js?v=20261117t"></script>
+  <script src="/assets/app.js?v=20261117v"></script>
 </body>
 </html>
