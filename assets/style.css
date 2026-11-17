@@ -79,7 +79,13 @@ h2{font-size:clamp(1.6rem,3.5vw,2.4rem);margin:0 0 .3em}
 .small{color:var(--muted);font-size:.85rem}
 footer{text-align:center;padding:30px 16px 50px;border-top:1px solid var(--line);color:var(--muted)}
 footer p{margin:4px 0}
-@media(max-width:640px){nav a{display:none}section{padding-top:48px}.hero{padding-top:56px}}
+@media(max-width:640px){
+  .top{flex-wrap:wrap;justify-content:center;gap:6px;padding:10px 16px}
+  nav{width:100%;justify-content:center;flex-wrap:wrap;gap:4px 16px}
+  nav a{font-size:.9rem}
+  html{scroll-padding-top:96px}
+  section{padding-top:48px}.hero{padding-top:56px}
+}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 
 .cform{max-width:620px;margin:0 auto 24px;text-align:left;display:grid;gap:16px}
