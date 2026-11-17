@@ -3,23 +3,22 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Buski87 — Desarrollo de juegos móviles a medida</title>
-  <meta name="description" content="Desarrollamos videojuegos móviles a medida. Mira nuestros prototipos y cuéntanos tu idea.">
+  <title>Buski87 — Juegos, web y ciberseguridad</title>
+  <meta name="description" content="Desarrollo de juegos móviles y webs a medida, y servicios de ciberseguridad: pentesting, SIEM con Wazuh y SOC, y DLP.">
   <meta property="og:title" content="Buski87">
-  <meta property="og:description" content="Desarrollo de juegos móviles a medida. Prototipos reales, listos para enseñar.">
+  <meta property="og:description" content="Juegos móviles, webs y ciberseguridad (pentesting, Wazuh, SOC, DLP).">
   <meta property="og:url" content="https://buski87.dev">
   <meta name="theme-color" content="#0f1020">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>">
-  <link rel="stylesheet" href="assets/style.css?v=20261117f">
+  <link rel="stylesheet" href="assets/style.css?v=20261117g">
 </head>
 <body>
   <header class="top">
     <a class="brand" href="#inicio">Buski<span>87</span></a>
     <nav>
-      <a href="#publicados" data-i18n="nav_pub">Nuestros juegos</a>
-      <a href="#prototipos" data-i18n="nav_protos">Prototipos</a>
-      <a href="#servicios" data-i18n="nav_services">Servicios</a>
-      <a href="#paquetes" data-i18n="nav_packs">Paquetes</a>
+      <a href="#juegos" data-i18n="nav_games">Juegos</a>
+      <a href="#web" data-i18n="nav_web">Web</a>
+      <a href="#ciber" data-i18n="nav_cyber">Ciberseguridad</a>
       <a href="#contacto" data-i18n="nav_contact">Contacto</a>
       <button id="lang" class="lang" aria-label="Language">EN</button>
     </nav>
@@ -27,11 +26,26 @@
 
   <main>
     <section id="inicio" class="hero">
+      <p class="eyebrow" data-i18n="main_eyebrow">Desarrollo y ciberseguridad</p>
+      <h1 data-i18n="main_title">Juegos, webs y <em>ciberseguridad</em> a medida.</h1>
+      <p class="lead" data-i18n="main_lead">Creamos juegos móviles y páginas web, y protegemos a tu empresa con pentesting, SIEM, SOC y DLP.</p>
+      <div class="cta">
+        <a class="btn primary" href="#contacto" data-i18n="main_cta1">Hablemos</a>
+        <a class="btn" href="#areas" data-i18n="main_cta2">Ver servicios</a>
+      </div>
+      <div class="areas" id="areas">
+        <a class="area-card" href="#juegos"><span>🎮</span><h3 data-i18n="a_games_t">Juegos móviles</h3><p data-i18n="a_games_p">Prototipos jugables y juegos completos con Godot, en 2D o 3D low poly.</p><b data-i18n="a_games_l">Ver juegos →</b></a>
+        <a class="area-card" href="#web"><span>🌐</span><h3 data-i18n="a_web_t">Web</h3><p data-i18n="a_web_p">Creación de páginas web a medida y mantenimiento para que estén siempre al día y seguras.</p><b data-i18n="a_web_l">Ver web →</b></a>
+        <a class="area-card" href="#ciber"><span>🛡️</span><h3 data-i18n="a_cyber_t">Ciberseguridad</h3><p data-i18n="a_cyber_p">Pentesting, SIEM con Wazuh y SOC, y prevención de fuga de datos (DLP).</p><b data-i18n="a_cyber_l">Ver ciberseguridad →</b></a>
+      </div>
+    </section>
+
+    <section id="juegos" class="area-intro">
       <p class="eyebrow" data-i18n="hero_eyebrow">Estudio de juegos móviles</p>
-      <h1 data-i18n="hero_title">Tu idea de juego, <em>jugable</em> en pocos días.</h1>
+      <h2 data-i18n="hero_title">Tu idea de juego, <em>jugable</em> en pocos días.</h2>
       <p class="lead" data-i18n="hero_lead">Desarrollamos juegos móviles a medida. Partimos de un prototipo funcional para que veas y toques tu idea antes de comprometer un gran presupuesto.</p>
       <div class="cta">
-        <a class="btn primary" href="#contacto" data-i18n="hero_cta1">Quiero mi juego</a>
+        <a class="btn primary" href="#contacto" data-area="juegos" data-i18n="hero_cta1">Quiero mi juego</a>
         <a class="btn" href="#prototipos" data-i18n="hero_cta2">Ver prototipos</a>
       </div>
       <ul class="stats">
@@ -80,6 +94,36 @@
       </div>
     </section>
 
+    <section id="web">
+      <p class="eyebrow" data-i18n="nav_web">Web</p>
+      <h2 data-i18n="web_title">Web: creación y mantenimiento</h2>
+      <p class="sub" data-i18n="web_sub">Tu web hecha a medida y siempre cuidada. Alcance claro y presupuesto cerrado antes de empezar.</p>
+      <div class="cards3">
+        <article><span>🖥️</span><h3 data-i18n="w1_t">Creación de webs</h3><p data-i18n="w1_p">Diseño a medida, adaptado a móvil y ordenador, rápido y listo para publicar.</p></article>
+        <article><span>🔧</span><h3 data-i18n="w2_t">Mantenimiento</h3><p data-i18n="w2_p">Actualizaciones, copias de seguridad, cambios de contenido y vigilancia para que tu web no se quede atrás.</p></article>
+        <article><span>🔒</span><h3 data-i18n="w3_t">Segura desde el principio</h3><p data-i18n="w3_p">Configuración segura y revisión antes de salir, con el respaldo de nuestro equipo de ciberseguridad.</p></article>
+      </div>
+      <div class="cta"><a class="btn primary" href="#contacto" data-area="web" data-i18n="web_cta">Pedir presupuesto web</a></div>
+    </section>
+
+    <section id="ciber">
+      <p class="eyebrow" data-i18n="nav_cyber">Ciberseguridad</p>
+      <h2 data-i18n="cy_title">Ciberseguridad para empresas</h2>
+      <p class="sub" data-i18n="cy_sub">Para saber dónde están tus riesgos y vigilarlos. Siempre con autorización y alcance pactado por escrito.</p>
+      <div class="cards3">
+        <article><span>🕵️</span><h3 data-i18n="c1_t">Pentesting</h3><p data-i18n="c1_p">Pruebas de intrusión controladas sobre webs, redes y sistemas. Entregamos un informe con los hallazgos, su gravedad y cómo corregirlos.</p></article>
+        <article><span>📡</span><h3 data-i18n="c2_t">SIEM con Wazuh y SOC</h3><p data-i18n="c2_p">Monitorización continua con Wazuh: detección de amenazas, alertas y respuesta a incidentes con un servicio SOC.</p></article>
+        <article><span>🗂️</span><h3 data-i18n="c3_t">DLP</h3><p data-i18n="c3_p">Prevención de fuga de datos: identificamos qué información sensible tienes y evitamos que salga de tu organización.</p></article>
+      </div>
+      <ol class="steps">
+        <li data-i18n="cs1">Reunión y alcance</li>
+        <li data-i18n="cs2">Propuesta y presupuesto</li>
+        <li data-i18n="cs3">Ejecución del servicio</li>
+        <li data-i18n="cs4">Informe y seguimiento</li>
+      </ol>
+      <div class="cta"><a class="btn primary" href="#contacto" data-area="ciber" data-i18n="cy_cta">Pedir presupuesto de ciberseguridad</a></div>
+    </section>
+
     <section id="contacto" class="contact">
       <h2 data-i18n="contact_title">Hablemos de tu juego</h2>
       <p class="sub" data-i18n="contact_sub">Cuéntanos qué tienes en mente: género, referencias, plataforma y plazos. Te respondemos en 24-48 h.</p>
@@ -90,10 +134,14 @@
           <label><span data-i18n="f_email">Tu email</span>
             <input type="email" name="email" required autocomplete="email" maxlength="120"></label>
         </div>
-        <label><span data-i18n="f_pack">Paquete de interés</span>
-          <select name="pack" id="f-pack"></select></label>
-        <label><span data-i18n="f_mode">Estilo gráfico</span>
-          <select name="mode" id="f-mode"></select></label>
+        <label><span data-i18n="f_area">¿Qué te interesa?</span>
+          <select name="area" id="f-area"></select></label>
+        <div id="game-fields" class="game-fields" hidden>
+          <label><span data-i18n="f_pack">Paquete de interés</span>
+            <select name="pack" id="f-pack"></select></label>
+          <label><span data-i18n="f_mode">Estilo gráfico</span>
+            <select name="mode" id="f-mode"></select></label>
+        </div>
         <label><span data-i18n="f_msg">Cuéntanos tu idea</span>
           <textarea name="message" id="f-msg" rows="6" required maxlength="3000"></textarea></label>
         <label class="consent"><input type="checkbox" name="consent" id="f-consent" required>
@@ -113,6 +161,6 @@
     <p class="small" data-i18n="footer_note">Los nombres de los prototipos son provisionales. Todos los juegos usan arte y temática propios.</p>
   </footer>
 
-  <script src="assets/app.js?v=20261117f"></script>
+  <script src="assets/app.js?v=20261117g"></script>
 </body>
 </html>

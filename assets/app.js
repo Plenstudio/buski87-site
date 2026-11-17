@@ -129,7 +129,7 @@ const PACKS = [
 ];
 
 const I18N = {
-  es:{ nav_protos:"Prototipos", nav_services:"Servicios", nav_contact:"Contacto", nav_packs:"Paquetes",
+  es:{ nav_games:"Juegos", nav_web:"Web", nav_cyber:"Ciberseguridad", main_eyebrow:"Desarrollo y ciberseguridad", main_title:"Juegos, webs y <em>ciberseguridad</em> a medida.", main_lead:"Creamos juegos móviles y páginas web, y protegemos a tu empresa con pentesting, SIEM, SOC y DLP.", main_cta1:"Hablemos", main_cta2:"Ver servicios", a_games_t:"Juegos móviles", a_games_p:"Prototipos jugables y juegos completos con Godot, en 2D o 3D low poly.", a_games_l:"Ver juegos →", a_web_t:"Web", a_web_p:"Creación de páginas web a medida y mantenimiento para que estén siempre al día y seguras.", a_web_l:"Ver web →", a_cyber_t:"Ciberseguridad", a_cyber_p:"Pentesting, SIEM con Wazuh y SOC, y prevención de fuga de datos (DLP).", a_cyber_l:"Ver ciberseguridad →", web_title:"Web: creación y mantenimiento", web_sub:"Tu web hecha a medida y siempre cuidada. Alcance claro y presupuesto cerrado antes de empezar.", w1_t:"Creación de webs", w1_p:"Diseño a medida, adaptado a móvil y ordenador, rápido y listo para publicar.", w2_t:"Mantenimiento", w2_p:"Actualizaciones, copias de seguridad, cambios de contenido y vigilancia para que tu web no se quede atrás.", w3_t:"Segura desde el principio", w3_p:"Configuración segura y revisión antes de salir, con el respaldo de nuestro equipo de ciberseguridad.", web_cta:"Pedir presupuesto web", cy_title:"Ciberseguridad para empresas", cy_sub:"Para saber dónde están tus riesgos y vigilarlos. Siempre con autorización y alcance pactado por escrito.", c1_t:"Pentesting", c1_p:"Pruebas de intrusión controladas sobre webs, redes y sistemas. Entregamos un informe con los hallazgos, su gravedad y cómo corregirlos.", c2_t:"SIEM con Wazuh y SOC", c2_p:"Monitorización continua con Wazuh: detección de amenazas, alertas y respuesta a incidentes con un servicio SOC.", c3_t:"DLP", c3_p:"Prevención de fuga de datos: identificamos qué información sensible tienes y evitamos que salga de tu organización.", cs1:"Reunión y alcance", cs2:"Propuesta y presupuesto", cs3:"Ejecución del servicio", cs4:"Informe y seguimiento", cy_cta:"Pedir presupuesto de ciberseguridad", f_area:"¿Qué te interesa?", area_juegos:"Juegos", area_web:"Web", area_ciber:"Ciberseguridad", area_otro:"Otro", nav_protos:"Prototipos", nav_services:"Servicios", nav_contact:"Contacto", nav_packs:"Paquetes",
     pk_title:"Paquetes", pk_sub:"Elige el punto de partida. Si tu proyecto es distinto, te preparamos un presupuesto a medida.",
     pk_note:"Entregamos los archivos del juego en un ZIP. Solo el paquete Premium incluye la subida a la tienda, y los costes de la tienda (cuenta de desarrollador, tasas…) los cubre el cliente.", mode_label:"Estilo gráfico", f_mode:"Estilo gráfico", pk_both:"Disponible en 2D y 3D Low Poly",
     pk_days:"días de entrega", pk_rev:"revisiones", pk_continue:"Continuar", pk_ask:"Consultar por WhatsApp",
@@ -147,23 +147,23 @@ const I18N = {
     pub_badge:"PUBLICADO", pub_own:"Juego propio · no está a la venta", pub_cta:"Quiero un prototipo basado en este juego",
     stat_pub:"juego publicado", stat_for_sale:"prototipos a la venta",
     pre_based:"Me interesa un prototipo basado en «%s». Mi idea y temática:\n",
-    serv_title:"Qué hacemos por ti",
+    serv_title:"Juegos: qué hacemos por ti",
     s1_t:"Prototipo en días", s1_p:"Un MVP jugable con el bucle principal del juego para validar la idea cuanto antes.",
     s2_t:"Tu temática, tu estilo", s2_p:"Adaptamos mecánicas probadas a tu marca, historia o personajes originales.",
     s3_t:"Del prototipo a la tienda", s3_p:"Pulido, monetización y builds para Android. En el paquete Premium también subimos el juego a la tienda.",
     step1:"Nos cuentas la idea", step2:"Te enseñamos un prototipo", step3:"Lo ajustamos juntos", step4:"Te entregamos el juego",
-    contact_title:"Hablemos de tu juego",
-    contact_sub:"Cuéntanos qué tienes en mente: género, referencias, plataforma y plazos. Te respondemos en 24-48 h.",
+    contact_title:"Hablemos de tu proyecto",
+    contact_sub:"Cuéntanos qué necesitas: un juego, una web o un servicio de ciberseguridad. Te respondemos en 24-48 h.",
     contact_mail:"Escribir por email", contact_wa:"Escribir por WhatsApp",
     footer_priv:"Política de privacidad", footer_note:"Los nombres de los prototipos son provisionales. Todos los juegos usan arte y temática propios.",
     play:"Ver en Google Play", want:"Quiero algo así", live:"PUBLICADO", proto:"PROTOTIPO",
-    mail_subject:"Consulta desde buski87.dev", mail_body:"Hola, me gustaría desarrollar un juego. Mi idea es:\n\n",
-    wa_text:"Hola, me gustaría desarrollar un juego. Mi idea es: ",
+    mail_subject:"Consulta desde buski87.dev", mail_body:"Hola, me gustaría hablar de un proyecto. Mi idea es:\n\n",
+    wa_text:"Hola, me gustaría hablar de un proyecto: ",
     mail_subject_game:"Quiero un juego como ", mail_body_game:"Hola, me interesa un juego parecido a «%s». Mi idea y mi temática serían:\n\n",
     wa_text_game:"Hola, me interesa un juego parecido a «%s». Mi idea es: ",
     contact_line:"También por WhatsApp: ",
     f_name:"Nombre", f_email:"Tu email", f_pack:"Paquete de interés", f_unknown:"Aún no lo sé",
-    f_msg:"Cuéntanos tu idea", f_ph_msg:"Género, referencias, plazos, plataforma…",
+    f_msg:"Cuéntanos qué necesitas", f_ph_msg:"Qué quieres hacer, plazos, referencias…",
     f_send:"Enviar mensaje", f_sending:"Enviando…",
     f_ok:"¡Gracias! Hemos recibido tu mensaje y te responderemos en 24-48 h.",
     f_err:"No se ha podido enviar. Inténtalo de nuevo o escríbenos por WhatsApp.",
@@ -173,7 +173,7 @@ const I18N = {
     f_wait:"Un momento… vuelve a pulsar «Enviar» en unos segundos.",
     f_links:"Por favor, no incluyas enlaces en el mensaje: cuéntanos la idea con tus palabras.",
     f_rate:"Ya has enviado un mensaje hace un momento. Espera un minuto antes de enviar otro." },
-  en:{ nav_protos:"Prototypes", nav_services:"Services", nav_contact:"Contact", nav_packs:"Packages",
+  en:{ nav_games:"Games", nav_web:"Web", nav_cyber:"Cybersecurity", main_eyebrow:"Development and cybersecurity", main_title:"Games, websites and <em>cybersecurity</em>, tailor-made.", main_lead:"We build mobile games and websites, and protect your company with pentesting, SIEM, SOC and DLP.", main_cta1:"Let's talk", main_cta2:"See services", a_games_t:"Mobile games", a_games_p:"Playable prototypes and full games built with Godot, in 2D or low poly 3D.", a_games_l:"See games →", a_web_t:"Web", a_web_p:"Custom website creation and maintenance so they are always up to date and secure.", a_web_l:"See web →", a_cyber_t:"Cybersecurity", a_cyber_p:"Pentesting, SIEM with Wazuh and SOC, and data loss prevention (DLP).", a_cyber_l:"See cybersecurity →", web_title:"Web: creation and maintenance", web_sub:"Your website, custom-built and always looked after. Clear scope and a fixed quote before we start.", w1_t:"Website creation", w1_p:"Custom design, adapted to mobile and desktop, fast and ready to publish.", w2_t:"Maintenance", w2_p:"Updates, backups, content changes and monitoring so your website never falls behind.", w3_t:"Secure from the start", w3_p:"Secure configuration and a review before launch, backed by our cybersecurity team.", web_cta:"Request a web quote", cy_title:"Cybersecurity for companies", cy_sub:"To know where your risks are and keep watch over them. Always with written authorization and an agreed scope.", c1_t:"Pentesting", c1_p:"Controlled penetration tests on websites, networks and systems. We deliver a report with the findings, their severity and how to fix them.", c2_t:"SIEM with Wazuh and SOC", c2_p:"Continuous monitoring with Wazuh: threat detection, alerts and incident response with a SOC service.", c3_t:"DLP", c3_p:"Data loss prevention: we identify what sensitive information you hold and stop it from leaving your organization.", cs1:"Meeting and scope", cs2:"Proposal and quote", cs3:"Service delivery", cs4:"Report and follow-up", cy_cta:"Request a cybersecurity quote", f_area:"What are you interested in?", area_juegos:"Games", area_web:"Web", area_ciber:"Cybersecurity", area_otro:"Other", nav_protos:"Prototypes", nav_services:"Services", nav_contact:"Contact", nav_packs:"Packages",
     pk_title:"Packages", pk_sub:"Pick your starting point. If your project is different, we'll prepare a custom quote.",
     pk_note:"We deliver the game files as a ZIP. Only the Premium package includes uploading to the store, and store costs (developer account, fees…) are covered by the client.", mode_label:"Graphics style", f_mode:"Graphics style", pk_both:"Available in 2D and 3D Low Poly",
     pk_days:"day delivery", pk_rev:"revisions", pk_continue:"Continue", pk_ask:"Ask on WhatsApp",
@@ -191,23 +191,23 @@ const I18N = {
     pub_badge:"LIVE", pub_own:"Our own game · not for sale", pub_cta:"I want a prototype based on this game",
     stat_pub:"published game", stat_for_sale:"prototypes for sale",
     pre_based:"I'm interested in a prototype based on “%s”. My idea and theme:\n",
-    serv_title:"What we do for you",
+    serv_title:"Games: what we do for you",
     s1_t:"Prototype in days", s1_p:"A playable MVP with the core loop of the game to validate the idea fast.",
     s2_t:"Your theme, your style", s2_p:"We adapt proven mechanics to your brand, story or original characters.",
     s3_t:"From prototype to store", s3_p:"Polish, monetization and Android builds. With the Premium package we also upload the game to the store.",
     step1:"Tell us your idea", step2:"We show you a prototype", step3:"We tune it together", step4:"We deliver the game",
-    contact_title:"Let's talk about your game",
-    contact_sub:"Tell us what you have in mind: genre, references, platform and deadlines. We reply within 24-48 h.",
+    contact_title:"Let's talk about your project",
+    contact_sub:"Tell us what you need: a game, a website or a cybersecurity service. We reply within 24-48 h.",
     contact_mail:"Send an email", contact_wa:"Message on WhatsApp",
     footer_priv:"Privacy policy", footer_note:"Prototype names are provisional. All games use original art and themes.",
     play:"View on Google Play", want:"I want something like this", live:"LIVE", proto:"PROTOTYPE",
-    mail_subject:"Inquiry from buski87.dev", mail_body:"Hi, I'd like to develop a game. My idea is:\n\n",
-    wa_text:"Hi, I'd like to develop a game. My idea is: ",
+    mail_subject:"Inquiry from buski87.dev", mail_body:"Hi, I'd like to talk about a project. My idea is:\n\n",
+    wa_text:"Hi, I'd like to talk about a project: ",
     mail_subject_game:"I want a game like ", mail_body_game:"Hi, I'm interested in a game similar to “%s”. My idea and theme would be:\n\n",
     wa_text_game:"Hi, I'm interested in a game similar to “%s”. My idea is: ",
     contact_line:"Also on WhatsApp: ",
     f_name:"Name", f_email:"Your email", f_pack:"Package of interest", f_unknown:"Not sure yet",
-    f_msg:"Tell us your idea", f_ph_msg:"Genre, references, deadlines, platform…",
+    f_msg:"Tell us what you need", f_ph_msg:"What you want to do, deadlines, references…",
     f_send:"Send message", f_sending:"Sending…",
     f_ok:"Thanks! We got your message and will reply within 24-48 h.",
     f_err:"Could not send. Please try again or message us on WhatsApp.",
@@ -363,7 +363,7 @@ function applyLang(){
   $("#lang").textContent = lang === "es" ? "EN" : "ES";
   $("#wa").href = waHref();
   $("#f-msg").placeholder = t("f_ph_msg");
-  renderPackSelect(); renderModeTabs();
+  renderAreaSelect(); renderPackSelect(); renderModeTabs();
   renderPublished(); renderFilters(); renderGrid(); renderPacks();
 }
 
@@ -371,6 +371,14 @@ function applyLang(){
 const MIN_FILL_MS = 4000;      // menos de 4 s desde que carga la página = bot
 const COOLDOWN_MS = 60000;     // 1 envío por minuto y navegador
 let formStart = Date.now();
+function renderAreaSelect(){
+  const sel = $("#f-area"), cur = sel.value;
+  sel.innerHTML = `<option value="">${esc(t("f_unknown"))}</option>` +
+    ["juegos","web","ciber","otro"].map(a => `<option value="${a}">${esc(t("area_" + a))}</option>`).join("");
+  sel.value = cur; toggleArea();
+}
+function toggleArea(){ $("#game-fields").hidden = $("#f-area").value !== "juegos"; }
+$("#f-area").addEventListener("change", toggleArea);
 function renderPackSelect(){
   const sel = $("#f-pack"), cur = sel.value;
   sel.innerHTML = `<option value="">${esc(t("f_unknown"))}</option>` +
@@ -381,6 +389,8 @@ function renderPackSelect(){
   fm.value = cm;
 }
 function goForm(opts){
+  const area = opts.area || ((opts.pack || opts.game || opts.based) ? "juegos" : "");
+  if (area){ $("#f-area").value = area; toggleArea(); }
   if (opts.pack) setMode(mode);
   if (opts.pack) $("#f-pack").value = opts.pack;
   const ta = $("#f-msg");
@@ -388,8 +398,8 @@ function goForm(opts){
   if (opts.based && !ta.value.trim()) ta.value = t("pre_based").replace("%s", opts.based);
 }
 document.addEventListener("click", e => {
-  const a = e.target.closest("a[data-want],a[data-pack],a[data-based]");
-  if (a) goForm({ game: a.dataset.want, pack: a.dataset.pack, based: a.dataset.based });
+  const a = e.target.closest("a[data-want],a[data-pack],a[data-based],a[data-area]");
+  if (a) goForm({ game: a.dataset.want, pack: a.dataset.pack, based: a.dataset.based, mode: a.dataset.mode, area: a.dataset.area });
 });
 $("#cform").addEventListener("submit", async e => {
   e.preventDefault();
@@ -410,12 +420,18 @@ $("#cform").addEventListener("submit", async e => {
     if (Date.now() - last < COOLDOWN_MS){ st.classList.add("err"); st.textContent = t("f_rate"); return; }
   } catch(_){}
   fd.delete("botcheck"); fd.delete("consent"); fd.set("consentimiento", "Sí");
-  const pk = PACKS.find(p => p.id === fd.get("pack"));
-  const md = fd.get("mode");
-  fd.set("pack", pk ? pk.name.es + " (€" + pk.price[md === "3d" ? "3d" : "2d"] + (md ? "" : ", precio 2D") + ")" : "—");
-  fd.set("estilo", md === "3d" ? "3D Low Poly" : md === "2d" ? "2D" : "—"); fd.delete("mode");
+  const area = fd.get("area") || "";
+  const AREA_ES = { juegos: "Juegos", web: "Web", ciber: "Ciberseguridad", otro: "Otro" };
+  fd.set("area", AREA_ES[area] || "—");
+  if (area === "juegos"){
+    const pk = PACKS.find(p => p.id === fd.get("pack"));
+    const md = fd.get("mode");
+    fd.set("pack", pk ? pk.name.es + " (€" + pk.price[md === "3d" ? "3d" : "2d"] + (md ? "" : ", precio 2D") + ")" : "—");
+    fd.set("estilo", md === "3d" ? "3D Low Poly" : md === "2d" ? "2D" : "—");
+  } else { fd.delete("pack"); }
+  fd.delete("mode");
   fd.append("access_key", CONFIG.web3formsKey);
-  fd.append("subject", "Nuevo contacto — buski87.dev");
+  fd.append("subject", "Nuevo contacto — buski87.dev (" + (AREA_ES[area] || "sin área") + ")");
   fd.append("from_name", "Buski87 (web)");
   btn.disabled = true; btn.textContent = t("f_sending");
   try {
