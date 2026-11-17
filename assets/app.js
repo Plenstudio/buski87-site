@@ -326,37 +326,35 @@ function renderPublished(){
 let pack = "standard";
 let mode = "2d", modeFilter = "all";
 const price = p => p.price[mode];
-function fill(s, p, m){ return t(s).replace("%s", p.name[lang]).replace("%p", p.price[m || mode]); }
+function fill(s, p){ return t(s).replace("%s", p.name[lang]).replace("%p", price(p)); }
 const MODE_NAME = m => MODES[m][lang];
 function setMode(m){
-  mode = m; renderPacks(); renderPackSelect();
+  mode = m; renderModeTabs(); renderPacks(); renderPackSelect();
   const fm = $("#f-mode"); if (fm) fm.value = m;
 }
 
+function renderModeTabs(){
+  $("#mode-tabs").innerHTML = ["2d","3d"].map(m =>
+    `<button class="chip${m===mode?" on":""}" data-m="${m}">${esc(MODE_NAME(m))}</button>`).join("");
+  $("#mode-tabs").querySelectorAll(".chip").forEach(b => b.onclick = () => setMode(b.dataset.m));
+}
 function renderPacks(){
-  const idx = lang === "es" ? 0 : 1;
+  $("#pk-tabs").innerHTML = PACKS.map(p =>
+    `<button class="tab${p.id===pack?" on":""}" role="tab" data-id="${p.id}">${esc(p.name[lang])}</button>`).join("");
+  $("#pk-tabs").querySelectorAll(".tab").forEach(b => b.onclick = () => { pack = b.dataset.id; renderPacks(); });
   const p = PACKS.find(x => x.id === pack);
-  const card = md => {
-    const wa = "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(fill("pk_wa_text", p, md) + " [" + MODE_NAME(md) + "]");
-    const tabs = PACKS.map(q =>
-      `<button class="tab${q.id===pack?" on":""}" role="tab" data-id="${q.id}">${esc(q.name[lang])}</button>`).join("");
-    return `<div class="pack pk-${md}">
-      <div class="tabs" role="tablist">${tabs}</div>
-      <div class="pk-body">
-        <span class="pk-style">${esc(MODE_NAME(md))}</span>
-        <p class="pk-price">€${p.price[md]}</p>
-        <h3>${esc(p.title[lang])}</h3>
-        <p class="pk-desc">${esc(p.desc[lang])}</p>
-        <div class="pk-meta"><span>⏱ ${p.days} ${t("pk_days")}</span><span>🔁 ${p.rev} ${t("pk_rev")}</span></div>
-        <ul class="pk-list">${p.feats.map(f => `<li class="${f[2]?"":"no"}">${esc(f[idx])}</li>`).join("")}</ul>
-        <a class="btn primary" href="#contacto" data-pack="${p.id}" data-mode="${md}">${t("pk_continue")} →</a>
-        <a class="btn wa" href="${wa}" target="_blank" rel="noopener">💬 ${t("pk_ask")}</a>
-      </div>
-    </div>`;
-  };
-  $("#pk-pair").innerHTML = card("2d") + card("3d");
-  $("#pk-pair").querySelectorAll(".tab").forEach(b => b.onclick = () => { pack = b.dataset.id; renderPacks(); });
-  $("#pk-note").innerHTML = "ℹ️ " + t("pk_note");
+  const idx = lang === "es" ? 0 : 1;
+  const wa = "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(fill("pk_wa_text", p));
+  $("#pk-body").innerHTML = `
+    <p class="pk-price">€${price(p)} <small>${esc(MODE_NAME(mode))}</small></p>
+    <p class="pk-both">${t("pk_both")}</p>
+    <h3>${esc(p.title[lang])}</h3>
+    <p class="pk-desc">${esc(p.desc[lang])}</p>
+    <div class="pk-meta"><span>⏱ ${p.days} ${t("pk_days")}</span><span>🔁 ${p.rev} ${t("pk_rev")}</span></div>
+    <ul class="pk-list">${p.feats.map(f => `<li class="${f[2]?"":"no"}">${esc(f[idx])}</li>`).join("")}</ul>
+    <p class="pk-note">ℹ️ ${t("pk_note")}</p>
+    <a class="btn primary" href="#contacto" data-pack="${p.id}">${t("pk_continue")} →</a>
+    <a class="btn wa" href="${wa}" target="_blank" rel="noopener">💬 ${t("pk_ask")}</a>`;
 }
 
 function applyLang(){
@@ -365,7 +363,7 @@ function applyLang(){
   $("#lang").textContent = lang === "es" ? "EN" : "ES";
   $("#wa").href = waHref();
   $("#f-msg").placeholder = t("f_ph_msg");
-  renderPackSelect();
+  renderPackSelect(); renderModeTabs();
   renderPublished(); renderFilters(); renderGrid(); renderPacks();
 }
 
@@ -376,14 +374,14 @@ let formStart = Date.now();
 function renderPackSelect(){
   const sel = $("#f-pack"), cur = sel.value;
   sel.innerHTML = `<option value="">${esc(t("f_unknown"))}</option>` +
-    PACKS.map(p => `<option value="${p.id}">${esc(p.name[lang])} — €${p.price["2d"]} (2D) / €${p.price["3d"]} (3D)</option>`).join("");
+    PACKS.map(p => `<option value="${p.id}">${esc(p.name[lang])} — €${price(p)}</option>`).join("");
   sel.value = cur;
   const fm = $("#f-mode"), cm = fm.value;
   fm.innerHTML = `<option value="">${esc(t("f_unknown"))}</option><option value="2d">${esc(MODE_NAME("2d"))}</option><option value="3d">${esc(MODE_NAME("3d"))}</option>`;
   fm.value = cm;
 }
 function goForm(opts){
-  if (opts.pack) setMode(opts.mode || mode);
+  if (opts.pack) setMode(mode);
   if (opts.pack) $("#f-pack").value = opts.pack;
   const ta = $("#f-msg");
   if (opts.game && !ta.value.trim()) ta.value = t("pre_game").replace("%s", opts.game);
@@ -391,7 +389,7 @@ function goForm(opts){
 }
 document.addEventListener("click", e => {
   const a = e.target.closest("a[data-want],a[data-pack],a[data-based]");
-  if (a) goForm({ game: a.dataset.want, pack: a.dataset.pack, based: a.dataset.based, mode: a.dataset.mode });
+  if (a) goForm({ game: a.dataset.want, pack: a.dataset.pack, based: a.dataset.based });
 });
 $("#cform").addEventListener("submit", async e => {
   e.preventDefault();
