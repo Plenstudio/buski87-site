@@ -66,6 +66,7 @@ const GAMES = [
 /* Juegos propios ya publicados: NO están a la venta (sí un prototipo basado en ellos). */
 const PUBLISHED = [
   { id:"sarten", icon:"🍳", c:["#ff8a3d","#c2410c"], name:"El juego de la sartén",
+    img:"assets/img/sarten-destacada.jpg", shots:["assets/img/sarten-destacada.jpg","assets/img/sarten-1_calle.jpg","assets/img/sarten-2_gato.jpg","assets/img/sarten-3_vecina.jpg","assets/img/sarten-4_tarta.jpg","assets/img/sarten-5_ayuda.jpg","assets/img/sarten-6_jefes.jpg","assets/img/sarten-7_pueblo.jpg"],
     url:"https://play.google.com/store/apps/details?id=com.eljuegodelasarten.game",
     genre:{es:"Acción", en:"Action"},
     desc:{es:"Un héroe y su sartén. Combate cuerpo a cuerpo con humor. Nuestro juego, publicado en Google Play.", en:"A hero and his frying pan. Humorous melee combat. Our own game, live on Google Play."} }
@@ -306,7 +307,7 @@ function renderGrid(){
 
 function renderPublished(){
   $("#pub-grid").innerHTML = PUBLISHED.map(g => `<article class="pub">
-    <div class="art" style="background:linear-gradient(135deg,${g.c[0]},${g.c[1]})"><span class="badge live">${t("pub_badge")}</span>${g.img ? `<img src="${esc(g.img)}" alt="${esc(g.name)}" loading="lazy">` : `<span aria-hidden="true">${g.icon}</span>`}</div>
+    <div class="art${(g.shots||[]).length>1?" has-shots":""}" data-id="${esc(g.id)}" style="background:linear-gradient(135deg,${g.c[0]},${g.c[1]})"><span class="badge live">${t("pub_badge")}</span>${(g.shots||[]).length>1?`<span class="shots-badge">📷 ${g.shots.length}</span>`:""}${g.img ? `<img src="${esc(g.img)}" alt="${esc(g.name)}" loading="lazy">` : `<span aria-hidden="true">${g.icon}</span>`}</div>
     <div class="body">
       <span class="genre">${esc(g.genre[lang])}</span>
       <h3>${esc(g.name)}</h3>
@@ -317,6 +318,9 @@ function renderPublished(){
         <a class="btn primary" href="#contacto" data-based="${esc(g.name)}">${t("pub_cta")} →</a>
       </div>
     </div></article>`).join("");
+  $("#pub-grid").querySelectorAll(".art.has-shots").forEach(a => {
+    a.onclick = () => galOpen(PUBLISHED.find(g => g.id === a.dataset.id));
+  });
 }
 
 let pack = "standard";
