@@ -57,10 +57,10 @@ const GAMES = [
     name:"Campamento",
     genre:{es:"Idle tycoon 3D", en:"3D idle tycoon"},
     desc:{es:"Gestiona un camping en vista isométrica: recoge billetes y basura, contrata rangers y desbloquea zonas.", en:"Run a campsite in isometric view: collect cash and litter, hire rangers and unlock new areas."} },
-  { id:"lobo", icon:"🐺", c:["#475569","#0c4a6e"], cat:"idle",
+  { id:"lobo", icon:"🐺", c:["#475569","#0c4a6e"], cat:"idle", modes:["2d"], img:"assets/img/lobo-03_combate.png", shots:["assets/img/lobo-03_combate.png","assets/img/lobo-04_guarida.png","assets/img/lobo-02_caza.png","assets/img/lobo-06_mejoras_nivel.png","assets/img/lobo-07_bioma_completo.png","assets/img/lobo-01_intro.png"],
     name:"Lobo Cazador",
     genre:{es:"Caza y mejoras", en:"Hunt & upgrade"},
-    desc:{es:"Caza, carga, vende y mejora con un lobo por biomas ibérico, nevado y de fantasía.", en:"Hunt, carry, sell and upgrade as a wolf across Iberian, snowy and fantasy biomes."} },
+    desc:{es:"Caza, carga, vende y mejora con un lobo por biomas ibérico, nevado y de fantasía. MVP: Sierra Ibérica con 4 presas y 4 mejoras.", en:"Hunt, carry, sell and upgrade as a wolf across Iberian, snowy and fantasy biomes. MVP: Iberian Sierra with 4 prey and 4 upgrades."} },
 ];
 
 /* Juegos propios ya publicados: NO están a la venta (sí un prototipo basado en ellos). */
