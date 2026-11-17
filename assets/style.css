@@ -183,3 +183,9 @@ nav a[aria-current="page"]{color:var(--text);border-bottom:2px solid var(--accen
 .tech-list{list-style:none;padding:0;margin:16px 0 0;display:grid;gap:6px;font-size:.92rem;color:var(--text)}
 .tech-list li::before{content:"✓";color:var(--wa);font-weight:800;margin-right:8px}
 @media(max-width:760px){.tech-grid{grid-template-columns:1fr}}
+
+/* Inicio: resumen de tecnologías */
+.tech-home{grid-template-columns:repeat(6,1fr)}
+.tech-home article{gap:0;grid-column:span 2}
+.tech-home article:nth-child(n+4){grid-column:span 3}
+@media(max-width:900px){.tech-home{grid-template-columns:1fr}.tech-home article,.tech-home article:nth-child(n+4){grid-column:auto}}
