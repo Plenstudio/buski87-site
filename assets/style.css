@@ -236,3 +236,22 @@ nav a[aria-current="page"]{color:var(--text);border-bottom:2px solid var(--accen
 
 /* Aplicaciones */
 .proj-icon{display:grid;place-items:center;aspect-ratio:16/10;font-size:4.5rem}
+
+/* Precios orientativos */
+#precios h2,#precios .sub{text-align:center}
+#precios .sub{margin-left:auto;margin-right:auto}
+.pr-wrap{overflow-x:auto;max-width:900px;margin:0 auto;border:1px solid var(--line);border-radius:var(--r);background:var(--card)}
+.pr-table{width:100%;border-collapse:collapse;text-align:left}
+.pr-table th,.pr-table td{padding:16px 18px;border-bottom:1px solid var(--line);vertical-align:top}
+.pr-table thead th{background:var(--bg2);color:var(--muted);font-size:.85rem;text-transform:uppercase;letter-spacing:1px}
+.pr-table tbody tr:last-child th,.pr-table tbody tr:last-child td{border-bottom:0}
+.pr-table td{color:var(--muted)}
+.pr-table .pr-price{color:var(--text);white-space:nowrap}
+.pr-table .pr-price strong{color:var(--accent);font-size:1.2rem}
+.pr-note{text-align:center;max-width:700px;margin:16px auto}
+.pr-cta{text-align:center;margin:0}
+@media(max-width:640px){.pr-table thead{display:none}.pr-table,.pr-table tbody,.pr-table tr,.pr-table th,.pr-table td{display:block}.pr-table tr{padding:14px 0;border-bottom:1px solid var(--line)}.pr-table tbody tr:last-child{border-bottom:0}.pr-table th,.pr-table td{border:0;padding:4px 18px}}
+
+/* Botón flotante de WhatsApp */
+.wa-float{position:fixed;right:18px;bottom:18px;z-index:50;width:56px;height:56px;border-radius:50%;background:var(--wa);color:#07210f;display:grid;place-items:center;box-shadow:0 6px 18px rgba(0,0,0,.4);transition:transform .15s}
+.wa-float:hover,.wa-float:focus-visible{transform:scale(1.08)}
