@@ -22,7 +22,7 @@
   <meta name="theme-color" content="#0f1020">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="stylesheet" href="/assets/style.css?v=20261117y">
+  <link rel="stylesheet" href="/assets/style.css?v=20261117z">
   <script>(function(){var p=location.pathname;if(/\.html$/.test(p)){history.replaceState(null,'',p.replace(/\/?index\.html$/,'/').replace(/\.html$/,'')+location.search+location.hash);}})();</script>
 </head>
 <body>
@@ -137,6 +137,8 @@
           <label><span data-i18n="f_email">Tu email</span>
             <input type="email" name="email" required autocomplete="email" maxlength="120"></label>
         </div>
+        <label><span data-i18n="f_phone">Teléfono (opcional)</span>
+          <input type="tel" name="telefono" id="f-phone" autocomplete="tel" inputmode="tel" maxlength="20" pattern="[0-9+()\s.\-]{6,20}" placeholder="+34 600 000 000"></label>
         <input type="hidden" name="area" id="f-area" value="web">
         <div id="web-fields" class="game-fields">
           <label><span data-i18n="f_service">¿Qué necesitas?</span>
@@ -167,6 +169,6 @@
     <p>© <span id="year"></span> Buski87 · buski87.dev · <a href="/privacidad" data-i18n="footer_priv">Política de privacidad</a> · <a href="/aviso-legal" data-i18n="footer_legal">Aviso legal</a></p>
   </footer>
 
-  <script src="/assets/app.js?v=20261117y"></script>
+  <script src="/assets/app.js?v=20261117z"></script>
 </body>
 </html>
