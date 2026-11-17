@@ -12,7 +12,7 @@ const CONFIG = {
 /* Prototipos. `img` es opcional: pon la ruta de una captura (assets/img/xxx.png)
    y sustituirá al icono. `url` solo para juegos ya publicados. */
 const GAMES = [
-  { id:"casa", icon:"🏚️", c:["#6d28d9","#1e1b4b"], cat:"puzzle",
+  { id:"casa", icon:"🏚️", c:["#6d28d9","#1e1b4b"], cat:"puzzle", img:"assets/img/casa-02_buscando.png",
     name:"Casa Encantada",
     genre:{es:"Objetos escondidos", en:"Hidden objects"},
     desc:{es:"Explora una mansión embrujada y encuentra los objetos ocultos en cada estancia.", en:"Explore a haunted mansion and find the hidden objects in every room."} },
@@ -44,7 +44,7 @@ const GAMES = [
     name:"Red & Blue Corp",
     genre:{es:"Idle tycoon", en:"Idle tycoon"},
     desc:{es:"Dirige una empresa de hacking y defensa. 20 departamentos que automatizar y mejorar.", en:"Run a hacking and defense company. 20 departments to automate and upgrade."} },
-  { id:"comics", icon:"📚", c:["#db2777","#4c1d95"], cat:"idle",
+  { id:"comics", icon:"📚", c:["#db2777","#4c1d95"], cat:"idle", img:"assets/img/comics-03_ampliada.png",
     name:"Cómics & Minis Tycoon",
     genre:{es:"Tycoon isométrico", en:"Isometric tycoon"},
     desc:{es:"Monta y amplía tu tienda friki de cómics y miniaturas, planta a planta.", en:"Build and expand your geek shop of comics and miniatures, floor by floor."} },
