@@ -334,27 +334,29 @@ function setMode(m){
 }
 
 function renderPacks(){
-  $("#pk-tabs").innerHTML = PACKS.map(p =>
-    `<button class="tab${p.id===pack?" on":""}" role="tab" data-id="${p.id}">${esc(p.name[lang])}</button>`).join("");
-  $("#pk-tabs").querySelectorAll(".tab").forEach(b => b.onclick = () => { pack = b.dataset.id; renderPacks(); });
-  const p = PACKS.find(x => x.id === pack);
   const idx = lang === "es" ? 0 : 1;
-  const wa = "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(fill("pk_wa_text", p));
-  const col = md => {
+  const p = PACKS.find(x => x.id === pack);
+  const card = md => {
     const wa = "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(fill("pk_wa_text", p, md) + " [" + MODE_NAME(md) + "]");
-    return `<div class="pk-col pk-${md}">
-      <span class="pk-style">${esc(MODE_NAME(md))}</span>
-      <p class="pk-price">€${p.price[md]}</p>
-      <h3>${esc(p.title[lang])}</h3>
-      <p class="pk-desc">${esc(p.desc[lang])}</p>
-      <div class="pk-meta"><span>⏱ ${p.days} ${t("pk_days")}</span><span>🔁 ${p.rev} ${t("pk_rev")}</span></div>
-      <ul class="pk-list">${p.feats.map(f => `<li class="${f[2]?"":"no"}">${esc(f[idx])}</li>`).join("")}</ul>
-      <a class="btn primary" href="#contacto" data-pack="${p.id}" data-mode="${md}">${t("pk_continue")} →</a>
-      <a class="btn wa" href="${wa}" target="_blank" rel="noopener">💬 ${t("pk_ask")}</a>
+    const tabs = PACKS.map(q =>
+      `<button class="tab${q.id===pack?" on":""}" role="tab" data-id="${q.id}">${esc(q.name[lang])}</button>`).join("");
+    return `<div class="pack pk-${md}">
+      <div class="tabs" role="tablist">${tabs}</div>
+      <div class="pk-body">
+        <span class="pk-style">${esc(MODE_NAME(md))}</span>
+        <p class="pk-price">€${p.price[md]}</p>
+        <h3>${esc(p.title[lang])}</h3>
+        <p class="pk-desc">${esc(p.desc[lang])}</p>
+        <div class="pk-meta"><span>⏱ ${p.days} ${t("pk_days")}</span><span>🔁 ${p.rev} ${t("pk_rev")}</span></div>
+        <ul class="pk-list">${p.feats.map(f => `<li class="${f[2]?"":"no"}">${esc(f[idx])}</li>`).join("")}</ul>
+        <a class="btn primary" href="#contacto" data-pack="${p.id}" data-mode="${md}">${t("pk_continue")} →</a>
+        <a class="btn wa" href="${wa}" target="_blank" rel="noopener">💬 ${t("pk_ask")}</a>
+      </div>
     </div>`;
   };
-  $("#pk-body").innerHTML = `<div class="pk-cols">${col("2d")}${col("3d")}</div>
-    <p class="pk-note">ℹ️ ${t("pk_note")}</p>`;
+  $("#pk-pair").innerHTML = card("2d") + card("3d");
+  $("#pk-pair").querySelectorAll(".tab").forEach(b => b.onclick = () => { pack = b.dataset.id; renderPacks(); });
+  $("#pk-note").innerHTML = "ℹ️ " + t("pk_note");
 }
 
 function applyLang(){

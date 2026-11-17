@@ -131,13 +131,12 @@ footer p{margin:4px 0}
 .gal-nav:hover,.gal-x:hover{background:var(--accent);color:#1a1020}
 @media(max-width:560px){.gal{gap:0}.gal-nav{position:absolute;bottom:90px;z-index:1}.gal-nav.prev{left:8px}.gal-nav.next{right:8px}.gal figure>img{max-height:62vh}}
 
-/* Paquetes: 2D a la izquierda, 3D a la derecha */
-.pk-body{padding:0}
-.pk-cols{display:grid;grid-template-columns:1fr 1fr}
-.pk-col{padding:26px;display:flex;flex-direction:column}
-.pk-col+.pk-col{border-left:1px solid var(--line)}
+/* Paquetes: dos tarjetas separadas, 2D a la izquierda y 3D a la derecha */
+.pk-pair{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch}
+.pk-pair .pack{max-width:none;display:flex;flex-direction:column}
+.pk-pair .pk-body{display:flex;flex-direction:column;flex:1}
+.pk-pair .pk-list{flex:1}
 .pk-style{align-self:flex-start;font-size:.78rem;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:4px 12px;border-radius:999px;background:var(--bg2);border:1px solid var(--line);color:var(--accent);margin-bottom:10px}
 .pk-3d .pk-style{background:var(--accent);border-color:var(--accent);color:#1a1020}
-.pk-col .pk-list{flex:1}
-.pk-body>.pk-note{padding:0 26px 22px;margin:0;border-top:1px solid var(--line);padding-top:16px}
-@media(max-width:760px){.pk-cols{grid-template-columns:1fr}.pk-col+.pk-col{border-left:0;border-top:1px solid var(--line)}}
+#pk-note{margin-top:16px}
+@media(max-width:820px){.pk-pair{grid-template-columns:1fr}}
