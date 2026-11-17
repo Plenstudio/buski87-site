@@ -213,3 +213,6 @@ nav a[aria-current="page"]{color:var(--text);border-bottom:2px solid var(--accen
 .other-contact{text-align:center;color:var(--muted);font-size:.92rem;margin:18px auto 0;max-width:620px}
 .other-contact a{color:var(--accent)}
 .contact.page-hero{padding-top:56px}
+
+/* Definición de revisión */
+.pk-def{color:var(--muted);font-size:.82rem;margin:-6px 0 14px}
