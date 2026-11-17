@@ -5,20 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Buski87 — Juegos, web y ciberseguridad</title>
   <meta name="description" content="Desarrollo de juegos móviles y webs a medida, y servicios de ciberseguridad: pentesting, SIEM con Wazuh y SOC, y DLP.">
-  <meta property="og:title" content="Buski87">
-  <meta property="og:description" content="Juegos móviles, webs y ciberseguridad (pentesting, Wazuh, SOC, DLP).">
+  <meta property="og:title" content="Buski87 — Juegos, web y ciberseguridad">
+  <meta property="og:description" content="Desarrollo de juegos móviles y webs a medida, y servicios de ciberseguridad: pentesting, SIEM con Wazuh y SOC, y DLP.">
   <meta property="og:url" content="https://buski87.dev">
   <meta name="theme-color" content="#0f1020">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>">
-  <link rel="stylesheet" href="assets/style.css?v=20261117g">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+  <link rel="stylesheet" href="assets/style.css?v=20261117h">
+  <script>(function(){var m={"#juegos":"juegos.html","#publicados":"juegos.html#publicados","#prototipos":"juegos.html#prototipos","#servicios":"juegos.html#servicios","#paquetes":"juegos.html#paquetes","#web":"web.html","#ciber":"ciber.html"};var t=m[location.hash];if(t)location.replace(t);})();</script>
 </head>
 <body>
   <header class="top">
-    <a class="brand" href="#inicio">Buski<span>87</span></a>
+    <a class="brand" href="index.html">Buski<span>87</span></a>
     <nav>
-      <a href="#juegos" data-i18n="nav_games">Juegos</a>
-      <a href="#web" data-i18n="nav_web">Web</a>
-      <a href="#ciber" data-i18n="nav_cyber">Ciberseguridad</a>
+      <a href="index.html" data-i18n="nav_home" aria-current="page">Inicio</a>
+      <a href="juegos.html" data-i18n="nav_games">Juegos</a>
+      <a href="web.html" data-i18n="nav_web">Web</a>
+      <a href="ciber.html" data-i18n="nav_cyber">Ciberseguridad</a>
       <a href="#contacto" data-i18n="nav_contact">Contacto</a>
       <button id="lang" class="lang" aria-label="Language">EN</button>
     </nav>
@@ -34,99 +36,15 @@
         <a class="btn" href="#areas" data-i18n="main_cta2">Ver servicios</a>
       </div>
       <div class="areas" id="areas">
-        <a class="area-card" href="#juegos"><span>🎮</span><h3 data-i18n="a_games_t">Juegos móviles</h3><p data-i18n="a_games_p">Prototipos jugables y juegos completos con Godot, en 2D o 3D low poly.</p><b data-i18n="a_games_l">Ver juegos →</b></a>
-        <a class="area-card" href="#web"><span>🌐</span><h3 data-i18n="a_web_t">Web</h3><p data-i18n="a_web_p">Creación de páginas web a medida y mantenimiento para que estén siempre al día y seguras.</p><b data-i18n="a_web_l">Ver web →</b></a>
-        <a class="area-card" href="#ciber"><span>🛡️</span><h3 data-i18n="a_cyber_t">Ciberseguridad</h3><p data-i18n="a_cyber_p">Pentesting, SIEM con Wazuh y SOC, y prevención de fuga de datos (DLP).</p><b data-i18n="a_cyber_l">Ver ciberseguridad →</b></a>
+        <a class="area-card" href="juegos.html"><span>🎮</span><h3 data-i18n="a_games_t">Juegos móviles</h3><p data-i18n="a_games_p">Prototipos jugables y juegos completos con Godot, en 2D o 3D low poly.</p><b data-i18n="a_games_l">Ver juegos →</b></a>
+        <a class="area-card" href="web.html"><span>🌐</span><h3 data-i18n="a_web_t">Web</h3><p data-i18n="a_web_p">Creación de páginas web a medida y mantenimiento para que estén siempre al día y seguras.</p><b data-i18n="a_web_l">Ver web →</b></a>
+        <a class="area-card" href="ciber.html"><span>🛡️</span><h3 data-i18n="a_cyber_t">Ciberseguridad</h3><p data-i18n="a_cyber_p">Pentesting, SIEM con Wazuh y SOC, y prevención de fuga de datos (DLP).</p><b data-i18n="a_cyber_l">Ver ciberseguridad →</b></a>
       </div>
-    </section>
-
-    <section id="juegos" class="area-intro">
-      <p class="eyebrow" data-i18n="hero_eyebrow">Estudio de juegos móviles</p>
-      <h2 data-i18n="hero_title">Tu idea de juego, <em>jugable</em> en pocos días.</h2>
-      <p class="lead" data-i18n="hero_lead">Desarrollamos juegos móviles a medida. Partimos de un prototipo funcional para que veas y toques tu idea antes de comprometer un gran presupuesto.</p>
-      <div class="cta">
-        <a class="btn primary" href="#contacto" data-area="juegos" data-i18n="hero_cta1">Quiero mi juego</a>
-        <a class="btn" href="#prototipos" data-i18n="hero_cta2">Ver prototipos</a>
-      </div>
-      <ul class="stats">
-        <li><strong id="count">0</strong><span data-i18n="stat_protos">prototipos</span></li>
-        <li><strong>Godot 4</strong><span data-i18n="stat_engine">motor</span></li>
-        <li><strong id="pubcount">1</strong><span data-i18n="stat_pub">juego publicado</span></li>
-      </ul>
-    </section>
-
-    <section id="publicados">
-      <h2 data-i18n="pub_title">Nuestros juegos publicados</h2>
-      <p class="sub" data-i18n="pub_sub">Juegos propios que ya están en tienda. No están a la venta, pero sí puedes encargarnos un prototipo basado en ellos.</p>
-      <div class="pubgrid" id="pub-grid"></div>
-    </section>
-
-    <section id="prototipos">
-      <h2 data-i18n="protos_title">Prototipos a la venta</h2>
-      <p class="sub" data-i18n="protos_sub">Cada proyecto empieza así: una idea, un género y un prototipo funcional. Si quieres uno parecido con tu temática, hablamos.</p>
-      <div class="filters" id="filters"></div>
-      <div class="filters" id="mode-filter"></div>
-      <div class="grid" id="grid"></div>
-    </section>
-
-    <section id="servicios">
-      <h2 data-i18n="serv_title">Qué hacemos por ti</h2>
-      <div class="cards3">
-        <article><span>🧩</span><h3 data-i18n="s1_t">Prototipo en días</h3><p data-i18n="s1_p">Un MVP jugable con el bucle principal del juego para validar la idea cuanto antes.</p></article>
-        <article><span>🎨</span><h3 data-i18n="s2_t">Tu temática, tu estilo</h3><p data-i18n="s2_p">Adaptamos mecánicas probadas a tu marca, historia o personajes originales.</p></article>
-        <article><span>🚀</span><h3 data-i18n="s3_t">Del prototipo a la tienda</h3><p data-i18n="s3_p">Pulido, monetización, builds para Android y publicación en Google Play.</p></article>
-      </div>
-      <ol class="steps">
-        <li data-i18n="step1">Nos cuentas la idea</li>
-        <li data-i18n="step2">Te enseñamos un prototipo</li>
-        <li data-i18n="step3">Lo ajustamos juntos</li>
-        <li data-i18n="step4">Lo publicamos</li>
-      </ol>
-    </section>
-
-    <section id="paquetes">
-      <h2 data-i18n="pk_title">Paquetes</h2>
-      <p class="sub" data-i18n="pk_sub">Elige el punto de partida. Si tu proyecto es distinto, te preparamos un presupuesto a medida.</p>
-      <div class="filters" id="mode-tabs" role="group"></div>
-      <div class="pack">
-        <div class="tabs" id="pk-tabs" role="tablist"></div>
-        <div class="pk-body" id="pk-body"></div>
-      </div>
-    </section>
-
-    <section id="web">
-      <p class="eyebrow" data-i18n="nav_web">Web</p>
-      <h2 data-i18n="web_title">Web: creación y mantenimiento</h2>
-      <p class="sub" data-i18n="web_sub">Tu web hecha a medida y siempre cuidada. Alcance claro y presupuesto cerrado antes de empezar.</p>
-      <div class="cards3">
-        <article><span>🖥️</span><h3 data-i18n="w1_t">Creación de webs</h3><p data-i18n="w1_p">Diseño a medida, adaptado a móvil y ordenador, rápido y listo para publicar.</p></article>
-        <article><span>🔧</span><h3 data-i18n="w2_t">Mantenimiento</h3><p data-i18n="w2_p">Actualizaciones, copias de seguridad, cambios de contenido y vigilancia para que tu web no se quede atrás.</p></article>
-        <article><span>🔒</span><h3 data-i18n="w3_t">Segura desde el principio</h3><p data-i18n="w3_p">Configuración segura y revisión antes de salir, con el respaldo de nuestro equipo de ciberseguridad.</p></article>
-      </div>
-      <div class="cta"><a class="btn primary" href="#contacto" data-area="web" data-i18n="web_cta">Pedir presupuesto web</a></div>
-    </section>
-
-    <section id="ciber">
-      <p class="eyebrow" data-i18n="nav_cyber">Ciberseguridad</p>
-      <h2 data-i18n="cy_title">Ciberseguridad para empresas</h2>
-      <p class="sub" data-i18n="cy_sub">Para saber dónde están tus riesgos y vigilarlos. Siempre con autorización y alcance pactado por escrito.</p>
-      <div class="cards3">
-        <article><span>🕵️</span><h3 data-i18n="c1_t">Pentesting</h3><p data-i18n="c1_p">Pruebas de intrusión controladas sobre webs, redes y sistemas. Entregamos un informe con los hallazgos, su gravedad y cómo corregirlos.</p></article>
-        <article><span>📡</span><h3 data-i18n="c2_t">SIEM con Wazuh y SOC</h3><p data-i18n="c2_p">Monitorización continua con Wazuh: detección de amenazas, alertas y respuesta a incidentes con un servicio SOC.</p></article>
-        <article><span>🗂️</span><h3 data-i18n="c3_t">DLP</h3><p data-i18n="c3_p">Prevención de fuga de datos: identificamos qué información sensible tienes y evitamos que salga de tu organización.</p></article>
-      </div>
-      <ol class="steps">
-        <li data-i18n="cs1">Reunión y alcance</li>
-        <li data-i18n="cs2">Propuesta y presupuesto</li>
-        <li data-i18n="cs3">Ejecución del servicio</li>
-        <li data-i18n="cs4">Informe y seguimiento</li>
-      </ol>
-      <div class="cta"><a class="btn primary" href="#contacto" data-area="ciber" data-i18n="cy_cta">Pedir presupuesto de ciberseguridad</a></div>
     </section>
 
     <section id="contacto" class="contact">
-      <h2 data-i18n="contact_title">Hablemos de tu juego</h2>
-      <p class="sub" data-i18n="contact_sub">Cuéntanos qué tienes en mente: género, referencias, plataforma y plazos. Te respondemos en 24-48 h.</p>
+      <h2 data-i18n="contact_title">Hablemos de tu proyecto</h2>
+      <p class="sub" data-i18n="contact_sub">Cuéntanos qué necesitas: un juego, una web o un servicio de ciberseguridad. Te respondemos en 24-48 h.</p>
       <form id="cform" class="cform">
         <div class="f-row">
           <label><span data-i18n="f_name">Nombre</span>
@@ -136,13 +54,7 @@
         </div>
         <label><span data-i18n="f_area">¿Qué te interesa?</span>
           <select name="area" id="f-area"></select></label>
-        <div id="game-fields" class="game-fields" hidden>
-          <label><span data-i18n="f_pack">Paquete de interés</span>
-            <select name="pack" id="f-pack"></select></label>
-          <label><span data-i18n="f_mode">Estilo gráfico</span>
-            <select name="mode" id="f-mode"></select></label>
-        </div>
-        <label><span data-i18n="f_msg">Cuéntanos tu idea</span>
+        <label><span data-i18n="f_msg">Cuéntanos qué necesitas</span>
           <textarea name="message" id="f-msg" rows="6" required maxlength="3000"></textarea></label>
         <label class="consent"><input type="checkbox" name="consent" id="f-consent" required>
           <span data-i18n="f_consent">Acepto que usen mis datos solo para responder a mi consulta.</span></label>
@@ -158,9 +70,8 @@
 
   <footer>
     <p>© <span id="year"></span> Buski87 · buski87.dev · <a href="privacidad.html" data-i18n="footer_priv">Política de privacidad</a></p>
-    <p class="small" data-i18n="footer_note">Los nombres de los prototipos son provisionales. Todos los juegos usan arte y temática propios.</p>
   </footer>
 
-  <script src="assets/app.js?v=20261117g"></script>
+  <script src="assets/app.js?v=20261117h"></script>
 </body>
 </html>

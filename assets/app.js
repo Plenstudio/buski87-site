@@ -129,7 +129,7 @@ const PACKS = [
 ];
 
 const I18N = {
-  es:{ nav_games:"Juegos", nav_web:"Web", nav_cyber:"Ciberseguridad", main_eyebrow:"Desarrollo y ciberseguridad", main_title:"Juegos, webs y <em>ciberseguridad</em> a medida.", main_lead:"Creamos juegos móviles y páginas web, y protegemos a tu empresa con pentesting, SIEM, SOC y DLP.", main_cta1:"Hablemos", main_cta2:"Ver servicios", a_games_t:"Juegos móviles", a_games_p:"Prototipos jugables y juegos completos con Godot, en 2D o 3D low poly.", a_games_l:"Ver juegos →", a_web_t:"Web", a_web_p:"Creación de páginas web a medida y mantenimiento para que estén siempre al día y seguras.", a_web_l:"Ver web →", a_cyber_t:"Ciberseguridad", a_cyber_p:"Pentesting, SIEM con Wazuh y SOC, y prevención de fuga de datos (DLP).", a_cyber_l:"Ver ciberseguridad →", web_title:"Web: creación y mantenimiento", web_sub:"Tu web hecha a medida y siempre cuidada. Alcance claro y presupuesto cerrado antes de empezar.", w1_t:"Creación de webs", w1_p:"Diseño a medida, adaptado a móvil y ordenador, rápido y listo para publicar.", w2_t:"Mantenimiento", w2_p:"Actualizaciones, copias de seguridad, cambios de contenido y vigilancia para que tu web no se quede atrás.", w3_t:"Segura desde el principio", w3_p:"Configuración segura y revisión antes de salir, con el respaldo de nuestro equipo de ciberseguridad.", web_cta:"Pedir presupuesto web", cy_title:"Ciberseguridad para empresas", cy_sub:"Para saber dónde están tus riesgos y vigilarlos. Siempre con autorización y alcance pactado por escrito.", c1_t:"Pentesting", c1_p:"Pruebas de intrusión controladas sobre webs, redes y sistemas. Entregamos un informe con los hallazgos, su gravedad y cómo corregirlos.", c2_t:"SIEM con Wazuh y SOC", c2_p:"Monitorización continua con Wazuh: detección de amenazas, alertas y respuesta a incidentes con un servicio SOC.", c3_t:"DLP", c3_p:"Prevención de fuga de datos: identificamos qué información sensible tienes y evitamos que salga de tu organización.", cs1:"Reunión y alcance", cs2:"Propuesta y presupuesto", cs3:"Ejecución del servicio", cs4:"Informe y seguimiento", cy_cta:"Pedir presupuesto de ciberseguridad", f_area:"¿Qué te interesa?", area_juegos:"Juegos", area_web:"Web", area_ciber:"Ciberseguridad", area_otro:"Otro", nav_protos:"Prototipos", nav_services:"Servicios", nav_contact:"Contacto", nav_packs:"Paquetes",
+  es:{ nav_home:"Inicio", contact_title_juegos:"Hablemos de tu juego", contact_sub_juegos:"Cuéntanos qué tienes en mente: género, referencias, plataforma y plazos. Te respondemos en 24-48 h.", contact_title_web:"Hablemos de tu web", contact_sub_web:"Cuéntanos qué necesitas: una web nueva o mantener la que ya tienes. Te respondemos en 24-48 h.", contact_title_ciber:"Hablemos de tu seguridad", contact_sub_ciber:"Cuéntanos qué quieres proteger o revisar. Te respondemos en 24-48 h y definimos el alcance contigo.", f_ph_msg_juegos:"Género, referencias, plazos, plataforma…", f_ph_msg_web:"Tipo de web, si ya tienes una, plazos…", f_ph_msg_ciber:"Qué quieres proteger o revisar, tamaño de la empresa, plazos…", wa_text_juegos:"Hola, me gustaría desarrollar un juego. Mi idea es: ", wa_text_web:"Hola, me interesa una web (creación o mantenimiento). Lo que necesito: ", wa_text_ciber:"Hola, me interesa un servicio de ciberseguridad. Lo que necesito: ", ws1:"Nos cuentas qué necesitas", ws2:"Propuesta y presupuesto cerrado", ws3:"Diseñamos y desarrollamos", ws4:"Publicamos y mantenemos", nav_games:"Juegos", nav_web:"Web", nav_cyber:"Ciberseguridad", main_eyebrow:"Desarrollo y ciberseguridad", main_title:"Juegos, webs y <em>ciberseguridad</em> a medida.", main_lead:"Creamos juegos móviles y páginas web, y protegemos a tu empresa con pentesting, SIEM, SOC y DLP.", main_cta1:"Hablemos", main_cta2:"Ver servicios", a_games_t:"Juegos móviles", a_games_p:"Prototipos jugables y juegos completos con Godot, en 2D o 3D low poly.", a_games_l:"Ver juegos →", a_web_t:"Web", a_web_p:"Creación de páginas web a medida y mantenimiento para que estén siempre al día y seguras.", a_web_l:"Ver web →", a_cyber_t:"Ciberseguridad", a_cyber_p:"Pentesting, SIEM con Wazuh y SOC, y prevención de fuga de datos (DLP).", a_cyber_l:"Ver ciberseguridad →", web_title:"Web: creación y mantenimiento", web_sub:"Tu web hecha a medida y siempre cuidada. Alcance claro y presupuesto cerrado antes de empezar.", w1_t:"Creación de webs", w1_p:"Diseño a medida, adaptado a móvil y ordenador, rápido y listo para publicar.", w2_t:"Mantenimiento", w2_p:"Actualizaciones, copias de seguridad, cambios de contenido y vigilancia para que tu web no se quede atrás.", w3_t:"Segura desde el principio", w3_p:"Configuración segura y revisión antes de salir, con el respaldo de nuestro equipo de ciberseguridad.", web_cta:"Pedir presupuesto web", cy_title:"Ciberseguridad para empresas", cy_sub:"Para saber dónde están tus riesgos y vigilarlos. Siempre con autorización y alcance pactado por escrito.", c1_t:"Pentesting", c1_p:"Pruebas de intrusión controladas sobre webs, redes y sistemas. Entregamos un informe con los hallazgos, su gravedad y cómo corregirlos.", c2_t:"SIEM con Wazuh y SOC", c2_p:"Monitorización continua con Wazuh: detección de amenazas, alertas y respuesta a incidentes con un servicio SOC.", c3_t:"DLP", c3_p:"Prevención de fuga de datos: identificamos qué información sensible tienes y evitamos que salga de tu organización.", cs1:"Reunión y alcance", cs2:"Propuesta y presupuesto", cs3:"Ejecución del servicio", cs4:"Informe y seguimiento", cy_cta:"Pedir presupuesto de ciberseguridad", f_area:"¿Qué te interesa?", area_juegos:"Juegos", area_web:"Web", area_ciber:"Ciberseguridad", area_otro:"Otro", nav_protos:"Prototipos", nav_services:"Servicios", nav_contact:"Contacto", nav_packs:"Paquetes",
     pk_title:"Paquetes", pk_sub:"Elige el punto de partida. Si tu proyecto es distinto, te preparamos un presupuesto a medida.",
     pk_note:"Entregamos los archivos del juego en un ZIP. Solo el paquete Premium incluye la subida a la tienda, y los costes de la tienda (cuenta de desarrollador, tasas…) los cubre el cliente.", mode_label:"Estilo gráfico", f_mode:"Estilo gráfico", pk_both:"Disponible en 2D y 3D Low Poly",
     pk_days:"días de entrega", pk_rev:"revisiones", pk_continue:"Continuar", pk_ask:"Consultar por WhatsApp",
@@ -173,7 +173,7 @@ const I18N = {
     f_wait:"Un momento… vuelve a pulsar «Enviar» en unos segundos.",
     f_links:"Por favor, no incluyas enlaces en el mensaje: cuéntanos la idea con tus palabras.",
     f_rate:"Ya has enviado un mensaje hace un momento. Espera un minuto antes de enviar otro." },
-  en:{ nav_games:"Games", nav_web:"Web", nav_cyber:"Cybersecurity", main_eyebrow:"Development and cybersecurity", main_title:"Games, websites and <em>cybersecurity</em>, tailor-made.", main_lead:"We build mobile games and websites, and protect your company with pentesting, SIEM, SOC and DLP.", main_cta1:"Let's talk", main_cta2:"See services", a_games_t:"Mobile games", a_games_p:"Playable prototypes and full games built with Godot, in 2D or low poly 3D.", a_games_l:"See games →", a_web_t:"Web", a_web_p:"Custom website creation and maintenance so they are always up to date and secure.", a_web_l:"See web →", a_cyber_t:"Cybersecurity", a_cyber_p:"Pentesting, SIEM with Wazuh and SOC, and data loss prevention (DLP).", a_cyber_l:"See cybersecurity →", web_title:"Web: creation and maintenance", web_sub:"Your website, custom-built and always looked after. Clear scope and a fixed quote before we start.", w1_t:"Website creation", w1_p:"Custom design, adapted to mobile and desktop, fast and ready to publish.", w2_t:"Maintenance", w2_p:"Updates, backups, content changes and monitoring so your website never falls behind.", w3_t:"Secure from the start", w3_p:"Secure configuration and a review before launch, backed by our cybersecurity team.", web_cta:"Request a web quote", cy_title:"Cybersecurity for companies", cy_sub:"To know where your risks are and keep watch over them. Always with written authorization and an agreed scope.", c1_t:"Pentesting", c1_p:"Controlled penetration tests on websites, networks and systems. We deliver a report with the findings, their severity and how to fix them.", c2_t:"SIEM with Wazuh and SOC", c2_p:"Continuous monitoring with Wazuh: threat detection, alerts and incident response with a SOC service.", c3_t:"DLP", c3_p:"Data loss prevention: we identify what sensitive information you hold and stop it from leaving your organization.", cs1:"Meeting and scope", cs2:"Proposal and quote", cs3:"Service delivery", cs4:"Report and follow-up", cy_cta:"Request a cybersecurity quote", f_area:"What are you interested in?", area_juegos:"Games", area_web:"Web", area_ciber:"Cybersecurity", area_otro:"Other", nav_protos:"Prototypes", nav_services:"Services", nav_contact:"Contact", nav_packs:"Packages",
+  en:{ nav_home:"Home", contact_title_juegos:"Let's talk about your game", contact_sub_juegos:"Tell us what you have in mind: genre, references, platform and deadlines. We reply within 24-48 h.", contact_title_web:"Let's talk about your website", contact_sub_web:"Tell us what you need: a new website or maintenance for the one you have. We reply within 24-48 h.", contact_title_ciber:"Let's talk about your security", contact_sub_ciber:"Tell us what you want to protect or review. We reply within 24-48 h and define the scope with you.", f_ph_msg_juegos:"Genre, references, deadlines, platform…", f_ph_msg_web:"Type of website, whether you already have one, deadlines…", f_ph_msg_ciber:"What you want to protect or review, company size, deadlines…", wa_text_juegos:"Hi, I'd like to develop a game. My idea is: ", wa_text_web:"Hi, I'm interested in a website (creation or maintenance). What I need: ", wa_text_ciber:"Hi, I'm interested in a cybersecurity service. What I need: ", ws1:"Tell us what you need", ws2:"Proposal and fixed quote", ws3:"We design and build", ws4:"We publish and maintain", nav_games:"Games", nav_web:"Web", nav_cyber:"Cybersecurity", main_eyebrow:"Development and cybersecurity", main_title:"Games, websites and <em>cybersecurity</em>, tailor-made.", main_lead:"We build mobile games and websites, and protect your company with pentesting, SIEM, SOC and DLP.", main_cta1:"Let's talk", main_cta2:"See services", a_games_t:"Mobile games", a_games_p:"Playable prototypes and full games built with Godot, in 2D or low poly 3D.", a_games_l:"See games →", a_web_t:"Web", a_web_p:"Custom website creation and maintenance so they are always up to date and secure.", a_web_l:"See web →", a_cyber_t:"Cybersecurity", a_cyber_p:"Pentesting, SIEM with Wazuh and SOC, and data loss prevention (DLP).", a_cyber_l:"See cybersecurity →", web_title:"Web: creation and maintenance", web_sub:"Your website, custom-built and always looked after. Clear scope and a fixed quote before we start.", w1_t:"Website creation", w1_p:"Custom design, adapted to mobile and desktop, fast and ready to publish.", w2_t:"Maintenance", w2_p:"Updates, backups, content changes and monitoring so your website never falls behind.", w3_t:"Secure from the start", w3_p:"Secure configuration and a review before launch, backed by our cybersecurity team.", web_cta:"Request a web quote", cy_title:"Cybersecurity for companies", cy_sub:"To know where your risks are and keep watch over them. Always with written authorization and an agreed scope.", c1_t:"Pentesting", c1_p:"Controlled penetration tests on websites, networks and systems. We deliver a report with the findings, their severity and how to fix them.", c2_t:"SIEM with Wazuh and SOC", c2_p:"Continuous monitoring with Wazuh: threat detection, alerts and incident response with a SOC service.", c3_t:"DLP", c3_p:"Data loss prevention: we identify what sensitive information you hold and stop it from leaving your organization.", cs1:"Meeting and scope", cs2:"Proposal and quote", cs3:"Service delivery", cs4:"Report and follow-up", cy_cta:"Request a cybersecurity quote", f_area:"What are you interested in?", area_juegos:"Games", area_web:"Web", area_ciber:"Cybersecurity", area_otro:"Other", nav_protos:"Prototypes", nav_services:"Services", nav_contact:"Contact", nav_packs:"Packages",
     pk_title:"Packages", pk_sub:"Pick your starting point. If your project is different, we'll prepare a custom quote.",
     pk_note:"We deliver the game files as a ZIP. Only the Premium package includes uploading to the store, and store costs (developer account, fees…) are covered by the client.", mode_label:"Graphics style", f_mode:"Graphics style", pk_both:"Available in 2D and 3D Low Poly",
     pk_days:"day delivery", pk_rev:"revisions", pk_continue:"Continue", pk_ask:"Ask on WhatsApp",
@@ -227,14 +227,17 @@ try { const s = localStorage.getItem("lang"); if (s === "es" || s === "en") lang
 const t = k => I18N[lang][k];
 const $ = s => document.querySelector(s);
 
+function curArea(){ const f = $("#f-area"); return f ? f.value : ""; }
+const tk = k => I18N[lang][k + "_" + curArea()] || I18N[lang][k];
 function waHref(game){
-  const text = game ? t("wa_text_game").replace("%s", game) : t("wa_text");
+  const text = game ? t("wa_text_game").replace("%s", game) : tk("wa_text");
   return "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(text);
 }
 
 function esc(s){ return String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
 
 function renderFilters(){
+  if (!$("#filters")) return;
   $("#filters").innerHTML = Object.keys(CATS).map(k =>
     `<button class="chip${k===filter?" on":""}" data-k="${k}">${esc(CATS[k][lang])}</button>`).join("");
   $("#filters").querySelectorAll(".chip").forEach(b => b.onclick = () => { filter = b.dataset.k; renderFilters(); renderGrid(); });
@@ -282,6 +285,7 @@ function galOpen(g){
 }
 
 function renderGrid(){
+  if (!$("#grid")) return;
   const list = GAMES.filter(g => (filter === "all" || g.cat === filter) && (modeFilter === "all" || (g.modes || ["2d","3d"]).includes(modeFilter)));
   $("#grid").innerHTML = list.map(g => {
     const art = g.img
@@ -306,6 +310,7 @@ function renderGrid(){
 }
 
 function renderPublished(){
+  if (!$("#pub-grid")) return;
   $("#pub-grid").innerHTML = PUBLISHED.map(g => `<article class="pub">
     <div class="art${(g.shots||[]).length>1?" has-shots":""}" data-id="${esc(g.id)}" style="background:linear-gradient(135deg,${g.c[0]},${g.c[1]})"><span class="badge live">${t("pub_badge")}</span>${(g.shots||[]).length>1?`<span class="shots-badge">📷 ${g.shots.length}</span>`:""}${g.img ? `<img src="${esc(g.img)}" alt="${esc(g.name)}" loading="lazy">` : `<span aria-hidden="true">${g.icon}</span>`}</div>
     <div class="body">
@@ -334,11 +339,13 @@ function setMode(m){
 }
 
 function renderModeTabs(){
+  if (!$("#mode-tabs")) return;
   $("#mode-tabs").innerHTML = ["2d","3d"].map(m =>
     `<button class="chip${m===mode?" on":""}" data-m="${m}">${esc(MODE_NAME(m))}</button>`).join("");
   $("#mode-tabs").querySelectorAll(".chip").forEach(b => b.onclick = () => setMode(b.dataset.m));
 }
 function renderPacks(){
+  if (!$("#pk-tabs")) return;
   $("#pk-tabs").innerHTML = PACKS.map(p =>
     `<button class="tab${p.id===pack?" on":""}" role="tab" data-id="${p.id}">${esc(p.name[lang])}</button>`).join("");
   $("#pk-tabs").querySelectorAll(".tab").forEach(b => b.onclick = () => { pack = b.dataset.id; renderPacks(); });
@@ -361,8 +368,8 @@ function applyLang(){
   document.documentElement.lang = lang;
   document.querySelectorAll("[data-i18n]").forEach(el => { el.innerHTML = t(el.dataset.i18n); });
   $("#lang").textContent = lang === "es" ? "EN" : "ES";
-  $("#wa").href = waHref();
-  $("#f-msg").placeholder = t("f_ph_msg");
+  if ($("#wa")) $("#wa").href = waHref();
+  if ($("#f-msg")) $("#f-msg").placeholder = tk("f_ph_msg");
   renderAreaSelect(); renderPackSelect(); renderModeTabs();
   renderPublished(); renderFilters(); renderGrid(); renderPacks();
 }
@@ -372,14 +379,17 @@ const MIN_FILL_MS = 4000;      // menos de 4 s desde que carga la página = bot
 const COOLDOWN_MS = 60000;     // 1 envío por minuto y navegador
 let formStart = Date.now();
 function renderAreaSelect(){
-  const sel = $("#f-area"), cur = sel.value;
+  const sel = $("#f-area");
+  if (!sel || sel.tagName !== "SELECT") return;
+  const cur = sel.value;
   sel.innerHTML = `<option value="">${esc(t("f_unknown"))}</option>` +
     ["juegos","web","ciber","otro"].map(a => `<option value="${a}">${esc(t("area_" + a))}</option>`).join("");
   sel.value = cur; toggleArea();
 }
-function toggleArea(){ $("#game-fields").hidden = $("#f-area").value !== "juegos"; }
-$("#f-area").addEventListener("change", toggleArea);
+function toggleArea(){ const g = $("#game-fields"); if (g && $("#f-area").tagName === "SELECT") g.hidden = $("#f-area").value !== "juegos"; }
+if ($("#f-area")) $("#f-area").addEventListener("change", toggleArea);
 function renderPackSelect(){
+  if (!$("#f-pack")) return;
   const sel = $("#f-pack"), cur = sel.value;
   sel.innerHTML = `<option value="">${esc(t("f_unknown"))}</option>` +
     PACKS.map(p => `<option value="${p.id}">${esc(p.name[lang])} — €${price(p)}</option>`).join("");
@@ -390,7 +400,7 @@ function renderPackSelect(){
 }
 function goForm(opts){
   const area = opts.area || ((opts.pack || opts.game || opts.based) ? "juegos" : "");
-  if (area){ $("#f-area").value = area; toggleArea(); }
+  if (area && $("#f-area") && $("#f-area").tagName === "SELECT"){ $("#f-area").value = area; toggleArea(); }
   if (opts.pack) setMode(mode);
   if (opts.pack) $("#f-pack").value = opts.pack;
   const ta = $("#f-msg");
@@ -451,6 +461,6 @@ $("#lang").onclick = () => {
   try { localStorage.setItem("lang", lang); } catch(e){}
   applyLang();
 };
-$("#count").textContent = GAMES.length;
+if ($("#count")) $("#count").textContent = GAMES.length;
 $("#year").textContent = new Date().getFullYear();
 applyLang();

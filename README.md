@@ -2,6 +2,13 @@
 
 Web estática (HTML/CSS/JS, sin build) para GitHub Pages.
 
+## Páginas
+- `index.html`: inicio genérico (tres áreas) con contacto general.
+- `juegos.html`: juegos publicados, prototipos, paquetes y contacto de juegos.
+- `web.html`: creación y mantenimiento de webs, con su contacto.
+- `ciber.html`: pentesting, SIEM con Wazuh y SOC, y DLP, con su contacto.
+- Todas comparten `assets/app.js` (textos ES/EN, formulario) y `assets/style.css`. Al cambiar uno de los dos, sube el `?v=` en los HTML.
+
 ## Antes de publicar
 1. Edita `CONFIG` al principio de `assets/app.js`: email y WhatsApp de Plenstudio.
 2. (Opcional) Añade capturas en `assets/img/` y pon `img: "assets/img/xxx.png"` en cada juego.

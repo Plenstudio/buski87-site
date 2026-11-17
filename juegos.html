@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Juegos móviles — Buski87</title>
+  <meta name="description" content="Prototipos jugables y juegos completos con Godot, en 2D o 3D low poly. Mira nuestros prototipos y cuéntanos tu idea.">
+  <meta property="og:title" content="Juegos móviles — Buski87">
+  <meta property="og:description" content="Prototipos jugables y juegos completos con Godot, en 2D o 3D low poly. Mira nuestros prototipos y cuéntanos tu idea.">
+  <meta property="og:url" content="https://buski87.dev">
+  <meta name="theme-color" content="#0f1020">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>">
+  <link rel="stylesheet" href="assets/style.css?v=20261117h">
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="index.html">Buski<span>87</span></a>
+    <nav>
+      <a href="index.html" data-i18n="nav_home">Inicio</a>
+      <a href="juegos.html" data-i18n="nav_games" aria-current="page">Juegos</a>
+      <a href="web.html" data-i18n="nav_web">Web</a>
+      <a href="ciber.html" data-i18n="nav_cyber">Ciberseguridad</a>
+      <a href="#contacto" data-i18n="nav_contact">Contacto</a>
+      <button id="lang" class="lang" aria-label="Language">EN</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="juegos" class="hero page-hero">
+      <p class="eyebrow" data-i18n="hero_eyebrow">Estudio de juegos móviles</p>
+      <h1 data-i18n="hero_title">Tu idea de juego, <em>jugable</em> en pocos días.</h1>
+      <p class="lead" data-i18n="hero_lead">Desarrollamos juegos móviles a medida. Partimos de un prototipo funcional para que veas y toques tu idea antes de comprometer un gran presupuesto.</p>
+      <div class="cta">
+        <a class="btn primary" href="#contacto" data-i18n="hero_cta1">Quiero mi juego</a>
+        <a class="btn" href="#prototipos" data-i18n="hero_cta2">Ver prototipos</a>
+      </div>
+      <ul class="stats">
+        <li><strong id="count">0</strong><span data-i18n="stat_protos">prototipos</span></li>
+        <li><strong>Godot 4</strong><span data-i18n="stat_engine">motor</span></li>
+        <li><strong id="pubcount">1</strong><span data-i18n="stat_pub">juego publicado</span></li>
+      </ul>
+    </section>
+
+    <section id="publicados">
+      <h2 data-i18n="pub_title">Nuestros juegos publicados</h2>
+      <p class="sub" data-i18n="pub_sub">Juegos propios que ya están en tienda. No están a la venta, pero sí puedes encargarnos un prototipo basado en ellos.</p>
+      <div class="pubgrid" id="pub-grid"></div>
+    </section>
+
+    <section id="prototipos">
+      <h2 data-i18n="protos_title">Prototipos a la venta</h2>
+      <p class="sub" data-i18n="protos_sub">Cada proyecto empieza así: una idea, un género y un prototipo funcional. Si quieres uno parecido con tu temática, hablamos.</p>
+      <div class="filters" id="filters"></div>
+      <div class="filters" id="mode-filter"></div>
+      <div class="grid" id="grid"></div>
+    </section>
+
+    <section id="servicios">
+      <h2 data-i18n="serv_title">Qué hacemos por ti</h2>
+      <div class="cards3">
+        <article><span>🧩</span><h3 data-i18n="s1_t">Prototipo en días</h3><p data-i18n="s1_p">Un MVP jugable con el bucle principal del juego para validar la idea cuanto antes.</p></article>
+        <article><span>🎨</span><h3 data-i18n="s2_t">Tu temática, tu estilo</h3><p data-i18n="s2_p">Adaptamos mecánicas probadas a tu marca, historia o personajes originales.</p></article>
+        <article><span>🚀</span><h3 data-i18n="s3_t">Del prototipo a la tienda</h3><p data-i18n="s3_p">Pulido, monetización, builds para Android y publicación en Google Play.</p></article>
+      </div>
+      <ol class="steps">
+        <li data-i18n="step1">Nos cuentas la idea</li>
+        <li data-i18n="step2">Te enseñamos un prototipo</li>
+        <li data-i18n="step3">Lo ajustamos juntos</li>
+        <li data-i18n="step4">Lo publicamos</li>
+      </ol>
+    </section>
+
+    <section id="paquetes">
+      <h2 data-i18n="pk_title">Paquetes</h2>
+      <p class="sub" data-i18n="pk_sub">Elige el punto de partida. Si tu proyecto es distinto, te preparamos un presupuesto a medida.</p>
+      <div class="filters" id="mode-tabs" role="group"></div>
+      <div class="pack">
+        <div class="tabs" id="pk-tabs" role="tablist"></div>
+        <div class="pk-body" id="pk-body"></div>
+      </div>
+    </section>
+
+    <section id="contacto" class="contact">
+      <h2 data-i18n="contact_title_juegos">Hablemos de tu juego</h2>
+      <p class="sub" data-i18n="contact_sub_juegos">Cuéntanos qué tienes en mente: género, referencias, plataforma y plazos. Te respondemos en 24-48 h.</p>
+      <form id="cform" class="cform">
+        <div class="f-row">
+          <label><span data-i18n="f_name">Nombre</span>
+            <input type="text" name="name" required autocomplete="name" maxlength="80"></label>
+          <label><span data-i18n="f_email">Tu email</span>
+            <input type="email" name="email" required autocomplete="email" maxlength="120"></label>
+        </div>
+        <input type="hidden" name="area" id="f-area" value="juegos">
+        <div id="game-fields" class="game-fields">
+          <label><span data-i18n="f_pack">Paquete de interés</span>
+            <select name="pack" id="f-pack"></select></label>
+          <label><span data-i18n="f_mode">Estilo gráfico</span>
+            <select name="mode" id="f-mode"></select></label>
+        </div>
+        <label><span data-i18n="f_msg">Cuéntanos qué necesitas</span>
+          <textarea name="message" id="f-msg" rows="6" required maxlength="3000"></textarea></label>
+        <label class="consent"><input type="checkbox" name="consent" id="f-consent" required>
+          <span data-i18n="f_consent">Acepto que usen mis datos solo para responder a mi consulta.</span></label>
+        <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
+        <button class="btn primary" id="f-btn" type="submit" data-i18n="f_send">Enviar mensaje</button>
+        <p class="f-status" id="f-status" role="status" aria-live="polite"></p>
+      </form>
+      <div class="cta center">
+        <a class="btn wa" id="wa" href="#" target="_blank" rel="noopener">💬 <span data-i18n="contact_wa">Escribir por WhatsApp</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> Buski87 · buski87.dev · <a href="privacidad.html" data-i18n="footer_priv">Política de privacidad</a></p>
+    <p class="small" data-i18n="footer_note">Los nombres de los prototipos son provisionales. Todos los juegos usan arte y temática propios.</p>
+  </footer>
+
+  <script src="assets/app.js?v=20261117h"></script>
+</body>
+</html>
