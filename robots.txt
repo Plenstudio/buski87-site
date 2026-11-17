@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://buski87.dev/sitemap.xml
