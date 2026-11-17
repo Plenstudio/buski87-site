@@ -25,3 +25,6 @@ Registros A para `buski87.dev` (apex):
 Registro CNAME `www` → `<tu-usuario>.github.io`
 
 La propagación puede tardar de minutos a unas horas.
+
+## Iconos
+Los logos de `assets/icons/` son de [Simple Icons](https://simpleicons.org) (licencia CC0); los logos son marcas de sus propietarios. Se asignan por nombre en el objeto `ICONS` de `assets/app.js`.

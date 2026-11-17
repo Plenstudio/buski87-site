@@ -189,3 +189,7 @@ nav a[aria-current="page"]{color:var(--text);border-bottom:2px solid var(--accen
 .tech-home article{gap:0;grid-column:span 2}
 .tech-home article:nth-child(n+4){grid-column:span 3}
 @media(max-width:900px){.tech-home{grid-template-columns:1fr}.tech-home article,.tech-home article:nth-child(n+4){grid-column:auto}}
+
+/* Etiquetas con icono */
+.about-chips li{display:inline-flex;align-items:center;gap:7px}
+.about-chips li img{width:15px;height:15px;flex:none}
