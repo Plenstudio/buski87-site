@@ -12,7 +12,7 @@ const CONFIG = {
 /* Prototipos. `img` es opcional: pon la ruta de una captura (assets/img/xxx.png)
    y sustituirá al icono. `url` solo para juegos ya publicados. */
 const GAMES = [
-  { id:"casa", icon:"🏚️", c:["#6d28d9","#1e1b4b"], cat:"puzzle", img:"assets/img/casa-02_buscando.png",
+  { id:"casa", icon:"🏚️", c:["#6d28d9","#1e1b4b"], cat:"puzzle", img:"assets/img/casa-02_buscando.png", shots:["assets/img/casa-02_buscando.png","assets/img/casa-03_encontrando.png","assets/img/casa-04_pista.png","assets/img/casa-05_nivel_completado.png","assets/img/casa-01_menu.png"],
     name:"Casa Encantada",
     genre:{es:"Objetos escondidos", en:"Hidden objects"},
     desc:{es:"Explora una mansión embrujada y encuentra los objetos ocultos en cada estancia.", en:"Explore a haunted mansion and find the hidden objects in every room."} },
@@ -44,7 +44,7 @@ const GAMES = [
     name:"Red & Blue Corp",
     genre:{es:"Idle tycoon", en:"Idle tycoon"},
     desc:{es:"Dirige una empresa de hacking y defensa. 20 departamentos que automatizar y mejorar.", en:"Run a hacking and defense company. 20 departments to automate and upgrade."} },
-  { id:"comics", icon:"📚", c:["#db2777","#4c1d95"], cat:"idle", img:"assets/img/comics-03_ampliada.png",
+  { id:"comics", icon:"📚", c:["#db2777","#4c1d95"], cat:"idle", img:"assets/img/comics-03_ampliada.png", shots:["assets/img/comics-03_ampliada.png","assets/img/comics-01_inicio.png","assets/img/comics-02_tienda.png","assets/img/comics-04_personal.png","assets/img/comics-05_mejoras.png","assets/img/comics-06_nivel.png"],
     name:"Cómics & Minis Tycoon",
     genre:{es:"Tycoon isométrico", en:"Isometric tycoon"},
     desc:{es:"Monta y amplía tu tienda friki de cómics y miniaturas, planta a planta.", en:"Build and expand your geek shop of comics and miniatures, floor by floor."} },
@@ -73,7 +73,7 @@ const GAMES = [
     genre:{es:"Gestión", en:"Management"},
     desc:{es:"Gestiona un refugio de fauna ibérica: zonas, rescates y sueltas a la naturaleza.", en:"Run an Iberian wildlife shelter: zones, rescues and releases into the wild."} },
   { id:"campamento", icon:"🏕️", c:["#16a34a","#14532d"], cat:"idle", modes:["3d"],
-    img:"assets/img/campamento-4.png",
+    img:"assets/img/campamento-4.png", shots:["assets/img/campamento-4.png","assets/img/campamento-5.png","assets/img/campamento-6.png","assets/img/campamento-1.png","assets/img/campamento-2.png","assets/img/campamento-3.png"],
     name:"Campamento",
     genre:{es:"Idle tycoon 3D", en:"3D idle tycoon"},
     desc:{es:"Gestiona un camping en vista isométrica: recoge billetes y basura, contrata rangers y desbloquea zonas.", en:"Run a campsite in isometric view: collect cash and litter, hire rangers and unlock new areas."} },
@@ -266,15 +266,53 @@ function renderFilters(){
   $("#mode-filter").querySelectorAll(".chip").forEach(b => b.onclick = () => { modeFilter = b.dataset.k; renderFilters(); renderGrid(); });
 }
 
+/* ---- Galería (lightbox): clic en la imagen de una ficha con varias capturas ---- */
+let gal = null;
+function galShow(i){
+  gal.i = (i + gal.list.length) % gal.list.length;
+  gal.img.src = gal.list[gal.i];
+  gal.cnt.textContent = (gal.i + 1) + " / " + gal.list.length;
+  gal.thumbs.querySelectorAll("img").forEach((im, k) => im.classList.toggle("on", k === gal.i));
+}
+function galClose(){ if (gal){ gal.el.hidden = true; document.body.style.overflow = ""; } }
+function galOpen(g){
+  if (!gal){
+    const el = document.createElement("div");
+    el.className = "gal"; el.hidden = true;
+    el.innerHTML = '<button class="gal-x" aria-label="Cerrar">✕</button><button class="gal-nav prev" aria-label="Anterior">‹</button>' +
+      '<figure><img alt=""><figcaption><b></b><span></span></figcaption><div class="gal-thumbs"></div></figure><button class="gal-nav next" aria-label="Siguiente">›</button>';
+    document.body.appendChild(el);
+    gal = { el, img: el.querySelector("figure img"), name: el.querySelector("b"), cnt: el.querySelector("span"), thumbs: el.querySelector(".gal-thumbs"), list: [], i: 0 };
+    el.addEventListener("click", e => { if (e.target === el) galClose(); });
+    el.querySelector(".gal-x").onclick = galClose;
+    el.querySelector(".prev").onclick = () => galShow(gal.i - 1);
+    el.querySelector(".next").onclick = () => galShow(gal.i + 1);
+    document.addEventListener("keydown", e => {
+      if (el.hidden) return;
+      if (e.key === "Escape") galClose();
+      else if (e.key === "ArrowLeft") galShow(gal.i - 1);
+      else if (e.key === "ArrowRight") galShow(gal.i + 1);
+    });
+    let x0 = null;
+    el.addEventListener("touchstart", e => { x0 = e.touches[0].clientX; }, {passive:true});
+    el.addEventListener("touchend", e => { if (x0 === null) return; const dx = e.changedTouches[0].clientX - x0; x0 = null; if (Math.abs(dx) > 50) galShow(gal.i + (dx < 0 ? 1 : -1)); });
+  }
+  gal.list = g.shots; gal.name.textContent = g.name;
+  gal.thumbs.innerHTML = g.shots.map((u, k) => `<img src="${esc(u)}" alt="" data-k="${k}">`).join("");
+  gal.thumbs.querySelectorAll("img").forEach(im => im.onclick = () => galShow(+im.dataset.k));
+  gal.el.hidden = false; document.body.style.overflow = "hidden";
+  galShow(0);
+}
+
 function renderGrid(){
   const list = GAMES.filter(g => (filter === "all" || g.cat === filter) && (modeFilter === "all" || (g.modes || ["2d","3d"]).includes(modeFilter)));
   $("#grid").innerHTML = list.map(g => {
     const art = g.img
-      ? `<img src="${esc(g.img)}" alt="${esc(g.name)}" loading="lazy">`
+      ? `<img src="${esc(g.img)}" alt="${esc(g.name)}" loading="lazy">${(g.shots||[]).length>1?`<span class="shots-badge">📷 ${g.shots.length}</span>`:""}`
       : `<span aria-hidden="true">${g.icon}</span>`;
     const play = g.url ? `<a href="${esc(g.url)}" target="_blank" rel="noopener">${t("play")} ↗</a>` : "";
     return `<article class="game">
-      <div class="art" style="background:linear-gradient(135deg,${g.c[0]},${g.c[1]})">
+      <div class="art${(g.shots||[]).length>1?" has-shots":""}" data-id="${esc(g.id)}" style="background:linear-gradient(135deg,${g.c[0]},${g.c[1]})">
         <span class="badge${g.status==="live"?" live":""}">${g.status==="live"?t("live"):t("proto")}</span>${art}
       </div>
       <div class="body">
@@ -285,6 +323,9 @@ function renderGrid(){
         <div class="row">${play}<a href="#contacto" data-want="${esc(g.name)}">${t("want")} →</a></div>
       </div></article>`;
   }).join("");
+  $("#grid").querySelectorAll(".art.has-shots").forEach(a => {
+    a.onclick = () => galOpen(GAMES.find(g => g.id === a.dataset.id));
+  });
 }
 
 function renderPublished(){
