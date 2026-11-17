@@ -363,7 +363,6 @@ function renderPacks(){
   $("#pk-tabs").querySelectorAll(".tab").forEach(b => b.onclick = () => { pack = b.dataset.id; renderPacks(); });
   const p = PACKS.find(x => x.id === pack);
   const idx = lang === "es" ? 0 : 1;
-  const wa = "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(fill("pk_wa_text", p));
   $("#pk-body").innerHTML = `
     <p class="pk-price">€${price(p)} <small>${esc(MODE_NAME(mode))}</small></p>
     <p class="pk-both">${t("pk_both")}</p>
@@ -374,8 +373,7 @@ function renderPacks(){
     <ul class="pk-list">${p.feats.map(f => `<li class="${f[2]?"":"no"}">${esc(f[idx])}</li>`).join("")}</ul>
     <p class="pk-note">ℹ️ ${t("pk_note")}</p>
     <p class="pk-note">💶 ${t("pk_terms")}</p>
-    <a class="btn primary" href="#contacto" data-pack="${p.id}">${t("pk_continue")} →</a>
-    <a class="btn wa" href="${wa}" target="_blank" rel="noopener noreferrer">💬 ${t("pk_ask")}</a>`;
+    <a class="btn primary" href="#contacto" data-pack="${p.id}">${t("pk_continue")} →</a>`;
 }
 
 function floatWa(){
@@ -395,7 +393,6 @@ function applyLang(){
   document.documentElement.lang = lang;
   document.querySelectorAll("[data-i18n]").forEach(el => { el.innerHTML = t(el.dataset.i18n); });
   $("#lang").textContent = lang === "es" ? "EN" : "ES";
-  if ($("#wa")) $("#wa").href = waHref();
   if ($("#f-msg")) $("#f-msg").placeholder = tk("f_ph_msg");
   renderAreaSelect(); renderPackSelect(); renderWebSelects(); renderModeTabs();
   renderPublished(); renderFilters(); renderGrid(); renderPacks(); floatWa();
@@ -420,7 +417,6 @@ function toggleArea(){
     if (g) g.hidden = a.value !== "juegos";
     if (w) w.hidden = a.value !== "web";
   }
-  if ($("#wa")) $("#wa").href = waHref();
   if ($("#wa-float")) $("#wa-float").href = waHref();
   if ($("#f-msg")) $("#f-msg").placeholder = tk("f_ph_msg");
 }
