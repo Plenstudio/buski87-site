@@ -167,7 +167,7 @@ h2 em{font-style:normal;background:linear-gradient(90deg,var(--accent),#ff6b9a);
 
 /* Páginas por área */
 nav a[aria-current="page"]{color:var(--text);border-bottom:2px solid var(--accent)}
-.page-hero{padding-top:72px;padding-bottom:36px}
+.page-hero{display:block;padding-top:72px;padding-bottom:36px}  /* una sola columna: la cuadrícula de 2 columnas de .hero es solo para la home */
 .page-hero h1{font-size:clamp(2rem,5vw,3.4rem)}
 #web-servicios,#ciber-servicios{padding-top:24px}
 
