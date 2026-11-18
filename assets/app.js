@@ -61,6 +61,10 @@ const GAMES = [
     name:"Lobo Cazador",
     genre:{es:"Caza y mejoras", en:"Hunt & upgrade"},
     desc:{es:"Caza, carga, vende y mejora con un lobo por biomas ibérico, nevado y de fantasía. MVP 3D low poly: Sierra Ibérica con 4 presas y 4 mejoras.", en:"Hunt, carry, sell and upgrade as a wolf across Iberian, snowy and fantasy biomes. Low poly 3D MVP: Iberian Sierra with 4 prey and 4 upgrades."} },
+  { id:"miaudash", icon:"🐈", c:["#ff9f43","#9a3412"], cat:"action", modes:["3d"], img:"assets/img/miaudash-00_portada.webp", shots:["assets/img/miaudash-00_portada.webp","assets/img/miaudash-01_campo.webp","assets/img/miaudash-02_bosque.webp","assets/img/miaudash-03_jardin.webp","assets/img/miaudash-04_ciudad.webp","assets/img/miaudash-05_casa.webp","assets/img/miaudash-06_menu.webp","assets/img/miaudash-07_tienda.webp"],
+    name:"Miau Dash",
+    genre:{es:"Corredor infinito 3D", en:"3D endless runner"},
+    desc:{es:"Corre con un gato por cinco mundos que se enlazan sin fin: casa, jardín, ciudad, bosque y campo. Esquiva, salta y deslízate, recoge monedas y peces y desbloquea gatos. MVP 3D low poly con tienda, música y efectos.", en:"Run with a cat through five worlds that link endlessly: home, garden, city, forest and fields. Dodge, jump and slide, collect coins and fish, and unlock cats. Low poly 3D MVP with a shop, music and effects."} },
 ];
 
 /* Juegos propios ya publicados: NO están a la venta (sí un prototipo basado en ellos). */
