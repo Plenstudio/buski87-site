@@ -20,10 +20,12 @@ const GAMES = [
     name:"Detective de la Fiesta Mayor",
     genre:{es:"Objetos escondidos", en:"Hidden objects"},
     desc:{es:"Escenas gigantes llenas de detalle donde resuelves casos buscando pistas.", en:"Huge detailed scenes where you solve cases by hunting for clues."} },
+  /* OCULTO por ahora (Rúnica): quitar este comentario para volver a mostrarlo
   { id:"runica", icon:"ᚱ", c:["#475569","#0f172a"], cat:"puzzle", img:"assets/img/runica-05_nivel_avanzado.webp", shots:["assets/img/runica-05_nivel_avanzado.webp","assets/img/runica-04_nivel_1.webp","assets/img/runica-02_mapa.webp","assets/img/runica-06_pista.webp","assets/img/runica-08_codice.webp"],
     name:"Rúnica",
     genre:{es:"Puzle", en:"Puzzle"},
     desc:{es:"Puzle de encajar patrones con runas vikingas, tono serio y mitológico.", en:"Pattern-fitting puzzle with Viking runes and a serious, mythological tone."} },
+  */
   { id:"vikingo", icon:"🛡️", c:["#0891b2","#164e63"], cat:"strategy", img:"assets/img/vikingos-aldea.webp", shots:["assets/img/vikingos-aldea.webp","assets/img/vikingos-titulo.webp","assets/img/vikingos-jefe.webp","assets/img/vikingos-castillo.webp","assets/img/vikingos-nieve.webp","assets/img/vikingos-cristal.webp","assets/img/vikingos-campamento.webp","assets/img/vikingos-heroes.webp"],
     name:"Aldea Vikinga",
     genre:{es:"Defensa de base", en:"Base defense"},
