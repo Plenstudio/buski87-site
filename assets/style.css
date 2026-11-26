@@ -267,3 +267,8 @@ a.c-card:hover{border-color:var(--accent);transform:translateY(-2px)}
 .page-hero.t-center{text-align:center}
 .lead.t-lead{margin:0 auto}
 .cta.t-cta{justify-content:center}
+.tech-grid h3.mt{margin-top:18px}
+#ciber-proyectos .proj-grid{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+#ciber-hago .cards3{grid-template-columns:repeat(2,1fr)}
+@media(min-width:1000px){#ciber-hago .cards3{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:600px){#ciber-hago .cards3{grid-template-columns:1fr}}

@@ -6,7 +6,7 @@ Web estática (HTML/CSS/JS, sin build) para GitHub Pages.
 - `index.html`: inicio genérico (tres áreas) con contacto general.
 - `juegos.html`: juegos publicados, prototipos, paquetes y contacto de juegos.
 - `web.html`: Webs & Apps (creación y mantenimiento de webs y aplicaciones), con su contacto.
-- `ciber.html`: pentesting, SIEM con Wazuh y SOC, y DLP, con su contacto. **Oculta por ahora** (Ciberseguridad (oculta)): no está enlazada y lleva `noindex`. Para reactivarla: volver a añadir su enlace en el menú de los 4 HTML, su tarjeta en `index.html`, la opción "ciber" en `renderAreaSelect()` de `assets/app.js`, y quitar el `noindex`.
+- `ciber.html`: perfil profesional de ciberseguridad e IA de Pere Busquet (qué hace, experiencia, proyectos como la plataforma DLP, formación y herramientas), con su contacto y enlace a LinkedIn. Está en el menú de todas las páginas, tiene tarjeta en `index.html` y figura en `sitemap.xml`. Sus textos ES/EN son las claves `cy_*`, `c1_*`…`c5_*` y `*_ciber` de `assets/app.js`.
 - Todas comparten `assets/app.js` (textos ES/EN y contacto) y `assets/style.css`. Al cambiar uno de los dos, sube el `?v=` en los HTML.
 
 ## Antes de publicar
