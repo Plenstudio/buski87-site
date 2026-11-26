@@ -3,8 +3,8 @@
    ============================================================ */
 const CONFIG = {
   email: "buski1987@gmail.com",           // ← correo de contacto
-  whatsapp: "34623184718",              // ← WhatsApp en formato internacional, sin + ni espacios
-  whatsappLabel: "+34 623 184 718"      // ← cómo se muestra en pantalla
+  whatsapp: "34676942443",              // ← WhatsApp en formato internacional, sin + ni espacios
+  whatsappLabel: "+34 676 942 443"      // ← cómo se muestra en pantalla
 };
 
 /* Prototipos. `img` es opcional: pon la ruta de una captura (assets/img/xxx.png)
