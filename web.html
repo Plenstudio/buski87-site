@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-CqUIq5rOx0FrHeBfH3DP7P56ZQLvO/i7dcXsZuOD9aA='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://api.web3forms.com; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-CqUIq5rOx0FrHeBfH3DP7P56ZQLvO/i7dcXsZuOD9aA=' https://hcaptcha.com https://*.hcaptcha.com; style-src 'self' 'unsafe-inline' https://hcaptcha.com https://*.hcaptcha.com; img-src 'self' data:; font-src 'self'; frame-src https://hcaptcha.com https://*.hcaptcha.com; connect-src 'self' https://api.web3forms.com https://hcaptcha.com https://*.hcaptcha.com; object-src 'none'; base-uri 'self'; form-action 'self'">
   <title>Diseño y mantenimiento web en Castellar del Vallès — Buski87</title>
   <meta name="description" content="Creación de páginas web a medida y mantenimiento desde Castellar del Vallès (Barcelona): actualizaciones, copias de seguridad y cambios de contenido.">
   <link rel="canonical" href="https://buski87.dev/web">
@@ -266,6 +266,7 @@
         <label class="consent"><input type="checkbox" name="consent" id="f-consent" required>
           <span data-i18n="f_consent">Acepto que usen mis datos solo para responder a mi consulta.</span></label>
         <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
+        <div class="h-captcha" data-sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"></div>
         <button class="btn primary" id="f-btn" type="submit" data-i18n="f_send">Enviar mensaje</button>
         <p class="f-status" id="f-status" role="status" aria-live="polite"></p>
       </form>
@@ -280,6 +281,7 @@
     <p>© <span id="year"></span> · <a href="/privacidad" data-i18n="footer_priv">Política de privacidad</a> · <a href="/aviso-legal" data-i18n="footer_legal">Aviso legal</a> · <a href="https://play.google.com/store/apps/details?id=com.eljuegodelasarten.game" target="_blank" rel="noopener noreferrer">Google Play</a></p>
   </footer>
 
-  <script src="/assets/app.js?v=20261118s"></script>
+  <script src="https://js.hcaptcha.com/1/api.js?recaptchacompat=off" async defer></script>
+  <script src="/assets/app.js?v=20261126a"></script>
 </body>
 </html>

@@ -15,7 +15,8 @@ No hay programa de recompensas, pero se agradece el aviso y se responde lo antes
 
 ## Formularios
 - Se envían a Web3Forms por HTTPS. Protecciones en el navegador: campo trampa (`botcheck`), tiempo mínimo de relleno, un envío por minuto, bloqueo de enlaces en el nombre y el mensaje, límites de longitud y validación del teléfono.
-- Estas protecciones **solo frenan a bots sencillos**: quien llame directamente a la API de Web3Forms puede saltárselas. Si aparece spam, activar **hCaptcha** en el panel de Web3Forms (implica cargar un script de terceros: habría que actualizar la CSP y la política de privacidad).
+- **hCaptcha** activo en las páginas con formulario (activado también en el panel de Web3Forms, que lo valida en su servidor). Carga `js.hcaptcha.com` y un iframe de hcaptcha.com: la CSP de esas páginas lo permite (se genera con `python tools/update_csp.py`) y está citado en la política de privacidad.
+- Las protecciones del navegador (campo trampa, tiempo mínimo, límite por minuto) **solo frenan a bots sencillos**; el captcha validado en servidor es la defensa principal.
 - El formulario usa `method="post"`: si JavaScript falla, los datos personales **no** viajan en la dirección.
 
 ## Lista de comprobación del propietario (fuera del código)
