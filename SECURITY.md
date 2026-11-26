@@ -7,17 +7,14 @@ No hay programa de recompensas, pero se agradece el aviso y se responde lo antes
 ## Qué protege la web
 - **Sitio estático** (GitHub Pages): no hay servidor propio, base de datos, panel de acceso ni contraseñas que atacar.
 - **HTTPS siempre**: `http://` y `www` redirigen a `https://buski87.dev`; el dominio `.dev` además obliga a HTTPS en los navegadores (HSTS precargado).
-- **Política de contenido (CSP)** en cada página: solo se ejecutan los scripts propios y los hashes de los scripts en línea; las conexiones solo van a este sitio y a `api.web3forms.com`. Se recalcula con `python tools/update_csp.py`.
-- **Sin cookies ni analítica**; solo se guarda en el navegador el idioma y la hora del último envío (anti-spam).
-- **Sin dependencias externas**: ni librerías, ni fuentes, ni scripts de terceros. Los iconos están en `assets/icons/`.
+- **Política de contenido (CSP) estricta** en cada página: `script-src 'self'` y `style-src 'self'` (sin `unsafe-inline` ni hashes: no hay scripts, estilos ni atributos `style=""` en línea), `connect-src 'none'` (sin conexiones desde JavaScript), `frame-src 'none'` y `object-src 'none'`. `upgrade-insecure-requests` fuerza HTTPS. Se recalcula con `python tools/update_csp.py`, que además falla si alguien añade algo en línea que la política bloquearía.
+- **Sin cookies ni analítica**; solo se guarda en el navegador el idioma elegido.
+- **Sin dependencias externas**: ni librerías, ni fuentes, ni scripts de terceros, ni formularios. Los iconos están en `assets/icons/`.
 - **Enlaces externos** con `rel="noopener noreferrer"`.
-- **Código sin secretos**: la clave de Web3Forms (`web3formsKey`) es pública por diseño; no hay tokens ni contraseñas en el repositorio ni en su historial.
+- **Código sin secretos**: no hay claves, tokens ni contraseñas en el repositorio ni en su historial.
 
-## Formularios
-- Se envían a Web3Forms por HTTPS. Protecciones en el navegador: campo trampa (`botcheck`), tiempo mínimo de relleno, un envío por minuto, bloqueo de enlaces en el nombre y el mensaje, límites de longitud y validación del teléfono.
-- **hCaptcha** activo en las páginas con formulario (activado también en el panel de Web3Forms, que lo valida en su servidor). Carga `js.hcaptcha.com` y un iframe de hcaptcha.com: la CSP de esas páginas lo permite (se genera con `python tools/update_csp.py`) y está citado en la política de privacidad.
-- Las protecciones del navegador (campo trampa, tiempo mínimo, límite por minuto) **solo frenan a bots sencillos**; el captcha validado en servidor es la defensa principal.
-- El formulario usa `method="post"`: si JavaScript falla, los datos personales **no** viajan en la dirección.
+## Contacto
+No hay formulario: el contacto es por email, teléfono y WhatsApp, con el mensaje ya preparado según la página. Así no se recogen datos desde la web ni se depende de servicios externos (antes se usaban Web3Forms y hCaptcha; ya no).
 
 ## Lista de comprobación del propietario (fuera del código)
 - [ ] **Verificación en dos pasos** en: cuenta de GitHub, cuenta de Squarespace (dominio), cuenta de Google (Search Console) y correo `buski1987@gmail.com`.
@@ -27,7 +24,6 @@ No hay programa de recompensas, pero se agradece el aviso y se responde lo antes
 - [ ] **DNSSEC** activado, si Squarespace lo ofrece para `.dev`.
 - [ ] En GitHub: *Settings → Pages → Enforce HTTPS* activado; *Settings → Code security*: alertas de secretos activadas.
 - [ ] Renovar la fecha `Expires` de `.well-known/security.txt` cada año (caduca el 2027-11-17).
-- [ ] Revisar cada cierto tiempo el panel de Web3Forms: envíos al mes y correos recibidos.
 - [ ] No poner nunca contraseñas ni claves en archivos del repositorio.
 
 ## Limitaciones conocidas

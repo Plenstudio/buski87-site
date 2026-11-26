@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-CqUIq5rOx0FrHeBfH3DP7P56ZQLvO/i7dcXsZuOD9aA='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://api.web3forms.com; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
   <title>Página no encontrada — Buski87</title>
   <meta name="description" content="Página no encontrada.">
   <meta property="og:type" content="website">
@@ -24,7 +24,7 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="stylesheet" href="/assets/style.css?v=20261118s">
-  <script>(function(){var p=location.pathname;if(/\.html$/.test(p)){history.replaceState(null,'',p.replace(/\/?index\.html$/,'/').replace(/\.html$/,'')+location.search+location.hash);}})();</script>
+  <script src="/assets/boot.js"></script>
 </head>
 <body>
   <a class="skip" href="#main" data-i18n="skip">Saltar al contenido</a>
@@ -40,11 +40,11 @@
   </header>
 
   <main id="main">
-    <section class="hero page-hero" style="text-align:center">
+    <section class="hero page-hero t-center">
       <p class="eyebrow">404</p>
       <h1 data-i18n="e404_title">Página no encontrada</h1>
-      <p class="lead" style="margin:0 auto" data-i18n="e404_text">La dirección que has escrito no existe o ha cambiado de sitio.</p>
-      <div class="cta" style="justify-content:center">
+      <p class="lead t-lead" data-i18n="e404_text">La dirección que has escrito no existe o ha cambiado de sitio.</p>
+      <div class="cta t-cta">
         <a class="btn primary" href="/" data-i18n="e404_home">Volver al inicio</a>
         <a class="btn" href="/juegos" data-i18n="nav_games">Juegos</a>
         <a class="btn" href="/web" data-i18n="nav_web">Web</a>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-CqUIq5rOx0FrHeBfH3DP7P56ZQLvO/i7dcXsZuOD9aA=' https://hcaptcha.com https://*.hcaptcha.com; style-src 'self' 'unsafe-inline' https://hcaptcha.com https://*.hcaptcha.com; img-src 'self' data:; font-src 'self'; frame-src https://hcaptcha.com https://*.hcaptcha.com; connect-src 'self' https://api.web3forms.com https://hcaptcha.com https://*.hcaptcha.com; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
   <title>Ciberseguridad — Buski87</title>
   <meta name="description" content="Pentesting, SIEM con Wazuh y SOC, y prevención de fuga de datos (DLP) para empresas.">
   <link rel="canonical" href="https://buski87.dev/ciber">
@@ -25,8 +25,8 @@
   <meta name="robots" content="noindex, nofollow">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="stylesheet" href="/assets/style.css?v=20261118s">
-  <script>(function(){var p=location.pathname;if(/\.html$/.test(p)){history.replaceState(null,'',p.replace(/\/?index\.html$/,'/').replace(/\.html$/,'')+location.search+location.hash);}})();</script>
+  <link rel="stylesheet" href="/assets/style.css?v=20261126c">
+  <script src="/assets/boot.js"></script>
 </head>
 <body>
   <a class="skip" href="#main" data-i18n="skip">Saltar al contenido</a>
@@ -35,7 +35,7 @@
     <nav aria-label="Principal">
       <a href="/" data-i18n="nav_home">Inicio</a>
       <a href="/juegos" data-i18n="nav_games">Juegos</a>
-      <a href="/web" data-i18n="nav_web">Web</a>
+      <a href="/web" data-i18n="nav_web">Webs &amp; Apps</a>
       <a href="/contacto" data-i18n="nav_contact">Contacto</a>
       <button id="lang" class="lang" aria-label="Language">EN</button>
     </nav>
@@ -68,26 +68,12 @@
     <section id="contacto" class="contact">
       <h2 data-i18n="contact_title_ciber">Hablemos de tu seguridad</h2>
       <p class="sub" data-i18n="contact_sub_ciber">Cuéntanos qué quieres proteger o revisar. Te respondemos en 24-48 h y definimos el alcance contigo.</p>
-      <form id="cform" class="cform" method="post" action="/404.html">
-        <div class="f-row">
-          <label><span data-i18n="f_name">Nombre</span>
-            <input type="text" name="name" required autocomplete="name" maxlength="80"></label>
-          <label><span data-i18n="f_email">Tu email</span>
-            <input type="email" name="email" required autocomplete="email" maxlength="120"></label>
-        </div>
-        <label><span data-i18n="f_phone">Teléfono</span>
-          <input type="tel" name="telefono" id="f-phone" required autocomplete="tel" inputmode="tel" maxlength="20" pattern="[0-9+()\s.\-]{6,20}" placeholder="+34 600 000 000"></label>
-        <input type="hidden" name="area" id="f-area" value="ciber">
-        <label><span data-i18n="f_msg">Cuéntanos qué necesitas</span>
-          <textarea name="message" id="f-msg" rows="6" required maxlength="3000"></textarea></label>
-        <label class="consent"><input type="checkbox" name="consent" id="f-consent" required>
-          <span data-i18n="f_consent">Acepto que usen mis datos solo para responder a mi consulta.</span></label>
-        <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
-        <div class="h-captcha" data-sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"></div>
-        <button class="btn primary" id="f-btn" type="submit" data-i18n="f_send">Enviar mensaje</button>
-        <p class="f-status" id="f-status" role="status" aria-live="polite"></p>
-      </form>
-      <noscript><p class="f-status err">Para enviar el formulario necesitas activar JavaScript. También puedes escribirnos por WhatsApp o a buski1987@gmail.com. / To send the form you need to enable JavaScript. You can also reach us on WhatsApp or at buski1987@gmail.com.</p></noscript>
+      <div class="c-cards">
+        <a class="c-card" id="c-mail" href="mailto:buski1987@gmail.com"><i class="c-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></i><span data-i18n="c_mail_l">Email</span><strong>buski1987@gmail.com</strong></a>
+        <a class="c-card" href="tel:+34623184718"><i class="c-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></i><span data-i18n="c_tel_l">Teléfono</span><strong>+34 623 184 718</strong></a>
+        <a class="c-card" id="c-wa" href="https://wa.me/34623184718" target="_blank" rel="noopener noreferrer"><i class="c-ico" aria-hidden="true"><svg class="fill" viewBox="0 0 32 32"><path d="M16 3C9 3 3.4 8.6 3.4 15.5c0 2.3.6 4.4 1.7 6.3L3 29l7.4-2c1.8 1 3.800 1.500 5.600 1.500 7 0 12.600-5.600 12.600-12.500S23 3 16 3zm0 22.800c-1.800 0-3.500-.5-5-1.400l-.4-.2-4.400 1.200 1.200-4.300-.3-.4a10 10 0 0 1-1.500-5.300C5.600 9.900 10.300 5.300 16 5.300s10.400 4.600 10.400 10.300S21.700 25.800 16 25.800zm5.700-7.600c-.3-.2-1.800-.9-2.100-1s-.5-.2-.7.200-.8 1-.9 1.100-.3.200-.6.100a8.300 8.300 0 0 1-4.100-3.600c-.3-.5.300-.5.900-1.600.1-.2 0-.4 0-.5l-1-2.300c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.100-.8.400s-1 1-1 2.500 1.100 2.900 1.200 3.100c.2.200 2.100 3.300 5.200 4.500 2.700 1 3.200.8 3.800.8.600-.1 1.800-.7 2.100-1.500.3-.7.300-1.300.2-1.500-.1-.2-.3-.2-.6-.4z"/></svg></i><span data-i18n="c_wa_l">WhatsApp</span><strong data-i18n="contact_wa">Escribir por WhatsApp</strong></a>
+        <div class="c-card"><i class="c-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg></i><span data-i18n="c_addr_l">Dirección</span><strong data-i18n="c_addr_v">Castellar del Vallès (Barcelona)</strong></div>
+      </div>
       <div class="cta center">
       </div>
     </section>
@@ -97,7 +83,6 @@
     <p>© <span id="year"></span> · <a href="/privacidad" data-i18n="footer_priv">Política de privacidad</a> · <a href="/aviso-legal" data-i18n="footer_legal">Aviso legal</a> · <a href="https://play.google.com/store/apps/details?id=com.eljuegodelasarten.game" target="_blank" rel="noopener noreferrer">Google Play</a></p>
   </footer>
 
-  <script src="https://js.hcaptcha.com/1/api.js?recaptchacompat=off" async defer></script>
-  <script src="/assets/app.js?v=20261126a"></script>
+  <script src="/assets/app.js?v=20261126c"></script>
 </body>
 </html>

@@ -3,11 +3,10 @@
 Uso (desde la carpeta del sitio):  python tools/update_csp.py
 
 Cada página lleva una etiqueta <meta http-equiv="Content-Security-Policy"> que solo permite:
-  - scripts propios (/assets/app.js) y los scripts en línea que ya existen, identificados por su hash;
-  - estilos propios y en línea (el JS genera tarjetas con atributos style);
-  - imágenes propias; conexiones solo a este sitio y a api.web3forms.com (formularios);
-  - solo en las páginas con formulario (clase h-captcha): scripts, iframe, estilos y conexiones de hcaptcha.com.
-Si cambias el texto de un <script> en línea de una página, vuelve a ejecutar este script.
+  - scripts propios (nada en línea ni hashes) y estilos propios (nada en línea: ni style="" ni <style>);
+  - imágenes y fuentes propias; ninguna conexión de red desde JavaScript, ningún iframe y ningún objeto;
+  - fuerza HTTPS en todo recurso. La web no carga nada de terceros.
+Si añades una página, vuelve a ejecutar este script. Falla si encuentra algo en línea que la política bloquearía.
 """
 import base64
 import glob
@@ -31,25 +30,20 @@ def inline_hashes(html):
     return out
 
 
-HC = "https://hcaptcha.com https://*.hcaptcha.com"
-
-
-def policy(hashes, captcha=False):
-    hc = (" " + HC) if captcha else ""
-    parts = [
+def policy(hashes):
+    return "; ".join([
         "default-src 'self'",
-        "script-src 'self' " + " ".join(hashes) + hc if hashes else "script-src 'self'" + hc,
-        "style-src 'self' 'unsafe-inline'" + hc,
+        "script-src 'self'" + ((" " + " ".join(hashes)) if hashes else ""),
+        "style-src 'self'",
         "img-src 'self' data:",
         "font-src 'self'",
-        "connect-src 'self' https://api.web3forms.com" + hc,
+        "connect-src 'none'",
+        "frame-src 'none'",
         "object-src 'none'",
         "base-uri 'self'",
         "form-action 'self'",
-    ]
-    if captcha:
-        parts.insert(5, "frame-src " + HC)  # hCaptcha se muestra en un iframe (solo páginas con formulario)
-    return "; ".join(parts)
+        "upgrade-insecure-requests",
+    ])
 
 
 for path in sorted(glob.glob(os.path.join(ROOT, '*.html'))):
@@ -57,7 +51,14 @@ for path in sorted(glob.glob(os.path.join(ROOT, '*.html'))):
         html = f.read()
     nl = '\r\n' if '\r\n' in html else '\n'
     html = META_RE.sub('', html)
-    meta = '  <meta http-equiv="Content-Security-Policy" content="%s">%s' % (policy(inline_hashes(html), 'class="h-captcha"' in html), nl)
+    # La política no permite nada en línea: avisa si alguien lo añade en el futuro.
+    problems = []
+    if inline_hashes(html): problems.append('<script> en línea (muévelo a assets/)')
+    if re.search(r'<style[\s>]', html): problems.append('<style> en línea (muévelo a assets/style.css)')
+    if re.search(r'\sstyle="', html): problems.append('atributo style="" (usa una clase)')
+    if problems:
+        raise SystemExit('%s: la CSP bloquearía: %s' % (os.path.basename(path), '; '.join(problems)))
+    meta = '  <meta http-equiv="Content-Security-Policy" content="%s">%s' % (policy(inline_hashes(html)), nl)
     m = re.search(r'<meta name="viewport"[^>]*>\r?\n', html)
     assert m, path
     html = html[:m.end()] + meta + html[m.end():]

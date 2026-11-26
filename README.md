@@ -5,12 +5,12 @@ Web estática (HTML/CSS/JS, sin build) para GitHub Pages.
 ## Páginas
 - `index.html`: inicio genérico (tres áreas) con contacto general.
 - `juegos.html`: juegos publicados, prototipos, paquetes y contacto de juegos.
-- `web.html`: creación y mantenimiento de webs, con su contacto.
+- `web.html`: Webs & Apps (creación y mantenimiento de webs y aplicaciones), con su contacto.
 - `ciber.html`: pentesting, SIEM con Wazuh y SOC, y DLP, con su contacto. **Oculta por ahora** (Ciberseguridad (oculta)): no está enlazada y lleva `noindex`. Para reactivarla: volver a añadir su enlace en el menú de los 4 HTML, su tarjeta en `index.html`, la opción "ciber" en `renderAreaSelect()` de `assets/app.js`, y quitar el `noindex`.
-- Todas comparten `assets/app.js` (textos ES/EN, formulario) y `assets/style.css`. Al cambiar uno de los dos, sube el `?v=` en los HTML.
+- Todas comparten `assets/app.js` (textos ES/EN y contacto) y `assets/style.css`. Al cambiar uno de los dos, sube el `?v=` en los HTML.
 
 ## Antes de publicar
-1. Edita `CONFIG` al principio de `assets/app.js`: email y WhatsApp de Plenstudio.
+1. Edita `CONFIG` al principio de `assets/app.js`: email y WhatsApp.
 2. (Opcional) Añade capturas en `assets/img/` y pon `img: "assets/img/xxx.png"` en cada juego.
 
 ## Publicar
@@ -33,11 +33,11 @@ La propagación puede tardar de minutos a unas horas.
 - `aviso-legal.html` está completo y enlazado desde el pie de todas las páginas; también figura en `sitemap.xml`.
 
 ## Seguridad y SEO local
-- **CSP:** cada página lleva una política de contenido en una `<meta>`. Si cambias el texto de un `<script>` en línea, ejecuta `python tools/update_csp.py` para recalcular los hashes (el script revisa todas las páginas).
+- **CSP:** cada página lleva una política de contenido en una `<meta>`. Si añades una página, ejecuta `python tools/update_csp.py` (revisa todas las páginas y falla si encuentra scripts o estilos en línea; el JavaScript de arranque está en `assets/boot*.js` y `assets/legal-*.js`).
 - **404:** `404.html` es la página de error de GitHub Pages (con `noindex`).
 - **security.txt:** `.well-known/security.txt` (hace falta el archivo vacío `.nojekyll` para que GitHub Pages sirva la carpeta). Caduca el 2027-11-17: renueva `Expires` cada año.
 - **Datos estructurados (JSON-LD):** organización con dirección en la portada, servicio y preguntas frecuentes en Juegos y en Web. Las preguntas del JSON-LD son las mismas que las visibles; si cambias una FAQ, actualiza también el bloque.
-- **Formularios:** Web3Forms (plan gratuito) no aplica `replyto`: para responder, copia el correo del campo `email` del mensaje. El asunto lleva el nombre y el área.
+- **Contacto:** sin formulario. Cada sección de contacto tiene 4 tarjetas (email, teléfono, WhatsApp y dirección); el correo y el WhatsApp se preparan en `assets/app.js` según la página (juegos, web o ciberseguridad) y según el juego o paquete pulsado. El correo y el WhatsApp se cambian en `CONFIG`.
 
 ## Iconos
 Los logos de `assets/icons/` son de [Simple Icons](https://simpleicons.org) (licencia CC0); los logos son marcas de sus propietarios. Se asignan por nombre en el objeto `ICONS` de `assets/app.js`.

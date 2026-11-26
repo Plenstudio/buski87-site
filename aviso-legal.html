@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-CqUIq5rOx0FrHeBfH3DP7P56ZQLvO/i7dcXsZuOD9aA=' 'sha256-ElwRwAMn8EAoOMXTkWps6ogq6bCly+BzfQGRiW13cWY='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://api.web3forms.com; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
   <title>Aviso legal — Buski87</title>
   <meta name="description" content="Aviso legal de Buski87: titular, datos de contacto, propiedad intelectual y condiciones de uso.">
   <link rel="canonical" href="https://buski87.dev/aviso-legal">
@@ -25,8 +25,7 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="stylesheet" href="/assets/style.css?v=20261118s">
-  <script>(function(){var p=location.pathname;if(/\.html$/.test(p)){history.replaceState(null,'',p.replace(/\/?index\.html$/,'/').replace(/\.html$/,'')+location.search+location.hash);}})();</script>
-  <style>.legal{max-width:760px;margin:0 auto;padding:56px 20px 40px}.legal h1{margin:0 0 .2em}.legal h2{font-size:1.2rem;margin:1.6em 0 .3em;color:var(--accent)}.legal p,.legal li{color:var(--text)}.legal ul{padding-left:1.2em}.legal .upd{color:var(--muted);font-size:.9rem}[data-l]{display:none}html[lang=es] [data-l=es],html[lang=en] [data-l=en]{display:block}.legal mark{background:#ffb34733;color:var(--accent);padding:0 4px;border-radius:4px}</style>
+  <script src="/assets/boot.js"></script>
 </head>
 <body>
   <a class="skip" href="#main" data-i18n="skip">Saltar al contenido</a>
@@ -106,21 +105,6 @@
   </main>
 
   <footer><p>© <span id="year"></span> · <a href="/privacidad" id="other-legal">Política de privacidad</a></p></footer>
-  <script>
-    (function(){
-      var l = (navigator.language||"es").slice(0,2) === "en" ? "en" : "es";
-      try { var s = localStorage.getItem("lang"); if (s === "es" || s === "en") l = s; } catch(e){}
-      function set(v){ l = v; document.documentElement.lang = v;
-        document.getElementById("lang").textContent = v === "es" ? "EN" : "ES";
-        document.getElementById("back").textContent = v === "es" ? "← Volver" : "← Back";
-        var ol = document.getElementById("other-legal"); if (ol) ol.textContent = v === "es" ? "Política de privacidad" : "Privacy policy";
-        var sk = document.querySelector(".skip"); if (sk) sk.textContent = v === "es" ? "Saltar al contenido" : "Skip to content";
-        document.title = (v === "es" ? "Aviso legal" : "Legal notice") + " — Buski87";
-        try { localStorage.setItem("lang", v); } catch(e){} }
-      document.getElementById("lang").onclick = function(){ set(l === "es" ? "en" : "es"); };
-      document.getElementById("year").textContent = new Date().getFullYear();
-      set(l);
-    })();
-  </script>
+  <script src="/assets/legal-aviso-legal.js"></script>
 </body>
 </html>
